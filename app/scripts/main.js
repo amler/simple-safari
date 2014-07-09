@@ -1,5 +1,5 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, LoginView, SignUpView, ForgotPasswordView, Map */
+/* global menu, DashboardView, DiscoverView, SafarisView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
@@ -30,14 +30,14 @@ function changeLayout(showLogin, showMap){
 	}
 }
 
-
 var views = {
 	dashboard:		new DashboardView(),
 	discover:		new DiscoverView(),
-	safaris:		new SafarisView(),
-	login:			new LoginView(),
-	signup:			new SignUpView(),
 	forgotPassword:	new ForgotPasswordView(),
+	home:			new HomeView(),
+	login:			new LoginView(),
+	safaris:		new SafarisView(),
+	signup:			new SignUpView(),
 };
 
 var AppRouter = Parse.Router.extend({
@@ -52,8 +52,14 @@ var AppRouter = Parse.Router.extend({
 	},
 
 	home: function(){
-		changeLayout(true, false);
-		views.dashboard.render();
+		var currentUser = Parse.User.current();
+		if (currentUser){
+			changeLayout(false, false);
+			views.dashboard.render();
+		} else {
+			changeLayout(true, true);
+			views.home.render();
+		}
 	},
 	login: function(){
 		changeLayout(true, false);
@@ -76,12 +82,10 @@ var AppRouter = Parse.Router.extend({
 		views.discover.render();
 	},
 	logout: function(){
-		console.log('router logout');
+		Parse.User.logOut();
+		window.router.navigate('',{trigger:true});
 	}
 });
 
 var router = new AppRouter();
 Parse.history.start();
-
-
-
