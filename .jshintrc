@@ -75,7 +75,6 @@
 
     // Custom Globals
     "globals":          {
-        "Backbone": true,
         "google": true,
         "Parse": true
     }
