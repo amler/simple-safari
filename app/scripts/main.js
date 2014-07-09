@@ -83,7 +83,7 @@ var AppRouter = Parse.Router.extend({
 	},
 	logout: function(){
 		Parse.User.logOut();
-		window.router.navigate('',{trigger:true});
+		window.router.navigate('login',{trigger:true});
 	}
 });
 
