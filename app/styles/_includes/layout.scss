@@ -14,7 +14,9 @@ header {
 		padding: 0;
 	}
 
+	.button,
 	button {
+		display: none;
 		float: right;
 		margin: 20px 0 10px 0;
 	}
@@ -22,6 +24,7 @@ header {
 
 #map-container {
 	background-color: #ccc;
+	display: none;
 	height: 200px;
 	width: 100%;
 }

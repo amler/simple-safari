@@ -7,6 +7,30 @@ var map = new Map('map-container');
 
 menu.init();
 
+function changeLayout(showLogin, showMap){
+	menu.hide();
+	if (showLogin === true) {
+		// show login button
+		$('header .button').show();
+		// hide menu button
+		$('header button').hide();
+	} else {
+		// show menu button
+		$('header button').show();
+		// hide login
+		$('header .button').hide();
+	}
+
+	if (showMap === true) {
+		//show map
+		$('#map-container').show();
+	} else {
+		// hide map
+		$('#map-container').hide();
+	}
+}
+
+
 var views = {
 	dashboard:	new DashboardView(),
 	discover:	new DiscoverView(),
@@ -21,21 +45,17 @@ var AppRouter = Parse.Router.extend({
 		'*actions'		: 'logout'
 	},
 
-	initialize: function(){
-		console.log('router initialize');
-	},
-
 	dashboard: function(){
+		changeLayout(false, true);
 		views.dashboard.render();
-		menu.hide();	
 	},
 	safaris: function(){
+		changeLayout(false, false);
 		views.safaris.render();
-		menu.hide();
 	},
 	discover: function(){
+		changeLayout(false, true);
 		views.discover.render();
-		menu.hide();
 	},
 	logout: function(){
 		console.log('router logout');
@@ -44,4 +64,5 @@ var AppRouter = Parse.Router.extend({
 
 var router = new AppRouter();
 Parse.history.start();
+
 
