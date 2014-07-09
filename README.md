@@ -10,3 +10,8 @@
 
 ## Run local site
 1. Run grunt serve
+
+## Resources for jshint
+
+* http://www.jshint.com/docs/
+* http://blog.teamtreehouse.com/improving-code-quality-jshint
