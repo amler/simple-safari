@@ -1,11 +1,17 @@
 'use strict';
-/* global menu */
-Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
+/* global menu, DashboardView, DiscoverView, SafarisView, Map */
 
+Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
 var map = new Map('map-container');
 
 menu.init();
+
+var views = {
+	dashboard:	new DashboardView(),
+	discover:	new DiscoverView(),
+	safaris:	new SafarisView()
+};
 
 var AppRouter = Parse.Router.extend({
 	routes: {
@@ -20,13 +26,16 @@ var AppRouter = Parse.Router.extend({
 	},
 
 	dashboard: function(){
-		console.log('dashboard');
+		views.dashboard.render();
+		menu.hide();	
 	},
 	safaris: function(){
-		console.log('safaris');
+		views.safaris.render();
+		menu.hide();
 	},
 	discover: function(){
-		console.log('router discover');
+		views.discover.render();
+		menu.hide();
 	},
 	logout: function(){
 		console.log('router logout');

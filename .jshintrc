@@ -76,6 +76,7 @@
     // Custom Globals
     "globals":          {
         "google": true,
-        "Parse": true
+        "Parse": true,
+        "_": true
     }
 }
