@@ -1,5 +1,5 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, Map */
+/* global menu, DashboardView, DiscoverView, SafarisView, LoginView, SignUpView, ForgotPasswordView, Map */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
@@ -32,22 +32,40 @@ function changeLayout(showLogin, showMap){
 
 
 var views = {
-	dashboard:	new DashboardView(),
-	discover:	new DiscoverView(),
-	safaris:	new SafarisView()
+	dashboard:		new DashboardView(),
+	discover:		new DiscoverView(),
+	safaris:		new SafarisView(),
+	login:			new LoginView(),
+	signup:			new SignUpView(),
+	forgotPassword:	new ForgotPasswordView(),
 };
 
 var AppRouter = Parse.Router.extend({
 	routes: {
-		''				: 'dashboard',
-		'safaris'		: 'safaris',
-		'discover'		: 'discover',
-		'*actions'		: 'logout'
+		''					: 'home',
+		'login'				: 'login',
+		'signup'			: 'signup',
+		'forgot-password'	: 'forgotPassword',
+		'safaris'			: 'safaris',
+		'discover'			: 'discover',
+		'*actions'			: 'logout'
 	},
 
-	dashboard: function(){
-		changeLayout(false, true);
+	home: function(){
+		changeLayout(true, false);
 		views.dashboard.render();
+	},
+	login: function(){
+		changeLayout(true, false);
+		views.login.render();
+	},
+	signup: function(){
+		changeLayout(true, false);
+		views.signup.render();
+	},
+	forgotPassword: function(){
+		changeLayout(true, false);
+		views.forgotPassword.render();
 	},
 	safaris: function(){
 		changeLayout(false, false);
@@ -64,5 +82,6 @@ var AppRouter = Parse.Router.extend({
 
 var router = new AppRouter();
 Parse.history.start();
+
 
 
