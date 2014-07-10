@@ -1,5 +1,5 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo */
+/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
@@ -39,7 +39,8 @@ var views = {
 	home:			new HomeView(),
 	login:			new LoginView(),
 	safaris:		new SafarisView(),
-	signup:			new SignUpView(),
+	safariDetail:	new SafariDetailView(),
+	signup:			new SignUpView()
 };
 
 ////////////////////////
@@ -53,6 +54,7 @@ var AppRouter = Parse.Router.extend({
 		'signup'			: 'signup',
 		'forgot-password'	: 'forgotPassword',
 		'safaris'			: 'safaris',
+		'safari/:name'		: 'safariDetail',
 		'discover'			: 'discover',
 		'*actions'			: 'logout'
 	},
@@ -87,6 +89,12 @@ var AppRouter = Parse.Router.extend({
 		userGeo.findLocation();
 		// show list of all scavengerhunts you've joined
 		// user needs to join a safari
+	},
+	safariDetail: function(name){
+		console.log('you\'re route to detail worked');
+		// changeLayout(false, true);
+		// views.safariDetail.render();
+		// userGeo.findLocation();
 	},
 	discover: function(){
 		changeLayout(false, true);

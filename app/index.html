@@ -62,7 +62,12 @@
                 <strong><%= name%></strong>
                 <br />
                 <%= description%>
+                <a href="#/safari/<%=name.replace(/\s+/g, '-').toLowerCase()%>" class="button">Checkout Safari</a>
             </li>
+        </script>
+        <script type="text/template" id="safaridetail-view-template">
+            <h2>Safari Detail View</h2>
+            <p>Shows the detail of safari selected in dashboard</p>
         </script>
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>
@@ -125,6 +130,7 @@
         <script src="scripts/views/login-view.js"></script>
         <script src="scripts/views/home-view.js"></script>
         <script src="scripts/views/safaris-view.js"></script>
+        <script src="scripts/views/safaridetail-view.js"></script>
         <script src="scripts/views/signup-view.js"></script>
         <script src="scripts/main.js"></script>
 </body>
