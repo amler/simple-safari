@@ -31,8 +31,13 @@
     <body>
         <main>
             <header>
-                <h1><a href="#">Simple Safari</a></h1>
-                <a class="button" href="#/login">Login</a>
+                <div class "header-content"> 
+                    <a href "#"> <img src="images/SelfiSafari-logo.png" /></a>
+                    
+                    <h1> <a href = "#"><span> Selfie</span>Safari&reg;</a></h1> 
+                </div>
+               
+                    <a class="button" href="#/login">Login</a>
                 <button class="toggle-menu">Menu</button>
             </header>
             <div id="map-container"></div>
@@ -47,16 +52,19 @@
                 <li><a href="#/log-out">Log Out</a></li>
             </ul>
         </nav>
+        
         <script type="text/template" id="home-view-template">
             <h2>Welcome to Simple Safari</h2>
             <p>Join the party and start a safari!!!!!</p>
             <p><a href="#/signup" class="button">Sign Up!</a></p>
         </script>
+        
         <script type="text/template" id="dashboard-view-template">
             <h2>Dashboard View</h2>
             <p>Listing of nearby safaries</p>
             <ul class="nearby-safaris"></ul>
         </script>
+         
          <script type="text/template" id="hunt-item-template">
             <li>
                 <strong><%= name%></strong>
@@ -64,6 +72,7 @@
                 <%= description%>
             </li>
         </script>
+        
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>
             <p>Listing of safaris subscibed to</p>
@@ -74,29 +83,39 @@
         </script>
 
         <script type="text/template" id="signup-view-template">
-            <h2>Sign Up for Simple Safari</h2>
+        <div class = "signup-form-container">
+            <div class = "signup-container">
+            <h2>Sign Up for Selfie Safari</h2>
             <input type="text" class="signup-username" placeholder="Username" />
             <input type="password" class="signup-password" placeholder="Create a Password" />
             <input type="email" class="signup-email" placeholder="Enter email" />
             <button class="signup-button">Sign Up</button>
             <a href="#/login">Login?</a>
+            </div>
+        </div>
         </script>
-
+        
         <script type="text/template" id="login-view-template">
-            <h2>Log in to Simple Safari</h2>
+        <div class = "login-form-container">
+        <div class = "login-container">
+            <h2>Log in to Selfie Safari</h2>
             <input type="text" class="login-username" placeholder="Username" />
             <input type="password" class="login-password" placeholder="Password" />
             <button class="login-button">Login</button>
             <a href="#/signup">Sign Up?</a>
             <br />
             <a href="#/forgot-password">Forgot your password?</a>
+        </div>
+        </div>
         </script>
 
         <script type="text/template" id="forgotpassword-view-template">
+        <div class = "forgot-password-container">
             <h2>Forgot your password?</h2>
             <p>Enter your email address to reset your password.</p>
             <input type="text" class="enter-email" placeholder="Email" />
             <button class="forgot-password-button">Enter</button>
+        </div>
         </script>
 
 

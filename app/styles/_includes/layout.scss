@@ -1,35 +1,87 @@
+@import "variables";
+
+
 header {
-	background-color: #999;
+	background-color: $green;
+	color: $beige;
+	font-weight: normal;
 	overflow: auto;
-	padding: 15px;
+	padding: 15px 0 0 5px;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
 
+
 	h1 {
 		display: inline-block;
 		font-size: 1.5em;
+		font-family: $sansfont;
+		font-weight: 900;
+		color: $blue;
 		margin: 10px 0;
-		padding: 0;
+		padding: 0px;
 	}
 
+	a {
+	
+		color: $beige;
+		text-decoration: none;
+
+	}
+
+	img {
+		width: 5%;
+		margin-top: 20px;
+	}
+
+	p {
+		margin: 20px 0 0 0;
+		padding: 10px 0 0 0;
+	}
+
+	span {
+		color: $blue;
+		font-family: $scriptfont;
+		font-weight: 900;
+		font-size: 30px;
+		margin-top: 20px;
+		text-decoration: none;
+		
+		&:visited {
+			text-decoration: none;
+		}
+	}
 	.button,
 	button {
-		display: none;
-		float: right;
-		margin: 20px 0 10px 0;
+		  	
+		  	display: none;
+			margin: 20px 20px 10px 0;
+			padding: 10px;
+			float: right;
+			font-family: $sansfont;
+            font-weight: 300;
+            font-size: 1.5em;
+			background-color: $blue;
+			color: $beige;  
+			border-radius: 5px;
+			text-align: center;
+
 	}
+
 }
 
 #map-container {
+	border: 1px solid $brown;
 	background-color: #ccc;
 	display: none;
-	height: 200px;
+	height: 300px;
 	width: 100%;
 }
 
 section {
+	background: $beige;
+	color: $blue;
 	padding: 20px;
 }
 
@@ -48,19 +100,163 @@ nav {
 body {
 	overflow-x: hidden;
 	position: relative;
+
+
 	// -webkit-transition: left 0.3s ease;
 	// 	    transition: left 0.3s ease;
 
 	&.show-menu {
 		left: -200px;
+		text-align: center;
+
+		a {
+			color: $beige;
+		}
 		
 		nav {
 			right: 0;
+			background-color: $blue;
+			color: $beige;
+
+			
+				li {
+                    border: 1px solid $brown;
+                    background-color: $green;
+                    color: $beige;
+                    font-size: 20px;
+                    display: block;
+                    margin: 5px 10px 5px 5px;
+                    padding: 15px;
+                    text-align: center;
+                }
+            }
 		}
 	}
-}
+	
+
 
 .input-error {
 	background-color: rgb(247, 226, 226) !important;
 	border-color: red !important;
 }
+
+.signup-form-container {
+	margin: 20px auto;
+	overflow: hidden;
+
+.signup-container {
+		border: 3px solid $blue;
+		background-color: $orange;
+		border-radius: 5px;
+		margin: auto;
+		padding: 20px;
+		overflow: auto;
+		width: 300px;
+
+
+
+		h2 {
+			text-align: center;
+			color: $blue;
+		}
+
+		.signup-button {
+			background-color: $blue;
+			border-radius: 5px;
+			color: $beige;
+			font-family: $sansfont;
+			font-weight: 400;
+			font-size: 1.5em;
+			margin: 5px auto;
+			padding: 10px;
+			width: 50%;
+			text-align: center;
+
+			&:hover,
+			&:active {
+				background-color: $green;
+			}
+		}  
+    }
+}
+
+
+.login-form-container {
+	margin: 20px auto;
+	overflow: hidden;
+
+.login-container {
+		border: 3px solid $blue;
+		background-color: $orange;
+		border-radius: 5px;
+		margin: auto;
+		padding: 20px;
+		overflow: auto;
+		width: 300px;
+
+		h2 {
+			text-align: center;
+			color: $blue;
+		}
+
+		.login-button {
+			background-color: $blue;
+			border-radius: 5px;
+			color: $beige;
+			font-family: $sansfont;
+			font-weight: 400;
+			font-size: 1.5em;
+			margin: 5px auto;
+			padding: 10px;
+			width: 50%;
+			text-align: center;
+
+			&:hover,
+			&:active {
+				background-color: $green;
+			}
+		}
+	}
+
+	.forgot-password-link {
+		color: $blue;
+		display: block;
+		margin: 10px auto;
+		text-align: center;
+	}
+}
+
+.forgot-password-container {
+	margin: 80px auto;
+	overflow: hidden;
+	width: 50%;
+
+	.enter-email {
+		border-radius: 5px;
+		float: left;
+		height: 30px;
+		margin: 30px 10px 0 0;
+		width: 70%;
+	}
+
+	.forgot-password-button {
+		background-color: $blue;
+		border-radius: 5px;
+		color: #FFF;
+		display: inline-block;
+		float: left;
+		font-family: $sansfont;
+		font-weight: 400;
+		font-size: 1em;
+		margin: 30px 0 0 0;
+		padding: 6px;
+		width: 20%;
+		text-align: center;
+	}
+
+	a {
+		display: block;
+		text-decoration: underline;
+	}
+}
+
