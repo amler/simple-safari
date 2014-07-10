@@ -15,7 +15,9 @@ var userGeo = {
 			that.longitude = position.coords.longitude;
 			window.map.updateMarkerPosition(0, position.coords.latitude, position.coords.longitude);
 			window.map.centerMapAtPosition(position.coords.latitude, position.coords.longitude);
+			$('#view h2').trigger('userGeoLocated');
 		});
+
 	},
 	watchLocation: function(positon){
 		var that = this;
@@ -28,9 +30,11 @@ var userGeo = {
 			that.longitude = position.coords.longitude;
 			window.map.updateMarkerPosition(0, position.coords.latitude, position.coords.longitude);
 			window.map.centerMapAtPosition(position.coords.latitude, position.coords.longitude);
+			$('#view h2').trigger('userGeoWatched');
 		});
 	},
 	clearWatchLocation: function(watchID){
 		navigator.geolocation.clearWatch(this.watchID);
 	}
 };
+

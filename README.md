@@ -20,6 +20,7 @@
 
 * http://backbonetutorials.com/what-is-a-view/
 * https://www.youtube.com/watch?v=FZSjvWtUxYk&app=desktop
+* http://www.sitepoint.com/jquery-custom-events/
 
 # Todos
 1. Setup route for safari/:id

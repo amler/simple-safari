@@ -10,6 +10,7 @@ menu.init();
 
 function changeLayout(showLogin, showMap){
 	menu.hide();
+	userGeo.clearWatchLocation();
 	if (showLogin === true) {
 		// show login button
 		$('header .button').show();
@@ -85,12 +86,14 @@ var AppRouter = Parse.Router.extend({
 	safaris: function(){
 		changeLayout(false, false);
 		views.safaris.render();
+		userGeo.findLocation();
 		// show list of all scavengerhunts you've joined
 
 	},
 	discover: function(){
 		changeLayout(false, true);
 		views.discover.render();
+		userGeo.findLocation();
 		// get users location
 		// query nearby locations
 		// when you get location results update map
