@@ -22,10 +22,12 @@ var DashboardView = Parse.View.extend({
 			query.withinMiles('geolocation', point, 30);
 			query.find({
 				success: function(results) {
+					var templateMethod = _.template($('#hunt-item-template').text());
 					results.forEach(function(hunt) {
+						var rendered = templateMethod(hunt.attributes);
+						$('.nearby-safaris').append(rendered);
 						map.addMarker(1, hunt.attributes.geolocation._latitude, hunt.attributes.geolocation._longitude);
 					});
-					// update list of scavenger hunts	
 				},
 				error: function(error) {
 					alert('Error: ' + error.code + ' ' + error.message);
