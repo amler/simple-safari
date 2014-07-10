@@ -26,12 +26,23 @@
 * http://www.sitepoint.com/jquery-custom-events/
 
 # Todos
+
 1. Setup route for safari/:id
-2. Setup route for location/:id
-3. Setup route for capture/:id
+2. In dashboard, have individual scavengerhunts link to a safari detail page.
+3. Render the safari detail view
+4. Be able to subscribe and unsubscribe to a safari in the detail view. if sub show a button 
 
-10. Install compass and clean up scss for browser prefix
+5. Going to get the safari view pulling and listing data from parse.
+6. get the discover view working
+7. Setup route for location/:id
+8. Get markers linkable
+9. Setup route for capture/:id
+10. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+11. Add left and top padding to menu.
+12. Install compass and clean up scss for browser prefix
 
+
+unit testing on user stuff - tasha
 
 
 

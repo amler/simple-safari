@@ -63,9 +63,7 @@ var AppRouter = Parse.Router.extend({
 			changeLayout(false, true);
 			views.dashboard.render();
 			userGeo.findLocation();
-			// query nearby scavhunts
-			// when you get hunts results update map
-			// update list of scavenger hunts
+			
 		} else {
 			changeLayout(true, false);
 			views.home.render();
