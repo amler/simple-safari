@@ -63,7 +63,7 @@ var AppRouter = Parse.Router.extend({
 			changeLayout(false, true);
 			views.dashboard.render();
 			userGeo.findLocation();
-			
+
 		} else {
 			changeLayout(true, false);
 			views.home.render();
@@ -86,16 +86,15 @@ var AppRouter = Parse.Router.extend({
 		views.safaris.render();
 		userGeo.findLocation();
 		// show list of all scavengerhunts you've joined
-
+		// user needs to join a safari
 	},
 	discover: function(){
 		changeLayout(false, true);
 		views.discover.render();
 		userGeo.findLocation();
-		// get users location
 		// query nearby locations
 		// when you get location results update map
-		// update list of nearby locations
+		// update list of nearby locations you're subscribed to
 	},
 
 	logout: function(){
