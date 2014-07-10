@@ -17,5 +17,5 @@ var SafariDetailView = Parse.View.extend({
 		if ($(event.currentTarget).text() === this.sectionName) {
 			console.log(userGeo.latitude, userGeo.longitude);
 		}
-	}
+	}	
 });

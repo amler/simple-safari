@@ -39,7 +39,7 @@ var views = {
 	home:			new HomeView(),
 	login:			new LoginView(),
 	safaris:		new SafarisView(),
-	safariDetail:	new SafariDetailView(),
+	// safariDetail:	new SafariDetailView(),
 	signup:			new SignUpView()
 };
 
@@ -90,11 +90,12 @@ var AppRouter = Parse.Router.extend({
 		// show list of all scavengerhunts you've joined
 		// user needs to join a safari
 	},
-	safariDetail: function(name){
+	safariDetail: function(hunt){
 		console.log('you\'re route to detail worked');
 		changeLayout(false, true);
+		views.safariDetail = new SafariDetailView({model: hunt});
 		views.safariDetail.render();
-		// userGeo.findLocation();
+		userGeo.findLocation();
 	},
 	discover: function(){
 		changeLayout(false, true);
