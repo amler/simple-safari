@@ -1,11 +1,12 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map */
+/* global menu, DashboardView, DiscoverView, SafarisView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
 var map = new Map('map-container');
 
 menu.init();
+
 
 function changeLayout(showLogin, showMap){
 	menu.hide();
@@ -40,6 +41,10 @@ var views = {
 	signup:			new SignUpView(),
 };
 
+////////////////////////
+// Router
+////////////////////////
+
 var AppRouter = Parse.Router.extend({
 	routes: {
 		''					: 'home',
@@ -54,10 +59,14 @@ var AppRouter = Parse.Router.extend({
 	home: function(){
 		var currentUser = Parse.User.current();
 		if (currentUser){
-			changeLayout(false, false);
+			changeLayout(false, true);
 			views.dashboard.render();
+			userGeo.findLocation();
+			// query nearby scavhunts
+			// when you get hunts results update map
+			// update list of scavenger hunts
 		} else {
-			changeLayout(true, true);
+			changeLayout(true, false);
 			views.home.render();
 		}
 	},
@@ -76,11 +85,18 @@ var AppRouter = Parse.Router.extend({
 	safaris: function(){
 		changeLayout(false, false);
 		views.safaris.render();
+		// show list of all scavengerhunts you've joined
+
 	},
 	discover: function(){
 		changeLayout(false, true);
 		views.discover.render();
+		// get users location
+		// query nearby locations
+		// when you get location results update map
+		// update list of nearby locations
 	},
+
 	logout: function(){
 		Parse.User.logOut();
 		window.router.navigate('login',{trigger:true});
@@ -89,3 +105,4 @@ var AppRouter = Parse.Router.extend({
 
 var router = new AppRouter();
 Parse.history.start();
+

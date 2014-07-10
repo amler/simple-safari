@@ -14,6 +14,7 @@ function Map (elementID) {
         center: greenville,
     };
     this.map = new google.maps.Map(document.getElementById(elementID), mapOptions);
+    this.addMarker(0, 34.853738, -82.395618);
 }
 
 Map.prototype.addMarker = function(imageIndex, latitude, longitude) {
@@ -54,6 +55,7 @@ Map.prototype.deleteMarker = function(index){
 Map.prototype.deleteAllMarkers = function() {
     this.hideAllMarkers();
     this.markers = [];
+    this.addMarker(0, 34.853738, -82.395618);
 };
 
 Map.prototype.updateMarkerPosition = function(index, latitude, longitude) {

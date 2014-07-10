@@ -22,8 +22,11 @@
 * https://www.youtube.com/watch?v=FZSjvWtUxYk&app=desktop
 
 # Todos
+1. Setup route for safari/:id
+2. Setup route for location/:id
+3. Setup route for capture/:id
 
-1. Install compass and clean up scss for browser prefix
+10. Install compass and clean up scss for browser prefix
 
 
 
