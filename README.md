@@ -11,6 +11,9 @@
 # Run local site
 1. Run grunt serve
 
+# Resources for Parse
+* https://parse.com/docs/js/symbols/Parse.Query.html#withinMiles
+
 # Resources for jshint
 
 * http://www.jshint.com/docs/

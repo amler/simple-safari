@@ -1,5 +1,5 @@
 'use strict';
-/* global userGeo */
+/* global userGeo, ScavengerHunt */
 
 var DashboardView = Parse.View.extend({
 	el: '#view',
@@ -16,6 +16,22 @@ var DashboardView = Parse.View.extend({
 	queryLocations: function(event){
 		if ($(event.currentTarget).text() === this.sectionName) {
 			console.log(userGeo.latitude, userGeo.longitude);
+			var point = new Parse.GeoPoint({latitude: userGeo.latitude, longitude: userGeo.longitude});
+			var query = new Parse.Query(ScavengerHunt);
+			// query.near('geolocation', point);
+			query.withinMiles('geolocation', point, 30);
+			query.find({
+				success: function(results) {
+					console.log(results);
+
+				},
+				error: function(error) {
+					alert('Error: ' + error.code + ' ' + error.message);
+				}
+			});
+			// when you get hunts results update map
+			// update list of scavenger hunts
 		}
 	}
 });
+
