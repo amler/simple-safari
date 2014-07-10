@@ -92,8 +92,8 @@ var AppRouter = Parse.Router.extend({
 	},
 	safariDetail: function(name){
 		console.log('you\'re route to detail worked');
-		// changeLayout(false, true);
-		// views.safariDetail.render();
+		changeLayout(false, true);
+		views.safariDetail.render();
 		// userGeo.findLocation();
 	},
 	discover: function(){

@@ -27,9 +27,9 @@
 
 # Todos
 
-1. Setup route for safari/:id
-2. In dashboard, have individual scavengerhunts link to a safari detail page.
-3. Render the safari detail view
+1. Setup route for safari/:id - completed
+2. In dashboard, have individual scavengerhunts link to a safari detail page. - completed
+3. Render the safari detail view - completed
 4. Be able to subscribe and unsubscribe to a safari in the detail view. if sub show a button 
 5. css integration
 
