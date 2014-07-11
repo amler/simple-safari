@@ -15,16 +15,15 @@ var DashboardView = Parse.View.extend({
 	},
 	queryLocations: function(event){
 		if ($(event.currentTarget).text() === this.sectionName) {
-			// console.log(userGeo.latitude, userGeo.longitude);
 			var point = new Parse.GeoPoint({latitude: userGeo.latitude, longitude: userGeo.longitude});
 			var query = new Parse.Query(ScavengerHunt);
-			// query.near('geolocation', point);
 			query.withinMiles('geolocation', point, 30);
 			query.find({
 				success: function(results) {
+
 					var templateMethod = _.template($('#hunt-item-template').text());
 					results.forEach(function(hunt) {
-						var rendered = templateMethod(hunt.attributes);
+						var rendered = templateMethod(hunt);
 						$('.nearby-safaris').append(rendered);
 						map.addMarker(1, hunt.attributes.geolocation._latitude, hunt.attributes.geolocation._longitude);
 					});

@@ -59,10 +59,10 @@
         </script>
          <script type="text/template" id="hunt-item-template">
             <li>
-                <strong><%= name%></strong>
+                <strong><%= attributes.name %></strong>
                 <br />
-                <%= description%>
-                <a href="#/safari/<%=name.replace(/\s+/g, '-')%>" class="button">Checkout Safari</a>
+                <%= attributes.description %>
+                <a href="#/safari/<%=id%>" class="button">Checkout Safari</a>
             </li>
         </script>
         <script type="text/template" id="safaridetail-view-template">

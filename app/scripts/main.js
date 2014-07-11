@@ -100,21 +100,19 @@ var AppRouter = Parse.Router.extend({
 		// show list of all scavengerhunts you've joined
 		// user needs to join a safari
 	},
-	safariDetail: function(hunt){
-		var selectedHunt = hunt.replace(/-/g, ' ');
+	safariDetail: function(id){
+		var selectedHunt = id;
 		console.log(selectedHunt);
-		var query = new Parse.Query(ScavengerHunt);
-		query.equalTo('name', selectedHunt);
-		query.find({
-			success: function(results) {
-				for (var i = 0; i < results.length; i++) {
-					views.safariDetail.render(results[i]);
-				}
-			},
-			error: function(error) {
-				alert('Error: ' + error.code + ' ' + error.message);
-			}
-		});
+		// var query = new Parse.Query(ScavengerHunt);
+		// query.equalTo('name', selectedHunt);
+		// query.find({
+		// 	success: function(results) {
+		// 		console.log(results);
+		// 	},
+		// 	error: function(error) {
+		// 		alert('Error: ' + error.code + ' ' + error.message);
+		// 	}
+		// });
 		changeLayout(false, true);
 		userGeo.findLocation();
 	},
