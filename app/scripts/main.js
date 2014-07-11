@@ -135,4 +135,3 @@ var AppRouter = Parse.Router.extend({
 
 var router = new AppRouter();
 Parse.history.start();
-
