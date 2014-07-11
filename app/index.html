@@ -62,12 +62,13 @@
                 <strong><%= name%></strong>
                 <br />
                 <%= description%>
-                <a href="#/safari/<%=name.replace(/\s+/g, '-').toLowerCase()%>" class="button">Checkout Safari</a>
+                <a href="#/safari/<%=name%>" class="button">Checkout Safari</a>
             </li>
         </script>
         <script type="text/template" id="safaridetail-view-template">
-            <h2>Safari <%= name %> View</h2>
+            <h2>Safari Detail View</h2>
             <p>Shows the detail of safari selected in dashboard</p>
+            <p><%= name %></p>
         </script>
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>

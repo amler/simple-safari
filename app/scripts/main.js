@@ -1,5 +1,5 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo */
+/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
@@ -32,6 +32,16 @@ function changeLayout(showLogin, showMap){
 	}
 }
 
+var collections = {
+	scavengerHunts:	new ScavengerHuntsCollection(),
+	locations:		new LocationsCollection()
+};
+
+var models = {
+	scavengerHunt:	new ScavengerHunt(),
+	huntLocation:	new Location()
+};
+
 var views = {
 	dashboard:		new DashboardView(),
 	discover:		new DiscoverView(),
@@ -39,7 +49,7 @@ var views = {
 	home:			new HomeView(),
 	login:			new LoginView(),
 	safaris:		new SafarisView(),
-	// safariDetail:	new SafariDetailView(),
+	safariDetail:	new SafariDetailView(),
 	signup:			new SignUpView()
 };
 
@@ -91,10 +101,23 @@ var AppRouter = Parse.Router.extend({
 		// user needs to join a safari
 	},
 	safariDetail: function(hunt){
-		console.log('you\'re route to detail worked');
+		var selectedHunt = hunt;
+		models.scavengerHunt.fetch({
+			add: true,
+			success: function (results) {
+				var allHunts = results.attributes.results;
+				allHunts.forEach(function(hunt){
+					if (hunt.name === selectedHunt){
+						views.safariDetail.render(hunt);
+					}
+				});
+			},
+			error: function(error) {
+				alert('Error: ' + error.code + ' ' + error.message);
+			}
+		});
+
 		changeLayout(false, true);
-		views.safariDetail = new SafariDetailView({model: hunt});
-		views.safariDetail.render();
 		userGeo.findLocation();
 	},
 	discover: function(){
