@@ -20,7 +20,6 @@ var DashboardView = Parse.View.extend({
 			query.withinMiles('geolocation', point, 30);
 			query.find({
 				success: function(results) {
-
 					var templateMethod = _.template($('#hunt-item-template').text());
 					results.forEach(function(hunt) {
 						var rendered = templateMethod(hunt);
@@ -35,4 +34,3 @@ var DashboardView = Parse.View.extend({
 		}
 	}
 });
-

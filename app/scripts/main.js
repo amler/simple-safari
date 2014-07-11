@@ -1,5 +1,5 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location */
+/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
@@ -10,6 +10,7 @@ menu.init();
 
 function changeLayout(showLogin, showMap){
 	menu.hide();
+	map.deleteAllMarkers();
 	userGeo.clearWatchLocation();
 	if (showLogin === true) {
 		// show login button
@@ -47,6 +48,7 @@ var views = {
 	discover:		new DiscoverView(),
 	forgotPassword:	new ForgotPasswordView(),
 	home:			new HomeView(),
+	loading:		new LoadingView(),
 	login:			new LoginView(),
 	safaris:		new SafarisView(),
 	safariDetail:	new SafariDetailView(),
@@ -101,20 +103,20 @@ var AppRouter = Parse.Router.extend({
 		// user needs to join a safari
 	},
 	safariDetail: function(id){
-		var selectedHunt = id;
-		console.log(selectedHunt);
-		// var query = new Parse.Query(ScavengerHunt);
-		// query.equalTo('name', selectedHunt);
-		// query.find({
-		// 	success: function(results) {
-		// 		console.log(results);
-		// 	},
-		// 	error: function(error) {
-		// 		alert('Error: ' + error.code + ' ' + error.message);
-		// 	}
-		// });
 		changeLayout(false, true);
-		userGeo.findLocation();
+		var selectedHunt = id;
+		var query = new Parse.Query(ScavengerHunt);
+		query.equalTo('objectId', selectedHunt);
+		query.find({
+			success: function(results) {
+				results.forEach(function(hunt) {
+					views.safariDetail.render(hunt);
+				});
+			},
+			error: function(error) {
+				alert('Error: ' + error.code + ' ' + error.message);
+			}
+		});
 	},
 	discover: function(){
 		changeLayout(false, true);

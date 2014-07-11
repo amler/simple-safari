@@ -52,6 +52,9 @@
             <p>Join the party and start a safari!!!!!</p>
             <p><a href="#/signup" class="button">Sign Up!</a></p>
         </script>
+        <script type="text/template" id="loading-view-template">
+            <h2>Loading...</h2>
+        </script>
         <script type="text/template" id="dashboard-view-template">
             <h2>Dashboard View</h2>
             <p>Listing of nearby safaries</p>
@@ -66,9 +69,11 @@
             </li>
         </script>
         <script type="text/template" id="safaridetail-view-template">
-            <h2>Safari Detail View</h2>
-            <p>Shows the detail of safari selected in dashboard</p>
-            <p><%= name %></p>
+            <h2><%= attributes.name %></h2>
+            <p><%= attributes.description %></p>
+            <button>Subscribe</button>
+            <hr/>
+            <ol class="selected-safari-locations"></ol>
         </script>
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>
@@ -128,6 +133,7 @@
         <script src="scripts/views/dashboard-view.js"></script>
         <script src="scripts/views/discover-view.js"></script>
         <script src="scripts/views/forgotpassword-view.js"></script>
+        <script src="scripts/views/loading-view.js"></script>
         <script src="scripts/views/login-view.js"></script>
         <script src="scripts/views/home-view.js"></script>
         <script src="scripts/views/safaris-view.js"></script>

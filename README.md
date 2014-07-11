@@ -27,20 +27,18 @@
 
 # Todos
 
-1. Setup route for safari/:id - completed
-2. In dashboard, have individual scavengerhunts link to a safari detail page. - completed
-3. Render the safari detail view - completed
-4. Be able to subscribe and unsubscribe to a safari in the detail view. if sub show a button 
-5. css integration
+1. Render the safari detail view
+2. Be able to subscribe and unsubscribe to a safari in the detail view. if sub show a button 
+3. css integration
 
-6. Going to get the safari view pulling and listing data from parse.
-7. get the discover view working
-8. Setup route for location/:id
-9. Get markers linkable
-10. Setup route for capture/:id
-11. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
-12. Add left and top padding to menu.
-13. Install compass and clean up scss for browser prefix
+4. Going to get the safari view pulling and listing data from parse.
+5. get the discover view working
+6. Setup route for location/:id
+7. Get markers linkable
+8. Setup route for capture/:id
+9. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+10. Add left and top padding to menu.
+11. Install compass and clean up scss for browser prefix
 
 
 
