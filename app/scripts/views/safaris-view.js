@@ -19,3 +19,7 @@ var SafarisView = Parse.View.extend({
 		}
 	}
 });
+
+
+    
+  
