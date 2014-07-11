@@ -52,6 +52,9 @@
             <p>Join the party and start a safari!!!!!</p>
             <p><a href="#/signup" class="button">Sign Up!</a></p>
         </script>
+        <script type="text/template" id="loading-view-template">
+            <h2>Loading...</h2>
+        </script>
         <script type="text/template" id="dashboard-view-template">
             <h2>Dashboard View</h2>
             <p>Listing of nearby safaries</p>
@@ -59,18 +62,27 @@
         </script>
          <script type="text/template" id="hunt-item-template">
             <li>
-                <strong><%= name%></strong>
+                <strong><%= attributes.name %></strong>
                 <br />
-                <%= description%>
+                <%= attributes.description %>
+                <a href="#/safari/<%=id%>" class="button">Checkout Safari</a>
             </li>
+        </script>
+        <script type="text/template" id="safaridetail-view-template">
+            <h2><%= attributes.name %></h2>
+            <p><%= attributes.description %></p>
+            <button class="subscribe-scavengerhunt" style="display:none;">Subscribe</button>
+            <button class="unsubscribe-scavengerhunt" style="display:none;">Unsubscribe</button>
+            <hr/>
+            <ol class="selected-safari-locations"></ol>
         </script>
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>
-            <p>Listing of safaris subscibed to</p>
+            <p>Listing of safaris subscribed to</p>
         </script>
         <script type="text/template" id="discover-view-template">
             <h2>Discover View</h2>
-            <p>Listing of locations subscibed to</p>
+            <p>Listing of locations subscribed to</p>
         </script>
 
         <script type="text/template" id="signup-view-template">
@@ -122,9 +134,11 @@
         <script src="scripts/views/dashboard-view.js"></script>
         <script src="scripts/views/discover-view.js"></script>
         <script src="scripts/views/forgotpassword-view.js"></script>
+        <script src="scripts/views/loading-view.js"></script>
         <script src="scripts/views/login-view.js"></script>
         <script src="scripts/views/home-view.js"></script>
         <script src="scripts/views/safaris-view.js"></script>
+        <script src="scripts/views/safaridetail-view.js"></script>
         <script src="scripts/views/signup-view.js"></script>
         <script src="scripts/main.js"></script>
 </body>
