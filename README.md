@@ -28,17 +28,18 @@
 # Todos
 
 1. Render the safari detail view
-2. Be able to subscribe and unsubscribe to a safari in the detail view. if sub show a button 
-3. css integration
+2. Heather: Be able to subscribe and unsubscribe to a safari in the detail view. if sub show a button 
+3. Tasha: get the locations for the safari detail view - Going to get the safari view pulling and listing data from parse.
 
-4. Going to get the safari view pulling and listing data from parse.
-5. get the discover view working
-6. Setup route for location/:id
-7. Get markers linkable
-8. Setup route for capture/:id
-9. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+4. Get the discover view working
+5. Setup route for location/:id
+6. Get markers linkable
+7. Setup route for capture/:id
+8. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+
+separate branch - tasha
 10. Add left and top padding to menu.
-11. Install compass and clean up scss for browser prefix
+11. Install bourbon and clean up scss for browser prefix
 
 
 

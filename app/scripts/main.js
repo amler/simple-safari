@@ -7,9 +7,31 @@ var map = new Map('map-container');
 
 menu.init();
 
+var collections = {
+	scavengerHunts:	new ScavengerHuntsCollection(),
+	locations:		new LocationsCollection()
+};
+
+var models = {
+	scavengerHunt:	new ScavengerHunt(),
+	huntLocation:	new Location()
+};
+
+var views = {
+	dashboard:		new DashboardView(),
+	discover:		new DiscoverView(),
+	forgotPassword:	new ForgotPasswordView(),
+	home:			new HomeView(),
+	loading:		new LoadingView(),
+	login:			new LoginView(),
+	safaris:		new SafarisView(),
+	safariDetail:	new SafariDetailView(),
+	signup:			new SignUpView()
+};
 
 function changeLayout(showLogin, showMap){
 	menu.hide();
+	views.loading.render();
 	map.deleteAllMarkers();
 	userGeo.clearWatchLocation();
 	if (showLogin === true) {
@@ -32,28 +54,6 @@ function changeLayout(showLogin, showMap){
 		$('#map-container').hide();
 	}
 }
-
-var collections = {
-	scavengerHunts:	new ScavengerHuntsCollection(),
-	locations:		new LocationsCollection()
-};
-
-var models = {
-	scavengerHunt:	new ScavengerHunt(),
-	huntLocation:	new Location()
-};
-
-var views = {
-	dashboard:		new DashboardView(),
-	discover:		new DiscoverView(),
-	forgotPassword:	new ForgotPasswordView(),
-	home:			new HomeView(),
-	loading:		new LoadingView(),
-	login:			new LoginView(),
-	safaris:		new SafarisView(),
-	safariDetail:	new SafariDetailView(),
-	signup:			new SignUpView()
-};
 
 ////////////////////////
 // Router
