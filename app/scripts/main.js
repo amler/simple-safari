@@ -101,22 +101,20 @@ var AppRouter = Parse.Router.extend({
 		// user needs to join a safari
 	},
 	safariDetail: function(hunt){
-		var selectedHunt = hunt;
-		models.scavengerHunt.fetch({
-			add: true,
-			success: function (results) {
-				var allHunts = results.attributes.results;
-				allHunts.forEach(function(hunt){
-					if (hunt.name === selectedHunt){
-						views.safariDetail.render(hunt);
-					}
-				});
+		var selectedHunt = hunt.replace(/-/g, ' ');
+		console.log(selectedHunt);
+		var query = new Parse.Query(ScavengerHunt);
+		query.equalTo('name', selectedHunt);
+		query.find({
+			success: function(results) {
+				for (var i = 0; i < results.length; i++) {
+					views.safariDetail.render(results[i]);
+				}
 			},
 			error: function(error) {
 				alert('Error: ' + error.code + ' ' + error.message);
 			}
 		});
-
 		changeLayout(false, true);
 		userGeo.findLocation();
 	},

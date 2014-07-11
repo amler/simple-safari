@@ -62,7 +62,7 @@
                 <strong><%= name%></strong>
                 <br />
                 <%= description%>
-                <a href="#/safari/<%=name%>" class="button">Checkout Safari</a>
+                <a href="#/safari/<%=name.replace(/\s+/g, '-')%>" class="button">Checkout Safari</a>
             </li>
         </script>
         <script type="text/template" id="safaridetail-view-template">
