@@ -10,15 +10,31 @@ var SafariDetailView = Parse.View.extend({
 		'click .subscribe-scavengerhunt'	: 'subscribeToHunt',
 		'click .unsubscribe-scavengerhunt'	: 'unsubscribeFromHunt',
 	},
-	model:'',
+	scavengerHuntModel:'',
 	render: function(model) {
-		this.model = model;
+		this.scavengerHuntModel = model;
 		var renderedTemplate = this.template(model);
 		this.$el.html(renderedTemplate);
 		this.sectionName = this.$el.find('h2').text();
+		
 		// determine whether or not the user is subscribed
 		// then show subscribe button or unsubscribe button
-		$('.subscribe-scavengerhunt').show();
+		var user = Parse.User.current();
+		var relation = user.relation('scavengerHunts');
+		var query = relation.query();
+		query.equalTo('objectId', this.scavengerHuntModel.id);
+		query.find({
+			success: function(results) {
+				if (results.length > 0) {
+					$('.unsubscribe-scavengerhunt').show();
+				} else {
+					$('.subscribe-scavengerhunt').show();
+				}
+			},
+			error: function(error) {
+			}
+		});
+
 		return this;
 	},
 	queryLocations: function(event){
@@ -31,13 +47,17 @@ var SafariDetailView = Parse.View.extend({
 		event.preventDefault();
 		var user = Parse.User.current();
 		var relation = user.relation('scavengerHunts');
-		relation.add(this.model);
+		relation.add(this.scavengerHuntModel);
 		user.save();
 		$('.unsubscribe-scavengerhunt').show();
 	},
 	unsubscribeFromHunt: function(event){
 		$('.unsubscribe-scavengerhunt').hide();
 		event.preventDefault();
-
+		var user = Parse.User.current();
+		var relation = user.relation('scavengerHunts');
+		relation.remove(this.scavengerHuntModel);
+		user.save();
+		$('.subscribe-scavengerhunt').show();
 	}
 });

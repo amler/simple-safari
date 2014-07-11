@@ -13,6 +13,11 @@
 
 # Resources for Parse
 * https://parse.com/docs/js/symbols/Parse.Query.html#withinMiles
+* relation.query().find({
+  success: function(list) {
+    // list contains the posts that the current user likes.
+  }
+});
 
 # Resources for jshint
 
@@ -30,6 +35,7 @@
 1. Render the safari detail view
 2. Heather: Be able to subscribe and unsubscribe to a safari in the detail view. if sub show a button 
 3. Tasha: get the locations for the safari detail view - Going to get the safari view pulling and listing data from parse.
+4. Tasha: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
 
 4. Get the discover view working
 5. Setup route for location/:id
