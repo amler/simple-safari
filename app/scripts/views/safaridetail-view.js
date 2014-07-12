@@ -40,8 +40,31 @@ var SafariDetailView = Parse.View.extend({
 	queryLocations: function(event){
 		if ($(event.currentTarget).text() === this.sectionName) {
 			console.log(userGeo.latitude, userGeo.longitude);
+			/*var point = new Parse.GeoPoint({latitude: userGeo.latitude, longitude: userGeo.longitude});
+			var scavengerHunts = Parse.User.current();
+			var relation = scavengerHunts.relation("locations");
+			var query = new Parse.Query(scavengerHunts);
+			query.withinMiles('geolocation', point, 30);
+			relation.query().find({
+				success: function(results) {
+					var templateMethod = _.template($('detail-safari-template').text());
+					results.forEach(function(locations){
+						var rendered = templateMethod(locations);
+						$('.selected-safari-locations').append(rendered);
+						map.addMarker(1, name.attributes.geolocation._latitude, name.attributes.geolocation._longitude);
+
+					});
+				},
+				error: function(error) {
+					alert('Error:' + error.code + ''+ error.message);
+				}
+			});*/
 		}
 	},
+
+
+
+
 	subscribeToHunt: function(event){
 		$('.subscribe-scavengerhunt').hide();
 		event.preventDefault();
@@ -59,5 +82,9 @@ var SafariDetailView = Parse.View.extend({
 		relation.remove(this.scavengerHuntModel);
 		user.save();
 		$('.subscribe-scavengerhunt').show();
-	}
+	},
+
+
+	
 });
+
