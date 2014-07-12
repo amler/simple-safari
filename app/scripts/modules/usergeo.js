@@ -19,7 +19,7 @@ var userGeo = {
 		});
 
 	},
-	watchLocation: function(position){
+	watchLocation: function(){
 		var that = this;
 		if (!navigator.geolocation){
 			alert('Geolocation is not supported by your browser');

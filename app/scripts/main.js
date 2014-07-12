@@ -121,7 +121,6 @@ var AppRouter = Parse.Router.extend({
 	discover: function(){
 		changeLayout(false, true);
 		views.discover.render();
-		userGeo.findLocation();
 		// query nearby locations
 		// when you get location results update map
 		// update list of nearby locations you're subscribed to
