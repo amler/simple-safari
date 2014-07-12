@@ -37,4 +37,3 @@ var userGeo = {
 		navigator.geolocation.clearWatch(this.watchID);
 	}
 };
-

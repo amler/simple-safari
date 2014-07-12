@@ -9,13 +9,13 @@ var DiscoverView = Parse.View.extend({
 	events: {
 		'userGeoLocated h2' : 'queryLocations'
 	},
-	render: function() {
+	render: function () {
 		this.$el.html(this.template);
 		this.sectionName = this.$el.find('h2').text();
 		this.queryUsersHunts();	
 		return this;
 	},
-	queryLocations: function(event){
+	queryLocations: function (event){
 		if ($(event.currentTarget).text() === this.sectionName) {
 			console.log(userGeo.latitude, userGeo.longitude);
 		}
@@ -26,38 +26,38 @@ var DiscoverView = Parse.View.extend({
 		var relation = user.relation('scavengerHunts');
 		var query = relation.query();
 		query.find({
-			success: function(results) {
+			success: function (results) {
 				that.queryUsersLocations(results);
 
 			},
-			error: function(error) {
+			error: function (error) {
 				console.log('Nope');
 			}
 		});
 	},
-	queryUsersLocations: function(safaris){
+	queryUsersLocations: function (safaris){
 		var count = 0;
 		var that = this;
-		console.log(that.locations);
 		safaris.forEach(function (safari){
 			var relation = safari.relation('locations');
 			var query = relation.query();
 			query.find({
-				success: function(results) {
+				success: function (results) {
 					that.locations.push.apply(that.locations, results);
 					count ++;
 					if (count >= safaris.length) {
-						console.log(count);
-						console.log(safaris.length);
-						// all done, next step is to render
+						that.addLocationsToMap();
 					}
 				},
-				error: function(error) {
-					console.log('Nope');
+				error: function (error) {
+					console.log('There was an error: ', error);
 				}
 			});
 		});
 	},
-
-
+	addLocationsToMap: function (){
+		this.locations.forEach(function (location) {
+			map.addMarker(1, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
+		})
+	}
 });
