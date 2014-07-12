@@ -1,5 +1,5 @@
 'use strict';
-/* global userGeo */
+/* global userGeo, map, ScavengerHunt, helper*/
 
 var DiscoverView = Parse.View.extend({
 	el: '#view',
@@ -69,15 +69,15 @@ var DiscoverView = Parse.View.extend({
 		}
 	},
 	userLocationUpdated: function() {
-		console.log(userGeo.latitude, userGeo.longitude);
-		// check to see if any locations are in the area/range
-		// loop through locations
-		// determine distance of location from user
-		// if distance is less than X
-			// render location with capture button
+		var templateMethod = _.template($('#location-item-template').text());
+		this.locations.forEach(function(location) {
+			var distance = helper.getDistance(userGeo.latitude, userGeo.longitude, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
+			if (distance <= 0.05) {
+				console.log(location);
+				var rendered = templateMethod(location);
+				$('.nearby-safaris').append(rendered);
+			}
+		});
 	}
 });
-
-
-
 

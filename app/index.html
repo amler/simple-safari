@@ -82,7 +82,15 @@
         </script>
         <script type="text/template" id="discover-view-template">
             <h2>Discover View</h2>
-            <p>Listing of locations subscribed to</p>
+            <ul class="nearby-safaris"></ul>
+        </script>
+        <script type="text/template" id="location-item-template">
+            <li>
+                <strong><%= attributes.name %></strong>
+                <br />
+                <%= attributes.description %>
+                <button>Capture</button>
+            </li>
         </script>
 
         <script type="text/template" id="signup-view-template">
@@ -116,6 +124,8 @@
         <script src="../bower_components/underscore/underscore.js"></script>
         <script src="//www.parsecdn.com/js/parse-1.2.18.min.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmP_lrkRi-SLUJdaBJ7BgUdcDKS_VuiRU"></script>
+        <script src="scripts/libs/geo.js"></script>
+        <script src="scripts/libs/latlon.js"></script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>/*
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -129,6 +139,7 @@
         <script src="scripts/modules/map.js"></script>
         <script src="scripts/modules/menu.js"></script>
         <script src="scripts/modules/usergeo.js"></script>
+        <script src="scripts/modules/helper.js"></script>
         <script src="scripts/models/location-model.js"></script>
         <script src="scripts/models/scavengerhunt-model.js"></script>
         <script src="scripts/views/dashboard-view.js"></script>
