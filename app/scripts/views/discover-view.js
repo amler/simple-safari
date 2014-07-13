@@ -1,5 +1,5 @@
 'use strict';
-/* global userGeo, map, ScavengerHunt, helper, Photo, Location, PhotoCollection*/
+/* global userGeo, map, ScavengerHunt, helper, Photo, Location, PhotoCollection, views*/
 
 var DiscoverView = Parse.View.extend({
 	el: '#view',
@@ -73,7 +73,7 @@ var DiscoverView = Parse.View.extend({
 		var templateMethod = _.template($('#location-item-template').text());
 		this.locations.forEach(function(location) {
 			var distance = helper.getDistance(userGeo.latitude, userGeo.longitude, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
-			if (distance <= 1) {
+			if (distance <= 0.05) {
 				var rendered = templateMethod(location);
 				$('.nearby-safaris').append(rendered);
 			}
@@ -83,38 +83,31 @@ var DiscoverView = Parse.View.extend({
 		var objectId = $(event.currentTarget).data('object-id');
 		console.log(objectId);
 		console.log('photoCaptured');
-		// save a photo to parse 
-		// once I get a photo detail page redirect to page.
 
 		var fileUploadControl = $(event.currentTarget)[0];
 		if (fileUploadControl.files.length > 0) {
+			views.loading.render();
 			var file = fileUploadControl.files[0];
-			var name = 'photo.png'; // TO-DO: make something else
+			var name = 'photo.png';
 			var parseFile = new Parse.File(name, file);
 
 			parseFile.save().then(function() {
-				// The file has been saved to Parse.
-				// alert('New object created with objectId: ' + photo.id);
 				var currentUser = Parse.User.current();
 				var photo = new Photo();
 				var point = new Parse.GeoPoint({latitude: userGeo.latitude, longitude: userGeo.longitude });
 				var location = new Location();
 				location.id = objectId;
-				// set location
-				// set photo
-				// set user
 				photo.set('geolocation', point);
 				photo.set('location', location);
 				photo.set('photo', parseFile);
 				photo.set('user', currentUser);
-
-				photo.save().done(function(){
-					alert('Upload successful');
+				photo.set('photoURL', parseFile.url());
+				photo.save().done(function() {
+					window.router.navigate('photo/'+ photo.id, {trigger:true});
 				});
-
 			}, function(error) {
-				// The file either could not be read, or could not be saved to Parse.
-				alert('Failed to create new object, with error code: ' + error);
+				alert('Failed to save photo');
+				views.discover.render();
 			});
 		}	
 	}

@@ -82,6 +82,8 @@
         </script>
         <script type="text/template" id="discover-view-template">
             <h2>Discover View</h2>
+            <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
+            <hr />
             <ul class="nearby-safaris"></ul>
         </script>
         <script type="text/template" id="location-item-template">
@@ -89,8 +91,14 @@
                 <strong><%= attributes.name %></strong>
                 <br />
                 <%= attributes.description %>
-                <input class="photo" data-object-id="<%=id%>" type="file" accept="image/*;capture=camera">
+                <div class="capture-input-container">
+                    <label for="file-input">Select Selfie</label>
+                    <input class="photo" data-object-id="<%=id%>" type="file" accept="image/*;capture=camera">
+                </div>
             </li>
+        </script>
+        <script type="text/template" id="photodetail-view-template">
+            <img class="photo-detail"  src="<%= attributes.photoURL %>">
         </script>
 
         <script type="text/template" id="signup-view-template">
@@ -149,6 +157,7 @@
         <script src="scripts/views/loading-view.js"></script>
         <script src="scripts/views/login-view.js"></script>
         <script src="scripts/views/home-view.js"></script>
+        <script src="scripts/views/photodetail-view.js"></script>
         <script src="scripts/views/safaris-view.js"></script>
         <script src="scripts/views/safaridetail-view.js"></script>
         <script src="scripts/views/signup-view.js"></script>

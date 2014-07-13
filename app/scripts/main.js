@@ -1,5 +1,5 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView, Photo */
+/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView, Photo, PhotoDetailView */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
@@ -25,6 +25,7 @@ var views = {
 	home:			new HomeView(),
 	loading:		new LoadingView(),
 	login:			new LoginView(),
+	photoDetail:	new PhotoDetailView(),
 	safaris:		new SafarisView(),
 	safariDetail:	new SafariDetailView(),
 	signup:			new SignUpView()
@@ -59,7 +60,6 @@ function changeLayout(showLogin, showMap){
 ////////////////////////
 // Router
 ////////////////////////
-
 var AppRouter = Parse.Router.extend({
 	routes: {
 		''					: 'home',
@@ -68,6 +68,7 @@ var AppRouter = Parse.Router.extend({
 		'forgot-password'	: 'forgotPassword',
 		'safaris'			: 'safaris',
 		'safari/:name'		: 'safariDetail',
+		'photo/:id'			: 'photoDetail',
 		'discover'			: 'discover',
 		'*actions'			: 'logout'
 	},
@@ -103,6 +104,10 @@ var AppRouter = Parse.Router.extend({
 		// show list of all scavengerhunts you've joined
 		// user needs to join a safari
 	},
+	photoDetail: function(id) {
+		changeLayout(false, false);
+		views.photoDetail.findPhoto(id);
+	},
 	safariDetail: function(id){
 		changeLayout(false, true);
 		var selectedHunt = id;
@@ -126,7 +131,6 @@ var AppRouter = Parse.Router.extend({
 		// when you get location results update map
 		// update list of nearby locations you're subscribed to
 	},
-
 	logout: function(){
 		Parse.User.logOut();
 		window.router.navigate('login',{trigger:true});
