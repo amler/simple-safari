@@ -1,5 +1,5 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView */
+/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView, Photo */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
@@ -14,7 +14,8 @@ var collections = {
 
 var models = {
 	scavengerHunt:	new ScavengerHunt(),
-	huntLocation:	new Location()
+	huntLocation:	new Location(),
+	photo:			new Photo()
 };
 
 var views = {

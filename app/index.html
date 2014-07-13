@@ -89,7 +89,7 @@
                 <strong><%= attributes.name %></strong>
                 <br />
                 <%= attributes.description %>
-                <button>Capture</button>
+                <input class="photo" data-object-id="<%=id%>" type="file" accept="image/*;capture=camera">
             </li>
         </script>
 
@@ -142,6 +142,7 @@
         <script src="scripts/modules/helper.js"></script>
         <script src="scripts/models/location-model.js"></script>
         <script src="scripts/models/scavengerhunt-model.js"></script>
+        <script src="scripts/models/photo-model.js"></script>
         <script src="scripts/views/dashboard-view.js"></script>
         <script src="scripts/views/discover-view.js"></script>
         <script src="scripts/views/forgotpassword-view.js"></script>
