@@ -64,3 +64,63 @@ body {
 	background-color: rgb(247, 226, 226) !important;
 	border-color: red !important;
 }
+
+
+.users-images {
+
+	li {
+		border: 1px solid #333;
+		color: #FFF;
+		float: left;
+		padding-bottom: 25%;
+		position: relative;
+		width: 25%;
+	}
+
+	a {
+		background: #66F;
+		bottom: 10px;
+		left: 10px;
+		overflow: hidden;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
+}
+
+@media only screen and (max-width : 480px) {
+   /* Smartphone view: 1 tile */
+	.users-images {
+		li {
+			padding-bottom: 100%;
+			width: 100%;
+		}
+	}
+}
+@media only screen and (max-width : 650px) and (min-width : 481px) {
+   /* Tablet view: 2 tiles */
+	.users-images {
+		li {
+			padding-bottom: 50%;
+			width: 50%;
+		}
+	}
+}
+@media only screen and (max-width : 1050px) and (min-width : 651px) {
+   /* Small desktop / ipad view: 3 tiles */
+	.users-images {
+		li {
+			padding-bottom: 33.3%;
+			width: 33.3%;
+		}
+	}
+}
+@media only screen and (max-width : 1290px) and (min-width : 1051px) {
+   /* Medium desktop: 4 tiles */
+	.users-images {
+		li {
+			padding-bottom: 25%;
+			width: 25%;
+		}
+	}
+}

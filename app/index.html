@@ -115,11 +115,15 @@
             <h2>User Photos View</h2>
             <p>Shows photos user has posted.</p>
             <hr />
-            <div class="users-images"></div>
+            <ul class="users-images"></ul>
         </script>
 
         <script type="text/template" id="userimage-thumbnail-template">
-            <a href="#photo/<%=id%>" ><img class="photo-detail"  src="<%= attributes.photoURL %>"></a>
+            <li>
+                <a href="#photo/<%=id%>" >
+                    <img class="photo-detail"  src="<%= attributes.photoURL %>">
+                </a>
+            </li>
         </script>
 
 
