@@ -44,22 +44,27 @@
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="#/safaris">Safaris</a></li>
                 <li><a href="#/discover">Discover</a></li>
+                <li><a href="#/photos">My Selfies</a></li>
                 <li><a href="#/log-out">Log Out</a></li>
             </ul>
         </nav>
+        <!-- Template Scripts -->
         <script type="text/template" id="home-view-template">
             <h2>Welcome to Simple Safari</h2>
             <p>Join the party and start a safari!!!!!</p>
             <p><a href="#/signup" class="button">Sign Up!</a></p>
         </script>
+
         <script type="text/template" id="loading-view-template">
             <h2>Loading...</h2>
         </script>
+
         <script type="text/template" id="dashboard-view-template">
             <h2>Dashboard View</h2>
             <p>Listing of nearby safaries</p>
             <ul class="nearby-safaris"></ul>
         </script>
+
          <script type="text/template" id="hunt-item-template">
             <li>
                 <strong><%= attributes.name %></strong>
@@ -68,6 +73,7 @@
                 <a href="#/safari/<%=id%>" class="button">Checkout Safari</a>
             </li>
         </script>
+
         <script type="text/template" id="safaridetail-view-template">
             <h2><%= attributes.name %></h2>
             <p><%= attributes.description %></p>
@@ -76,6 +82,7 @@
             <hr/>
             <ul class="selected-safari-locations"></ul>
         </script>
+
         <script type="text/template" id="location-listing-template">
             <li>
                 <strong><%= attributes.name %></strong>
@@ -83,15 +90,50 @@
                 <%= attributes.description %>
             </li>
         </script>
-
+        
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>
             <p>Listing of safaris subscribed to</p>
         </script>
+
         <script type="text/template" id="discover-view-template">
             <h2>Discover View</h2>
-            <p>Listing of locations subscribed to</p>
+            <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
+            <hr />
+            <ul class="nearby-safaris"></ul>
         </script>
+
+        <script type="text/template" id="location-item-template">
+            <li>
+                <strong><%= attributes.name %></strong>
+                <br />
+                <%= attributes.description %>
+                <div class="capture-input-container">
+                    <label for="file-input">Select Photo</label>
+                    <input class="photo" data-object-id="<%=id%>" type="file" accept="image/*;capture=camera">
+                </div>
+            </li>
+        </script>
+
+        <script type="text/template" id="photodetail-view-template">
+            <img class="photo-detail"  src="<%= attributes.photoURL %>">
+        </script>
+
+        <script type="text/template" id="userphotos-view-template">
+            <h2>User Photos View</h2>
+            <p>Shows photos user has posted.</p>
+            <hr />
+            <ul class="users-images"></ul>
+        </script>
+
+        <script type="text/template" id="userimage-thumbnail-template">
+            <li>
+                <a href="#photo/<%=id%>" >
+                    <img class="photo-detail"  src="<%= attributes.photoURL %>">
+                </a>
+            </li>
+        </script>
+
 
         <script type="text/template" id="signup-view-template">
             <h2>Sign Up for Simple Safari</h2>
@@ -124,6 +166,8 @@
         <script src="../bower_components/underscore/underscore.js"></script>
         <script src="//www.parsecdn.com/js/parse-1.2.18.min.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmP_lrkRi-SLUJdaBJ7BgUdcDKS_VuiRU"></script>
+        <script src="scripts/libs/geo.js"></script>
+        <script src="scripts/libs/latlon.js"></script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>/*
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -137,17 +181,21 @@
         <script src="scripts/modules/map.js"></script>
         <script src="scripts/modules/menu.js"></script>
         <script src="scripts/modules/usergeo.js"></script>
+        <script src="scripts/modules/helper.js"></script>
         <script src="scripts/models/location-model.js"></script>
         <script src="scripts/models/scavengerhunt-model.js"></script>
+        <script src="scripts/models/photo-model.js"></script>
         <script src="scripts/views/dashboard-view.js"></script>
         <script src="scripts/views/discover-view.js"></script>
         <script src="scripts/views/forgotpassword-view.js"></script>
         <script src="scripts/views/loading-view.js"></script>
         <script src="scripts/views/login-view.js"></script>
         <script src="scripts/views/home-view.js"></script>
+        <script src="scripts/views/photodetail-view.js"></script>
         <script src="scripts/views/safaris-view.js"></script>
         <script src="scripts/views/safaridetail-view.js"></script>
         <script src="scripts/views/signup-view.js"></script>
+        <script src="scripts/views/userphotos-view.js"></script>
         <script src="scripts/main.js"></script>
 </body>
 </html>

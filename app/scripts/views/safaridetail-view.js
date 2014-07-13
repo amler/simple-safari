@@ -18,6 +18,7 @@ var SafariDetailView = Parse.View.extend({
 		this.$el.html(renderedTemplate);
 		this.sectionName = this.$el.find('h2').text();
 		var that = this;
+
 		// determine whether or not the user is subscribed
 		// then show subscribe button or unsubscribe button
 		var user = Parse.User.current();
@@ -36,7 +37,7 @@ var SafariDetailView = Parse.View.extend({
 			error: function(error) {
 			}
 		});
-
+		
 		return this;
 	},
 	queryLocations: function(event){
@@ -80,7 +81,7 @@ var SafariDetailView = Parse.View.extend({
 			},
 
 			error: function(error) {
-				console.log("error on rendering locations");
+				console.log('error on rendering locations');
 			}
 		});
 	}
