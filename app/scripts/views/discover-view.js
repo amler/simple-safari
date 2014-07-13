@@ -71,6 +71,7 @@ var DiscoverView = Parse.View.extend({
 	},
 	userLocationUpdated: function() {
 		var templateMethod = _.template($('#location-item-template').text());
+		$('.nearby-safaris').empty();
 		this.locations.forEach(function(location) {
 			var distance = helper.getDistance(userGeo.latitude, userGeo.longitude, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
 			if (distance <= 0.05) {

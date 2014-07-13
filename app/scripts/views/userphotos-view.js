@@ -1,6 +1,6 @@
 'use strict';
 
-var PhotoDetailView = Parse.View.extend({
+var UserPhotosView = Parse.View.extend({
 	el: '#view',
 	template: _.template($('#photodetail-view-template').text()),
 
