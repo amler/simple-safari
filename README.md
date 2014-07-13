@@ -30,6 +30,10 @@
 * https://www.youtube.com/watch?v=FZSjvWtUxYk&app=desktop
 * http://www.sitepoint.com/jquery-custom-events/
 
+### Resources for CSS
+* http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/
+* http://www.getskeleton.com/
+
 # Todos
  
 1. Tasha: get the locations for the safari detail view - Going to get the safari view pulling and listing data from parse.

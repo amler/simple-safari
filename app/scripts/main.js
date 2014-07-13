@@ -1,5 +1,5 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView */
+/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView, Photo, PhotoDetailView, UserPhotosView */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
@@ -14,7 +14,8 @@ var collections = {
 
 var models = {
 	scavengerHunt:	new ScavengerHunt(),
-	huntLocation:	new Location()
+	huntLocation:	new Location(),
+	photo:			new Photo()
 };
 
 var views = {
@@ -24,6 +25,8 @@ var views = {
 	home:			new HomeView(),
 	loading:		new LoadingView(),
 	login:			new LoginView(),
+	photoDetail:	new PhotoDetailView(),
+	userPhoto:		new UserPhotosView(),
 	safaris:		new SafarisView(),
 	safariDetail:	new SafariDetailView(),
 	signup:			new SignUpView()
@@ -58,7 +61,6 @@ function changeLayout(showLogin, showMap){
 ////////////////////////
 // Router
 ////////////////////////
-
 var AppRouter = Parse.Router.extend({
 	routes: {
 		''					: 'home',
@@ -67,6 +69,8 @@ var AppRouter = Parse.Router.extend({
 		'forgot-password'	: 'forgotPassword',
 		'safaris'			: 'safaris',
 		'safari/:name'		: 'safariDetail',
+		'photo/:id'			: 'photoDetail',
+		'photos'			: 'photoThumbnails',
 		'discover'			: 'discover',
 		'*actions'			: 'logout'
 	},
@@ -98,9 +102,16 @@ var AppRouter = Parse.Router.extend({
 	safaris: function(){
 		changeLayout(false, false);
 		views.safaris.render();
-		userGeo.findLocation();
 		// show list of all scavengerhunts you've joined
 		// user needs to join a safari
+	},
+	photoDetail: function(id) {
+		changeLayout(false, false);
+		views.photoDetail.findPhoto(id);
+	},
+	photoThumbnails: function() {
+		changeLayout(false, false);	
+		views.userPhoto.render();
 	},
 	safariDetail: function(id){
 		changeLayout(false, true);
@@ -121,12 +132,7 @@ var AppRouter = Parse.Router.extend({
 	discover: function(){
 		changeLayout(false, true);
 		views.discover.render();
-		userGeo.findLocation();
-		// query nearby locations
-		// when you get location results update map
-		// update list of nearby locations you're subscribed to
 	},
-
 	logout: function(){
 		Parse.User.logOut();
 		window.router.navigate('login',{trigger:true});
@@ -135,4 +141,3 @@ var AppRouter = Parse.Router.extend({
 
 var router = new AppRouter();
 Parse.history.start();
-
