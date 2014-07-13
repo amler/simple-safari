@@ -1,5 +1,5 @@
 'use strict';
-/* global userGeo */
+/* global userGeo, LatLon */
 
 var DiscoverView = Parse.View.extend({
 	el: '#view',
@@ -19,3 +19,4 @@ var DiscoverView = Parse.View.extend({
 		}
 	}
 });
+
