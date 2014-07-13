@@ -114,7 +114,14 @@
         <script type="text/template" id="userphotos-view-template">
             <h2>User Photos View</h2>
             <p>Shows photos user has posted.</p>
+            <hr />
+            <div class="users-images"></div>
         </script>
+
+        <script type="text/template" id="userimage-thumbnail-template">
+            <a href="#photo/<%=id%>" ><img class="photo-detail"  src="<%= attributes.photoURL %>"></a>
+        </script>
+
 
         <script type="text/template" id="signup-view-template">
             <h2>Sign Up for Simple Safari</h2>

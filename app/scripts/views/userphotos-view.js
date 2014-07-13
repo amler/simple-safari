@@ -1,4 +1,5 @@
 'use strict';
+/* global views*/
 
 var UserPhotosView = Parse.View.extend({
 	el: '#view',
@@ -10,6 +11,8 @@ var UserPhotosView = Parse.View.extend({
 		return this;
 	},
 	findUserPhotos: function() {
+		var that = this;
+		var templateMethod = _.template($('#userimage-thumbnail-template').text());
 		var user = Parse.User.current();
 		var Photo = Parse.Object.extend('Photo');
 		var query = new Parse.Query(Photo);
@@ -18,6 +21,11 @@ var UserPhotosView = Parse.View.extend({
 			success: function(object) {
 			// Successfully retrieved the object.
 				console.log('this is a sucees', object);
+				object.forEach(function(photo){
+					console.log(photo);
+					var rendered = templateMethod(photo);
+					$('.users-images').append(rendered);
+				});
 			},
 			error: function(error) {
 				alert('Error: ' + error.code + ' ' + error.message);
