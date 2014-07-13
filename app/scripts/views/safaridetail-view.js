@@ -67,12 +67,15 @@ var SafariDetailView = Parse.View.extend({
 	findLocationsForScavengerHunt: function() {
 		var relation = this.scavengerHuntModel.relation('locations');
 		var query = relation.query();
+		var point = new Parse.GeoPoint({latitude: userGeo.latitude, longitude: userGeo.longitude});
+		query.withinMiles('geolocation', point, 30);
 		query.find({
 			success: function(results) {
 				var templateMethod = _.template($('#location-listing-template').text());
 				results.forEach(function(location) {
 					var rendered = templateMethod(location);
 					$('.selected-safari-locations').append(rendered);
+					map.addMarker(1, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
 				});
 			},
 
