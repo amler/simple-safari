@@ -48,19 +48,23 @@
                 <li><a href="#/log-out">Log Out</a></li>
             </ul>
         </nav>
+        <!-- Template Scripts -->
         <script type="text/template" id="home-view-template">
             <h2>Welcome to Simple Safari</h2>
             <p>Join the party and start a safari!!!!!</p>
             <p><a href="#/signup" class="button">Sign Up!</a></p>
         </script>
+
         <script type="text/template" id="loading-view-template">
             <h2>Loading...</h2>
         </script>
+
         <script type="text/template" id="dashboard-view-template">
             <h2>Dashboard View</h2>
             <p>Listing of nearby safaries</p>
             <ul class="nearby-safaris"></ul>
         </script>
+
          <script type="text/template" id="hunt-item-template">
             <li>
                 <strong><%= attributes.name %></strong>
@@ -69,6 +73,7 @@
                 <a href="#/safari/<%=id%>" class="button">Checkout Safari</a>
             </li>
         </script>
+
         <script type="text/template" id="safaridetail-view-template">
             <h2><%= attributes.name %></h2>
             <p><%= attributes.description %></p>
@@ -77,16 +82,19 @@
             <hr/>
             <ol class="selected-safari-locations"></ol>
         </script>
+
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>
             <p>Listing of safaris subscribed to</p>
         </script>
+
         <script type="text/template" id="discover-view-template">
             <h2>Discover View</h2>
             <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
             <hr />
             <ul class="nearby-safaris"></ul>
         </script>
+
         <script type="text/template" id="location-item-template">
             <li>
                 <strong><%= attributes.name %></strong>
@@ -98,8 +106,14 @@
                 </div>
             </li>
         </script>
+
         <script type="text/template" id="photodetail-view-template">
             <img class="photo-detail"  src="<%= attributes.photoURL %>">
+        </script>
+
+        <script type="text/template" id="userphotos-view-template">
+            <h2>User Photos View</h2>
+            <p>Shows photos user has posted.</p>
         </script>
 
         <script type="text/template" id="signup-view-template">
@@ -162,6 +176,7 @@
         <script src="scripts/views/safaris-view.js"></script>
         <script src="scripts/views/safaridetail-view.js"></script>
         <script src="scripts/views/signup-view.js"></script>
+        <script src="scripts/views/userphotos-view.js"></script>
         <script src="scripts/main.js"></script>
 </body>
 </html>

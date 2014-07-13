@@ -2,27 +2,25 @@
 
 var UserPhotosView = Parse.View.extend({
 	el: '#view',
-	template: _.template($('#photodetail-view-template').text()),
+	template: _.template($('#userphotos-view-template').text()),
 
-	render: function(model) {
-		var renderedTemplate = this.template(model);
-		console.log('this model in the detail view: ', model.attributes);
-		this.$el.html(renderedTemplate);
+	render: function() {
+		this.$el.html(this.template);
+		this.findUserPhotos();
 		return this;
 	},
-	findPhoto: function(id) {
-		var that = this;
+	findUserPhotos: function() {
+		var user = Parse.User.current();
 		var Photo = Parse.Object.extend('Photo');
 		var query = new Parse.Query(Photo);
-		query.get(id, {
-			success: function(photo) {
-			// The object was retrieved successfully.
-				that.render(photo);
+		query.equalTo('user', user);
+		query.find({
+			success: function(object) {
+			// Successfully retrieved the object.
+				console.log('this is a sucees', object);
 			},
-			error: function(object, error) {
-			// The object was not retrieved successfully.
-			// error is a Parse.Error with an error code and description.
-				alert('There was an error retrieving you photo');
+			error: function(error) {
+				alert('Error: ' + error.code + ' ' + error.message);
 			}
 		});
 	}

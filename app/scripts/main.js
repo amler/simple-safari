@@ -111,7 +111,7 @@ var AppRouter = Parse.Router.extend({
 		views.photoDetail.findPhoto(id);
 	},
 	photoThumbnails: function() {
-		console.log('route to user thumbs');
+		views.userPhoto.render();
 	},
 	safariDetail: function(id){
 		changeLayout(false, true);
