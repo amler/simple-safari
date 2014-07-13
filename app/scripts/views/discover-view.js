@@ -70,11 +70,13 @@ var DiscoverView = Parse.View.extend({
 		}
 	},
 	userLocationUpdated: function() {
+		console.log('userLocationUpdated');
 		var templateMethod = _.template($('#location-item-template').text());
 		$('.nearby-safaris').empty();
 		this.locations.forEach(function(location) {
 			var distance = helper.getDistance(userGeo.latitude, userGeo.longitude, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
 			if (distance <= 0.05) {
+				console.log(distance);
 				var rendered = templateMethod(location);
 				$('.nearby-safaris').append(rendered);
 			}

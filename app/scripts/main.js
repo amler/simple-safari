@@ -102,7 +102,6 @@ var AppRouter = Parse.Router.extend({
 	safaris: function(){
 		changeLayout(false, false);
 		views.safaris.render();
-		// userGeo.findLocation();
 		// show list of all scavengerhunts you've joined
 		// user needs to join a safari
 	},

@@ -22,9 +22,11 @@ var SafariDetailView = Parse.View.extend({
 		var user = Parse.User.current();
 		var relation = user.relation('scavengerHunts');
 		var query = relation.query();
+		var that = this;
 		query.equalTo('objectId', this.scavengerHuntModel.id);
 		query.find({
 			success: function(results) {
+				that.findLocationsForScavengerHunt();
 				if (results.length > 0) {
 					$('.unsubscribe-scavengerhunt').show();
 				} else {
@@ -59,5 +61,16 @@ var SafariDetailView = Parse.View.extend({
 		relation.remove(this.scavengerHuntModel);
 		user.save();
 		$('.subscribe-scavengerhunt').show();
+	}, 
+	findLocationsForScavengerHunt: function() {
+		var relation = this.scavengerHuntModel.relation('locations');
+		var query = relation.query();
+		query.find({
+			success: function(results) {
+				console.log(results);
+			},
+			error: function(error) {
+			}
+		});
 	}
 });
