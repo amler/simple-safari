@@ -3,7 +3,7 @@
 
 var LocationDetailView = Parse.View.extend({
 	el: '#view',
-	template: _.template($('#detail-locations-template').text()),
+	template: _.template($('#detail-location-template').text()),
 	sectionName: '',
 	events: {
 		'userGeoLocated h2' : 'queryLocations'
