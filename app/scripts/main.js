@@ -74,7 +74,7 @@ var AppRouter = Parse.Router.extend({
 		'photo/:id'			: 'photoDetail',
 		'photos'			: 'photoThumbnails',
 		'discover'			: 'discover',
-		'location/:id'		: 'locationPhoto',
+		'location/:id'		: 'locationDetail',
 		'*actions'			: 'logout'
 	},
 
@@ -136,12 +136,9 @@ var AppRouter = Parse.Router.extend({
 		changeLayout(false, true);
 		views.discover.render();
 	},
-	locationPhoto: function(id){
-
-		// changeLayout(false, true);
-		console.log('router firing');
-		debugger
-		views.locationDetail.render();
+	locationDetail: function(id){
+		changeLayout(false, true);
+		views.locationDetail.render(id);
 	},
 	logout: function(){
 		Parse.User.logOut();
