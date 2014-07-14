@@ -83,6 +83,14 @@
             <ul class="selected-safari-locations"></ul>
         </script>
 
+        <script type="text/template" id="location-listing-template">
+            <li>
+                <strong><%= attributes.name %></strong>
+                <br />
+                <%= attributes.description %>
+            </li>
+        </script>
+        
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>
             <p>Listing of safaris subscribed to</p>

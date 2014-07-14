@@ -111,5 +111,3 @@ var DiscoverView = Parse.View.extend({
 	}
 });
 
-
-
