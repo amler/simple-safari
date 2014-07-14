@@ -137,7 +137,7 @@ var AppRouter = Parse.Router.extend({
 	},
 	locationDetail: function(id){
 		changeLayout(false, true);
-		views.locationDetail.render();
+		views.locationDetail.render(id);
 	},
 	logout: function(){
 		Parse.User.logOut();
