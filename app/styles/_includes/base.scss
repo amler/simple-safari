@@ -246,8 +246,10 @@
 
 /* #Images
 ================================================== */
-canvas, iframe, img, svg, video {
-	max-width: 100%;
+#view {
+	canvas, iframe, img, svg, video {
+		max-width: 100%;
+	}
 }
 
 /* #Fil Input

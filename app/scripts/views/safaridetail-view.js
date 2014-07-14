@@ -1,5 +1,5 @@
 'use strict';
-/* global userGeo, map, */
+/* global userGeo, map */
 
 var SafariDetailView = Parse.View.extend({
 	el: '#view',
@@ -18,7 +18,7 @@ var SafariDetailView = Parse.View.extend({
 		this.$el.html(renderedTemplate);
 		this.sectionName = this.$el.find('h2').text();
 		var that = this;
-
+		
 		// determine whether or not the user is subscribed
 		// then show subscribe button or unsubscribe button
 		var user = Parse.User.current();
@@ -86,9 +86,3 @@ var SafariDetailView = Parse.View.extend({
 		});
 	}
 });
-
-
-
-
-
-
