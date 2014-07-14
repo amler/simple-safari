@@ -1,3 +1,4 @@
+
 'use strict';
 /* global userGeo, map */
 
@@ -66,7 +67,6 @@ var SafariDetailView = Parse.View.extend({
 	},
 
 	findLocationsForScavengerHunt: function() {
-		console.log(this.scavengerHuntModel);
 		var relation = this.scavengerHuntModel.relation('locations');
 		var query = relation.query();
 		var point = new Parse.GeoPoint({latitude: userGeo.latitude, longitude: userGeo.longitude});
