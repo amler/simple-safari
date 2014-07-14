@@ -28,8 +28,11 @@ var SafarisView = Parse.View.extend({
 		// query.equalTo('objectId', this.scavengerHuntModel.id);
 		query.find({
 			success: function(results) {
+				var sarfariListTemplate = _.template($('#safaris-listing-template').text());
 				results.forEach(function(hunt){
 					console.log('these are the user\'s hunts: ', hunt);
+					var rendered = sarfariListTemplate(hunt);
+					$('.users-scavengerhunt-list').append(rendered);
 				});
 			},
 			error: function(error) {
