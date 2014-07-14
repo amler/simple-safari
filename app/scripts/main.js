@@ -1,5 +1,5 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView, Photo, PhotoDetailView, UserPhotosView */
+/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView, Photo, PhotoDetailView, UserPhotosView, LocationDetailView */
 
 Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
 
@@ -24,13 +24,14 @@ var views = {
 	forgotPassword:	new ForgotPasswordView(),
 	home:			new HomeView(),
 	loading:		new LoadingView(),
+	locationDetail: new LocationDetailView(),
 	login:			new LoginView(),
 	photoDetail:	new PhotoDetailView(),
 	userPhoto:		new UserPhotosView(),
 	safaris:		new SafarisView(),
 	safariDetail:	new SafariDetailView(),
-	signup:			new SignUpView(),
-	locationDetail: new LocationDetailView()
+	signup:			new SignUpView()
+	
 };
 
 function changeLayout(showLogin, showMap){
@@ -73,7 +74,7 @@ var AppRouter = Parse.Router.extend({
 		'photo/:id'			: 'photoDetail',
 		'photos'			: 'photoThumbnails',
 		'discover'			: 'discover',
-		'location/:id'		: 'locationDetail',
+		'location/:id'		: 'locationPhoto',
 		'*actions'			: 'logout'
 	},
 
@@ -135,8 +136,11 @@ var AppRouter = Parse.Router.extend({
 		changeLayout(false, true);
 		views.discover.render();
 	},
-	locationDetail: function(id){
-		changeLayout(false, true);
+	locationPhoto: function(id){
+
+		// changeLayout(false, true);
+		console.log('router firing');
+		debugger
 		views.locationDetail.render();
 	},
 	logout: function(){
