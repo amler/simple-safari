@@ -116,7 +116,12 @@
         </script>
 
         <script type="text/template" id="photodetail-view-template">
+            <h1 class="photodetail-location-name"></h1>
             <img class="photo-detail"  src="<%= attributes.photoURL %>">
+        </script>
+
+        <script type="text/template" id="fetched-location-template">
+            <%= attributes.name %>
         </script>
 
         <script type="text/template" id="userphotos-view-template">
