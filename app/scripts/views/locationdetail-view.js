@@ -8,15 +8,12 @@ var LocationDetailView = Parse.View.extend({
 	events: {
 		'userGeoLocated h2' : 'queryLocations'
 	},
-	render: function(id) {
+	render: function() {
 		this.$el.html(this.template);
 		this.sectionName = this.$el.find('h2').text();
-		console.log(id);
 		return this;
 	},
 	queryLocations: function(event){
-		if ($(event.currentTarget).text() === this.sectionName) {
-			console.log('location fired')
-		}
+		
 	}
 });
