@@ -36,7 +36,9 @@ var PhotoDetailView = Parse.View.extend({
 				var templateMethod = _.template($('#fetched-location-template').text());
 				var rendered = templateMethod(photolocationModel);
 				$('.photodetail-location-name').append(rendered);
+				map.deleteMarker(0);
 				map.addMarker(1, photolocationModel.attributes.geolocation._latitude, photolocationModel.attributes.geolocation._longitude);
+				map.zoomMapToFitAllMarkers();
 			},
 			error: function(object, error) {
 			// The object was not retrieved successfully.
