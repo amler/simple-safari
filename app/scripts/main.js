@@ -29,7 +29,8 @@ var views = {
 	userPhoto:		new UserPhotosView(),
 	safaris:		new SafarisView(),
 	safariDetail:	new SafariDetailView(),
-	signup:			new SignUpView()
+	signup:			new SignUpView(),
+	locationDetail: new LocationDetailView()
 };
 
 function changeLayout(showLogin, showMap){
@@ -72,6 +73,7 @@ var AppRouter = Parse.Router.extend({
 		'photo/:id'			: 'photoDetail',
 		'photos'			: 'photoThumbnails',
 		'discover'			: 'discover',
+		'location/:id'		: 'locationDetail',
 		'*actions'			: 'logout'
 	},
 
@@ -132,6 +134,10 @@ var AppRouter = Parse.Router.extend({
 	discover: function(){
 		changeLayout(false, true);
 		views.discover.render();
+	},
+	locationDetail: function(id){
+		changeLayout(false, true);
+		views.locationDetail.render();
 	},
 	logout: function(){
 		Parse.User.logOut();
