@@ -1,4 +1,5 @@
 'use strict';
+/* global userGeo, map, Location */
 
 var PhotoDetailView = Parse.View.extend({
 	el: '#view',
@@ -6,7 +7,7 @@ var PhotoDetailView = Parse.View.extend({
 
 	render: function(model) {
 		var renderedTemplate = this.template(model);
-		console.log('this model in the detail view: ', model.attributes);
+		// console.log('this model in the detail view: ', model.attributes);
 		this.$el.html(renderedTemplate);
 		return this;
 	},
@@ -18,6 +19,7 @@ var PhotoDetailView = Parse.View.extend({
 			success: function(photo) {
 			// The object was retrieved successfully.
 				that.render(photo);
+				that.findPhotoLocation(photo);
 			},
 			error: function(object, error) {
 			// The object was not retrieved successfully.
@@ -25,5 +27,23 @@ var PhotoDetailView = Parse.View.extend({
 				alert('There was an error retrieving you photo');
 			}
 		});
+	},
+	findPhotoLocation: function(photoModel) {
+		console.log(photoModel.attributes.location.id);
+		var photoLocation = photoModel.attributes.location.id;
+		var query = new Parse.Query(Location);
+		query.equalTo('objectId', photoLocation);
+		query.find({
+			success: function(results) {
+				console.log(results);
+				results.forEach(function(location){
+					console.log(location);
+				});
+			},
+			error: function(error) {
+				alert('Error: ' + error.code + ' ' + error.message);
+			}
+		});
+
 	}
 });
