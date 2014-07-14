@@ -1,5 +1,4 @@
 'use strict';
-/* global userGeo, map, Location */
 
 var PhotoDetailView = Parse.View.extend({
 	el: '#view',
@@ -29,21 +28,40 @@ var PhotoDetailView = Parse.View.extend({
 		});
 	},
 	findPhotoLocation: function(photoModel) {
-		console.log(photoModel.attributes.location.id);
-		var photoLocation = photoModel.attributes.location.id;
-		var query = new Parse.Query(Location);
-		query.equalTo('objectId', photoLocation);
-		query.find({
-			success: function(results) {
-				console.log(results);
-				results.forEach(function(location){
-					console.log(location);
-				});
-			},
-			error: function(error) {
-				alert('Error: ' + error.code + ' ' + error.message);
+		console.log(photoModel);
+		var photoLocation = photoModel.get('location');
+		photoLocation.fetch({
+			success: function(local) {
+				var title = local.get('name');
+				console.log(local);
+				console.log(title);
 			}
 		});
+
+		// var query = relation.query();
+		// query.find({
+		// 	success: function(results) {
+		// 		console.log(results);
+		// 	},
+
+		// 	error: function(error) {
+		// 		console.log('error on rendering locations');
+		// 	}
+		// });
+		// var photoLocation = photoModel.attributes.location.id;
+		// var query = new Parse.Query(Location);
+		// query.equalTo('objectId', photoLocation);
+		// query.get({
+		// 	success: function(results) {
+		// 		console.log(results);
+		// 		results.forEach(function(location){
+		// 			console.log(location);
+		// 		});
+		// 	},
+		// 	error: function(error) {
+		// 		alert('Error: ' + error.code + ' ' + error.message);
+		// 	}
+		// });
 
 	}
 });
