@@ -36,8 +36,8 @@
 
 # Todos
  
-1. Tasha: location detail view showing a grid listing X number of photos captured at this location.
-2. Tasha: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
+1. Tasha: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
+2. Heather: fix the user marker on the Dashboard View
 3. Add description field to location data, then add description everywhere location is listed.
 4. Zoom to fit all markers needs to be added.
 
