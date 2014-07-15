@@ -3,9 +3,9 @@
 function Map (elementID) {
     this.markers = [];
     this.images = [
-        'images/map-markers/user.png',
-        'images/map-markers/pin.png',
-        'images/map-markers/flag.png'
+        '../images/map-markers/user.png',
+        '../images/map-markers/pin.png',
+        '../images/map-markers/flag.png'
     ];
 
     var greenville = new google.maps.LatLng(34.853738, -82.395618);
