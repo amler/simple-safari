@@ -94,9 +94,16 @@
         </script>
 
         <script type="text/template" id="detail-location-template">
-            <h2> hi tasha</h2>
-            
-            <img class="photo-detail"  src="<%= attributes.photoURL %>">
+           <h2>location Photos View</h2>
+            <p>Shows photos user has subscribed to.</p>
+            <hr />
+                <ul class="subscribed-photolist"></ul>
+        </script>
+
+        <script type="text/template" id="location-photolist-template">
+            <li>
+                <img class="photo-detail"  src="<%= attributes.photoURL %>">
+            </li>
         </script>
         
         <script type="text/template" id="safaris-view-template">

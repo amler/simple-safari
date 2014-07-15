@@ -29,6 +29,10 @@ var LocationDetailView = Parse.View.extend({
 				results.forEach(function(location){
 					that.selectedLocation = location;
 					that.queryLocationPhotos();
+					map.deleteMarker(0)
+					map.addMarker(1, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
+					map.zoomMapToFitAllMarkers();
+				
 				});
 			},
 			error: function(error) {
@@ -36,21 +40,27 @@ var LocationDetailView = Parse.View.extend({
 			}
 		});
 	},
-	//queryLocationPhotos: function() {
-		// var relation = this.selectedLocation.relation('location');
-		// console.log(relation);
-		// var query = relation.query();
-		//var photo = new Photo();
-		// var relation = this.selectedLocation.relation('location');
-		//query.find({
-			//success: function(results) {
-				//console.log(results);
-			//},
-			//error: function(error) {
-				//console.log(error);
-			//}
-		//})
-	//}
+	queryLocationPhotos: function() {
+		var location = this.selectedLocation;
+		console.log(location);
+		var Photo = Parse.Object.extend('Photo');
+		var query = new Parse.Query(Photo);
+		var point = new Parse.GeoPoint({latitude: userGeo.latitude, longitude: userGeo.longitude});
+		query.find({
+			success: function(results) {
+				console.log('this is a success: ', results);
+				var templateMethod = _.template($('#location-photolist-template').text());
+				results.forEach(function(photo) {
+					var rendered = templateMethod(photo);
+					$('.subscribed-photolist').append(rendered);
+				
+				});
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		});
+	}
 });
 
 
