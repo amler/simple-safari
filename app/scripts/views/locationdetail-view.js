@@ -20,7 +20,6 @@ var LocationDetailView = Parse.View.extend({
 			console.log(userGeo.latitude, userGeo.longitude);
 		}
 	},
-
 	subscribedPhoto: function(id) {
 		var that = this;
 		var query = new Parse.Query(Location);

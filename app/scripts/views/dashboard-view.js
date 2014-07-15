@@ -25,6 +25,7 @@ var DashboardView = Parse.View.extend({
 						var rendered = templateMethod(hunt);
 						$('.nearby-safaris').append(rendered);
 						map.addMarker(1, hunt.attributes.geolocation._latitude, hunt.attributes.geolocation._longitude);
+						map.zoomMapToFitAllMarkers();
 					});
 				},
 				error: function(error) {
