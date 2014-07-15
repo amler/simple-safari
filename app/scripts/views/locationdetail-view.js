@@ -30,12 +30,9 @@ var LocationDetailView = Parse.View.extend({
 				results.forEach(function(location){
 					that.selectedLocation = location;
 					that.queryLocationPhotos();
-					map.deleteMarker(0)
+					that.render();
 					map.addMarker(1, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
 					map.zoomMapToFitAllMarkers();
-					
-					
-				
 				});
 			},
 			error: function(error) {
@@ -45,9 +42,9 @@ var LocationDetailView = Parse.View.extend({
 	},
 	queryLocationPhotos: function() {
 		var location = this.selectedLocation;
-		console.log(location);
 		var Photo = Parse.Object.extend('Photo');
 		var query = new Parse.Query(Photo);
+		query.equalTo('location', location);
 		query.find({
 			success: function(results) {
 				console.log('this is a success: ', results);
