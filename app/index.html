@@ -81,13 +81,28 @@
             <button class="unsubscribe-scavengerhunt" style="display:none;">Unsubscribe</button>
             <hr/>
             <ul class="selected-safari-locations"></ul>
-        </script>
+         </script>
 
         <script type="text/template" id="location-listing-template">
             <li>
+               <a href="#location/<%=id%>" >
                 <strong><%= attributes.name %></strong>
                 <br />
                 <%= attributes.description %>
+                </a>
+            </li>
+        </script>
+
+        <script type="text/template" id="detail-location-template">  
+            <h2>Locations Detail View</h2>
+            <p>Shows photos user has subscribed to.</p>
+            <hr />
+                <ul class="subscribed-photolist"></ul>
+        </script>
+
+        <script type="text/template" id="location-photolist-template">
+            <li>
+                <img class="photo-detail"  src="<%= attributes.photoURL %>">
             </li>
         </script>
         
@@ -207,7 +222,8 @@
         <script src="scripts/views/discover-view.js"></script>
         <script src="scripts/views/forgotpassword-view.js"></script>
         <script src="scripts/views/loading-view.js"></script>
-        <script src="scripts/views/login-view.js"></script>
+        <script src="scripts/views/locationdetail-view.js"></script>
+        <script src="scripts/views/login-view.js"></script> 
         <script src="scripts/views/home-view.js"></script>
         <script src="scripts/views/photodetail-view.js"></script>
         <script src="scripts/views/safaris-view.js"></script>
