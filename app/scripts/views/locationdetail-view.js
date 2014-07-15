@@ -5,6 +5,7 @@ var LocationDetailView = Parse.View.extend({
 	el: '#view',
 	template: _.template($('#detail-location-template').text()),
 	sectionName: '',
+	
 	events: {
 		'userGeoLocated h2' : 'queryLocations'
 	},
@@ -32,6 +33,8 @@ var LocationDetailView = Parse.View.extend({
 					map.deleteMarker(0)
 					map.addMarker(1, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
 					map.zoomMapToFitAllMarkers();
+					
+					
 				
 				});
 			},
@@ -45,7 +48,6 @@ var LocationDetailView = Parse.View.extend({
 		console.log(location);
 		var Photo = Parse.Object.extend('Photo');
 		var query = new Parse.Query(Photo);
-		var point = new Parse.GeoPoint({latitude: userGeo.latitude, longitude: userGeo.longitude});
 		query.find({
 			success: function(results) {
 				console.log('this is a success: ', results);
