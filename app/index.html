@@ -26,11 +26,7 @@
         <link rel="icon" type="image/png" href="images/icons/favicon-160.png" sizes="160x160" />
         <link rel="icon" type="image/png" href="images/icons/favicon-196.png" sizes="196x196" />
         <link rel="shortcut icon" href="images/icons/favicon.ico" />
-        <!-- build:css(.tmp) styles/main.css-->
         <link rel="stylesheet" href="styles/main.css"/>
-        <!-- endbuild -->
-        <script src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmP_lrkRi-SLUJdaBJ7BgUdcDKS_VuiRU"></script>
     </head>
     <body>
         <main>
@@ -200,29 +196,23 @@
             <button class="forgot-password-button">Enter</button>
         </script>
 
-        <!-- build:js scripts/vendor.js-->
-        <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/underscore/underscore.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
-        
 
-
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/underscore/underscore.js"></script>
+        <script src="//www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmP_lrkRi-SLUJdaBJ7BgUdcDKS_VuiRU"></script>
+        <script src="scripts/libs/geo.js"></script>
+        <script src="scripts/libs/latlon.js"></script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
+        <script>/*
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','UA-XXXXX-X');ga('send','pageview');*/
         </script>
 
-        <!-- build:js scripts/main.js  -->
-        <script src="scripts/parsekeys.js"></script>
-        <script src="scripts/libs/geo.js"></script>
-        <script src="scripts/libs/latlon.js"></script>
         <script src="scripts/modules/map.js"></script>
         <script src="scripts/modules/menu.js"></script>
         <script src="scripts/modules/usergeo.js"></script>
@@ -243,7 +233,5 @@
         <script src="scripts/views/signup-view.js"></script>
         <script src="scripts/views/userphotos-view.js"></script>
         <script src="scripts/main.js"></script>
-        <!-- endbuild -->
-
 </body>
 </html>

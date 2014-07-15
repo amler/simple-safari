@@ -1,6 +1,8 @@
 'use strict';
 /* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView, Photo, PhotoDetailView, UserPhotosView, LocationDetailView */
 
+Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
+
 var map = new Map('map-container');
 
 menu.init();
