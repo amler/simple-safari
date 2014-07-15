@@ -94,6 +94,19 @@
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>
             <p>Listing of safaris subscribed to</p>
+            <ul class="users-scavengerhunt-list"></ul>
+        </script>
+
+        <script type="text/template" id="safaris-listing-template">
+            <li>
+                <strong><%= attributes.name %></strong>
+                <br />
+                <%= attributes.description %>
+                <%= id %>
+
+            </li>
+            <button class="unsubscribe-safari-view" data-object-id="<%=id%>">Unsubscribe</button>
+            <hr/>
         </script>
 
         <script type="text/template" id="discover-view-template">
@@ -116,7 +129,12 @@
         </script>
 
         <script type="text/template" id="photodetail-view-template">
+            <h1 class="photodetail-location-name"></h1>
             <img class="photo-detail"  src="<%= attributes.photoURL %>">
+        </script>
+
+        <script type="text/template" id="fetched-location-template">
+            <%= attributes.name %>
         </script>
 
         <script type="text/template" id="userphotos-view-template">

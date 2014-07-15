@@ -106,7 +106,7 @@ var AppRouter = Parse.Router.extend({
 		// user needs to join a safari
 	},
 	photoDetail: function(id) {
-		changeLayout(false, false);
+		changeLayout(false, true);
 		views.photoDetail.findPhoto(id);
 	},
 	photoThumbnails: function() {
