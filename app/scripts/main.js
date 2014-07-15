@@ -75,7 +75,6 @@ var AppRouter = Parse.Router.extend({
 		'location/:id'		: 'locationDetail',
 		'*actions'			: 'logout'
 	},
-
 	home: function(){
 		var currentUser = Parse.User.current();
 		if (currentUser){

@@ -45,7 +45,7 @@
             <h3>Menu</h3>
             <ul>
                 <li><a href="#">Dashboard</a></li>
-                <li><a href="#/safaris">Safaris</a></li>
+                <li><a href="#/safaris">My Safaris</a></li>
                 <li><a href="#/discover">Discover</a></li>
                 <li><a href="#/photos">My Selfies</a></li>
                 <li><a href="#/log-out">Log Out</a></li>
@@ -113,7 +113,7 @@
         
         <script type="text/template" id="safaris-view-template">
             <h2>Safaris View</h2>
-            <p>Listing of safaris subscribed to</p>
+            <p>Listing of safaris subscribed to.</p>
             <ul class="users-scavengerhunt-list"></ul>
         </script>
 
@@ -122,8 +122,6 @@
                 <strong><%= attributes.name %></strong>
                 <br />
                 <%= attributes.description %>
-                <%= id %>
-
             </li>
             <button class="unsubscribe-safari-view" data-object-id="<%=id%>">Unsubscribe</button>
             <hr/>
