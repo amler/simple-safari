@@ -27,7 +27,7 @@ var DiscoverView = Parse.View.extend({
 				that.queryUsersLocations(results);
 			},
 			error: function(error) {
-				console.log('Nope');
+				alert('There was a problem finding your safaris.');
 			}
 		});
 	},
@@ -110,4 +110,3 @@ var DiscoverView = Parse.View.extend({
 		}	
 	}
 });
-

@@ -19,16 +19,13 @@ var UserPhotosView = Parse.View.extend({
 		query.equalTo('user', user);
 		query.find({
 			success: function(object) {
-			// Successfully retrieved the object.
-				console.log('this is a sucees', object);
 				object.forEach(function(photo){
-					console.log(photo);
 					var rendered = templateMethod(photo);
 					$('.users-images').append(rendered);
 				});
 			},
 			error: function(error) {
-				alert('Error: ' + error.code + ' ' + error.message);
+				alert('UserPhotosView Error: ' + error.code + ' ' + error.message);
 			}
 		});
 	}

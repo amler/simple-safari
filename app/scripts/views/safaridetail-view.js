@@ -6,7 +6,6 @@ var SafariDetailView = Parse.View.extend({
 	el: '#view',
 	template: _.template($('#safaridetail-view-template').text()),
 	sectionName: '',
-	
 	events: {
 		'userGeoLocated h2'					: 'queryLocations',
 		'click .subscribe-scavengerhunt'	: 'subscribeToHunt',
@@ -36,9 +35,9 @@ var SafariDetailView = Parse.View.extend({
 				}
 			},
 			error: function(error) {
+				alert('There was an error determining if you are subscribed to this safari.');
 			}
 		});
-		
 		return this;
 	},
 	queryLocations: function(event){
@@ -46,7 +45,6 @@ var SafariDetailView = Parse.View.extend({
 			console.log(userGeo.latitude, userGeo.longitude);
 		}
 	},
-
 	subscribeToHunt: function(event){
 		$('.subscribe-scavengerhunt').hide();
 		event.preventDefault();
@@ -65,7 +63,6 @@ var SafariDetailView = Parse.View.extend({
 		user.save();
 		$('.subscribe-scavengerhunt').show();
 	},
-
 	findLocationsForScavengerHunt: function() {
 		var relation = this.scavengerHuntModel.relation('locations');
 		var query = relation.query();
@@ -80,9 +77,8 @@ var SafariDetailView = Parse.View.extend({
 					map.addMarker(1, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
 				});
 			},
-
 			error: function(error) {
-				console.log('error on rendering locations');
+				alert('error on rendering locations');
 			}
 		});
 	}

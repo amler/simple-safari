@@ -35,7 +35,6 @@ var SignUpView = Parse.View.extend({
 					var currentUser = Parse.User.current();
 					if(currentUser) {
 						window.router.navigate('', {trigger:true});
-						console.log('success signup');
 					} else {
 						alert('There was an error processing your information.');
 					}

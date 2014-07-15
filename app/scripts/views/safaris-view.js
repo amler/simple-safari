@@ -18,7 +18,6 @@ var SafarisView = Parse.View.extend({
 		var user = Parse.User.current();
 		var relation = user.relation('scavengerHunts');
 		var query = relation.query();
-		// query.equalTo('objectId', this.scavengerHuntModel.id);
 		query.find({
 			success: function(results) {
 				var sarfariListTemplate = _.template($('#safaris-listing-template').text());
@@ -28,7 +27,7 @@ var SafarisView = Parse.View.extend({
 				});
 			},
 			error: function(error) {
-				console.log('error: ', error);
+				alert('User ScavengerHunt error: ', error);
 			}
 		});
 	},
@@ -45,7 +44,7 @@ var SafarisView = Parse.View.extend({
 				});
 			},
 			error: function(error) {
-				alert('Error: ' + error.code + ' ' + error.message);
+				alert('SafarisView Error: ' + error.code + ' ' + error.message);
 			}
 		});
 	},

@@ -125,7 +125,7 @@ var AppRouter = Parse.Router.extend({
 				});
 			},
 			error: function(error) {
-				alert('Error: ' + error.code + ' ' + error.message);
+				alert('Router/safariDetail Error: ' + error.code + ' ' + error.message);
 			}
 		});
 	},

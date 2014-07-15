@@ -28,7 +28,7 @@ var DashboardView = Parse.View.extend({
 					});
 				},
 				error: function(error) {
-					alert('Error: ' + error.code + ' ' + error.message);
+					alert('DashboardView Error: ' + error.code + ' ' + error.message);
 				}
 			});
 		}
