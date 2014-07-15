@@ -36,21 +36,23 @@
 
 # Todos
  
-1. Tasha: get the locations for the safari detail view - Going to get the safari view pulling and listing data from parse.
-2. Tasha: add all location map markers.
-3. Tasha: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
+1. Tasha: location detail view showing a grid listing X number of photos captured at this location.
+2. Tasha: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
+3. Add description field to location data, then add description everywhere location is listed.
+4. Zoom to fit all markers needs to be added.
 
+* get grunt to build 'dist' folder (build for production)
+* get up on server (so you can demo and test on an iPhone)
+* get menu to animate sliding in/out smoothly
+* Setup route for capture/:id
+* Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+* Add left and top padding to menu.
+* Install bourbon and clean up scss for browser prefix
 
-4. Get the discover view working
-5. Setup route for location/:id
-6. Get markers linkable
-7. Setup route for capture/:id
-8. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
-
-separate branch - tasha
-10. Add left and top padding to menu.
-11. Install bourbon and clean up scss for browser prefix
-
+Extra Credit: 
+* Get markers linkable
+* discover: for each location listed, show the distance from the user
+* discover: for each location listed, show an arrow pointing toward the location (only on iOS)
 
 
 
