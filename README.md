@@ -34,19 +34,17 @@
 
 # Todos
 
-1. unit testing: write a test confirming the helper.getDistance function is working
-2. Heather: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
-3. Addd validation so user can only upload images.
-4. Go throught the pages and get rid of bad copy.
-5. Tasha: Location Detail viewquerylocation never being fired.
-6. Get menu to animate sliding in/out smoothly.
-7. Add left and top padding to menu.
-8. Add description field to location data, then add description everywhere location is listed.
-9. Install bourbon and clean up scss for browser prefix.
-10. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
-11. Sharing to social media sites.
+1. Tasha: Add description field to location data, then add description everywhere location is listed.
+2. Heather: Fine tune CSS -  Add left and top padding to menu.
+3. Heather: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
+4. Tasha: Go through the pages and get rid of bad copy - write blurbs for home page.
+5. Add validation so user can only upload images.
+6. Install bourbon and clean up scss for browser prefix.
+7. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+8. Sharing to social media sites.
 
-Future Features: 
+Bonus: 
+* unit testing: write a test confirming the helper.getDistance function is working
 * Get markers linkable
 * discover: for each location listed, show the distance from the user
 * discover: for each location listed, show an arrow pointing toward the location (only on iOS)

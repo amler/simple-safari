@@ -43,6 +43,7 @@ var LocationDetailView = Parse.View.extend({
 		var location = this.selectedLocation;
 		var Photo = Parse.Object.extend('Photo');
 		var query = new Parse.Query(Photo);
+		query.descending('createdAt');
 		query.equalTo('location', location);
 		query.find({
 			success: function(results) {
