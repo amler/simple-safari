@@ -18,8 +18,10 @@ var LocationDetailView = Parse.View.extend({
 	queryLocations: function(event){
 		if ($(event.currentTarget).text() === this.sectionName) {
 			console.log(userGeo.latitude, userGeo.longitude);
-		}
-	},
+			views.detailLocation.render(id);
+		
+	}
+},
 	subscribedPhoto: function(id) {
 		var that = this;
 		var query = new Parse.Query(Location);
@@ -50,8 +52,7 @@ var LocationDetailView = Parse.View.extend({
 				var templateMethod = _.template($('#location-photolist-template').text());
 				results.forEach(function(photo) {
 					var rendered = templateMethod(photo);
-					$('.subscribed-photolist').append(rendered);
-				
+						$('.subscribed-photolist').append(rendered);				
 				});
 			},
 			error: function(error) {
