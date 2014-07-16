@@ -42,66 +42,68 @@ section {
 
 header {
 	background-color: $green;
-	color: $beige;
-	font-weight: normal;
 	overflow: auto;
 	padding: 15px 0 0 5px;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
-
-	h1 {
-		display: inline-block;
-		font-size: 1.5em;
-		font-family: $sansfont;
-		font-weight: 900;
-		color: $blue;
-		margin: auto;
-		padding: 0px;
-	}
-
-	a {
+	
+	.header-content {
 		color: $beige;
-		text-decoration: none;
-	}
 
-	img {
-		width: 5%;
-		margin:auto;
-	}
+		h1 {
+			display: inline-block;
+			font-size: 1.5em;
+			font-family: $sansfont;
+			font-weight: 900;
+			color: $blue;
+			margin: auto;
+			padding: 0px;
+		}
 
-	p {
-		margin: 20px 0 0 0;
-		padding: 10px 0 0 0;
-	}
-
-	span {
-		color: $blue;
-		font-family: $scriptfont;
-		font-weight: 900;
-		font-size: 30px;
-		margin-top: 20px;
-		text-decoration: none;
-		
-		&:visited {
+		a {
+			color: $beige;
 			text-decoration: none;
 		}
-	}
 
-	.button,
-	button {
-		display: none;
-		margin: 0px 20px 10px 0;
-		padding: 10px;
-		float: right;
-		font-family: $sansfont;
-		font-weight: 300;
-		font-size: 1.5em;
-		background-color: $blue;
-		color: $beige;  
-		border-radius: 5px;
-		text-align: center;
+		img {
+			width: 5%;
+			margin:auto;
+		}
+
+		p {
+			margin: 20px 0 0 0;
+			padding: 10px 0 0 0;
+		}
+
+		span {
+			color: $blue;
+			font-family: $scriptfont;
+			font-weight: 900;
+			font-size: 30px;
+			margin-top: 20px;
+			text-decoration: none;
+			
+			&:visited {
+				text-decoration: none;
+			}
+		}
+
+		.button,
+		button {
+			display: none;
+			margin: 0px 20px 10px 0;
+			padding: 10px;
+			float: right;
+			font-family: $sansfont;
+			font-weight: 300;
+			font-size: 1.5em;
+			background-color: $blue;
+			color: $beige;  
+			border-radius: 5px;
+			text-align: center;
+		}
 	}
 }
 
@@ -288,6 +290,11 @@ header {
 	}
 }
 @media only screen and (max-width : 1290px) and (min-width : 1051px) {
+	.header-content {
+		border: 1px solid red;
+		width: 80%;
+	}
+	
 	.subscribed-photolist,
 	.users-images {
 		li {
