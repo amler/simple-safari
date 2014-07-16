@@ -91,21 +91,23 @@
                <a href="#location/<%=id%>" >
                     <strong><%= attributes.name %></strong>
                     <br />
-                    <%= attributes.description %>
+                    <!--<%= attributes.description %>-->
                 </a>
             </li>
         </script>
 
         <script type="text/template" id="detail-location-template">  
-            <h1 class= "location-detail"> </h1>
+            <div class= "location-detail"> </div>
             <p>Shows photos user has subscribed to.</p>
             <hr />
             <ul class="subscribed-photolist"></ul>
         </script>
 
         <script type= "text/template" id="location-name-template">
-               <%=attributes.name%>  
-        </script>
+                    <h2><%= attributes.name %></h2>
+                
+                    <p><%= attributes.description %></p>
+         </script>
 
         <script type="text/template" id="location-photolist-template">
             <li>
