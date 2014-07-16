@@ -18,7 +18,7 @@ var LocationDetailView = Parse.View.extend({
 	queryLocations: function(event){
 		if ($(event.currentTarget).text() === this.sectionName) {
 			console.log(userGeo.latitude, userGeo.longitude);
-			views.detailLocation.render(id);
+			views.detailLocation.render();
 		
 	}
 },
@@ -28,14 +28,18 @@ var LocationDetailView = Parse.View.extend({
 		query.equalTo('objectId', id);
 		query.find({
 			success: function(results) {
+				var templateMethod = _.template($('#location-name-template').text());
 				results.forEach(function(location){
 					that.selectedLocation = location;
 					that.queryLocationPhotos();
 					that.render();
-					map.addMarker(1, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
-					map.zoomMapToFitAllMarkers();
-				});
-			},
+					var rendered = templateMethod(location);
+						$('.location-detail').append(rendered);
+						map.deleteMarker(0);
+						map.addMarker(1, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
+						map.zoomMapToFitAllMarkers();
+					});
+				},
 			error: function(error) {
 				console.log('Error: ' + error.code + ' ' + error.message);
 			}
@@ -52,9 +56,10 @@ var LocationDetailView = Parse.View.extend({
 				var templateMethod = _.template($('#location-photolist-template').text());
 				results.forEach(function(photo) {
 					var rendered = templateMethod(photo);
-						$('.subscribed-photolist').append(rendered);				
-				});
-			},
+						$('.subscribed-photolist').append(rendered);	
+				
+					});
+				},
 			error: function(error) {
 				console.log(error);
 			}

@@ -138,6 +138,7 @@ var AppRouter = Parse.Router.extend({
 		changeLayout(false, true);
 		views.locationDetail.subscribedPhoto(id);
 		
+		
 	},
 	logout: function(){
 		Parse.User.logOut();
