@@ -37,14 +37,14 @@
 1. unit testing: write a test confirming the helper.getDistance function is working
 2. Heather: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
 3. Addd validation so user can only upload images.
-4. Remove all controls from google maps disable paning
-5. Go throught the pages and get rid of bad copy.
-6. Tasha: Location Detail viewquerylocation never being fired.
-7. Get menu to animate sliding in/out smoothly.
-8. Add left and top padding to menu.
-9. Add description field to location data, then add description everywhere location is listed.
-10. Install bourbon and clean up scss for browser prefix.
-11. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+4. Go throught the pages and get rid of bad copy.
+5. Tasha: Location Detail viewquerylocation never being fired.
+6. Get menu to animate sliding in/out smoothly.
+7. Add left and top padding to menu.
+8. Add description field to location data, then add description everywhere location is listed.
+9. Install bourbon and clean up scss for browser prefix.
+10. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+11. Sharing to social media sites.
 
 Future Features: 
 * Get markers linkable

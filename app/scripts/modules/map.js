@@ -12,6 +12,9 @@ function Map (elementID) {
     var mapOptions = {
         zoom: 13,
         center: greenville,
+        disableDefaultUI: true,
+        panControl: false,
+        draggable: false
     };
     this.map = new google.maps.Map(document.getElementById(elementID), mapOptions);
     this.addMarker(0, 34.853738, -82.395618);
