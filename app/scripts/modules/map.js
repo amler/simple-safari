@@ -75,3 +75,8 @@ Map.prototype.zoomMapToFitAllMarkers = function() {
     }
     this.map.fitBounds(bounds);
 };
+
+Map.prototype.redraw = function() {
+    google.maps.event.trigger(this.map, 'resize');
+    this.map.setZoom( this.map.getZoom() );
+};

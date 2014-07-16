@@ -34,7 +34,8 @@
 
 # Todos
  
-1. Tasha: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
+1. Heather: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
+2. Tasha: Location DEtail viewquerylocation never being fired.
 2. Get menu to animate sliding in/out smoothly.
 3. Add left and top padding to menu.
 4. Add description field to location data, then add description everywhere location is listed.

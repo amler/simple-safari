@@ -1,5 +1,5 @@
 'use strict';
-/* global Photo, Location, userGeo */
+/* global Photo, Location, userGeo, map */
 
 var LocationDetailView = Parse.View.extend({
 	el: '#view',
@@ -46,7 +46,6 @@ var LocationDetailView = Parse.View.extend({
 		query.equalTo('location', location);
 		query.find({
 			success: function(results) {
-				console.log('this is a success: ', results);
 				var templateMethod = _.template($('#location-photolist-template').text());
 				results.forEach(function(photo) {
 					var rendered = templateMethod(photo);

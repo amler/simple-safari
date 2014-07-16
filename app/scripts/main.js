@@ -52,6 +52,7 @@ function changeLayout(showLogin, showMap){
 	if (showMap === true) {
 		//show map
 		$('#map-container').show();
+		map.redraw();
 	} else {
 		// hide map
 		$('#map-container').hide();
