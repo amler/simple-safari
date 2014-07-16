@@ -1,55 +1,7 @@
 @import "variables";
 
-a {
-		display: block;
-		text-decoration: underline;
-	}
-
-body {
-	overflow-x: hidden;
-	position: relative;
-
-
-	// -webkit-transition: left 0.3s ease;
-	// 	    transition: left 0.3s ease;
-
-	&.show-menu {
-		left: -200px;
-		text-align: center;
-
-		a {
-			color: $beige;
-		}
-		
-		nav {
-			right: 0;
-			background-color: $blue;
-			color: $beige;
-
-			
-				li {
-					/*border: 1px solid $brown;*/
-					background-color: $green;
-					color: $beige;
-					font-size: 20px;
-					display: block;
-					margin: 5px 10px 5px 5px;
-					padding: 15px;
-					text-align: center;
-				}
-			}
-		}
-	}	
-}
-
-section {
-	background: $beige;
-	color: $blue;
-	padding: 20px;
-}
-
 nav {
-	background-color: #eee;
+	background-color: $blue;
 	height: 100%;
 	position: fixed;
 	top: 0;
@@ -59,6 +11,34 @@ nav {
 	-webkit-transition: right 0.3s ease;
 		    transition: right 0.3s ease;
 }
+
+body {
+	background: $beige;
+	overflow-x: hidden;
+	position: relative;
+
+	//move body on menu
+	&.show-menu {
+		left: -200px;
+		-webkit-transition: left 0.3s ease;
+			    transition: left 0.3s ease;
+
+		nav {
+			right: 0;
+		}
+	}	
+}
+
+/* views render in section #view
+================================================== */
+section {
+	color: $brown;
+	padding: 20px;
+}
+
+/* views render in section #view
+================================================== */
+
 
 header {
 	background-color: $green;
@@ -71,7 +51,6 @@ header {
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
 
-
 	h1 {
 		display: inline-block;
 		font-size: 1.5em;
@@ -83,10 +62,8 @@ header {
 	}
 
 	a {
-	
 		color: $beige;
 		text-decoration: none;
-
 	}
 
 	img {
@@ -111,6 +88,7 @@ header {
 			text-decoration: none;
 		}
 	}
+
 	.button,
 	button {
 		display: none;
@@ -181,7 +159,7 @@ header {
 	margin: 20px auto;
 	overflow: hidden;
 
-.login-container {
+	.login-container {
 		border: 3px solid $blue;
 		border-radius: 5px;
 		margin: auto;
