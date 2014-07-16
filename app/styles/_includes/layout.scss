@@ -1,5 +1,64 @@
 @import "variables";
 
+a {
+		display: block;
+		text-decoration: underline;
+	}
+
+body {
+	overflow-x: hidden;
+	position: relative;
+
+
+	// -webkit-transition: left 0.3s ease;
+	// 	    transition: left 0.3s ease;
+
+	&.show-menu {
+		left: -200px;
+		text-align: center;
+
+		a {
+			color: $beige;
+		}
+		
+		nav {
+			right: 0;
+			background-color: $blue;
+			color: $beige;
+
+			
+				li {
+					/*border: 1px solid $brown;*/
+					background-color: $green;
+					color: $beige;
+					font-size: 20px;
+					display: block;
+					margin: 5px 10px 5px 5px;
+					padding: 15px;
+					text-align: center;
+				}
+			}
+		}
+	}	
+}
+
+section {
+	background: $beige;
+	color: $blue;
+	padding: 20px;
+}
+
+nav {
+	background-color: #eee;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: -200px;
+	width: 200px;
+	z-index: 10;
+	-webkit-transition: right 0.3s ease;
+		    transition: right 0.3s ease;
+}
 
 header {
 	background-color: $green;
@@ -54,105 +113,43 @@ header {
 	}
 	.button,
 	button {
-		  	
-		  	display: none;
-			margin: 0px 20px 10px 0;
-			padding: 10px;
-			float: right;
-			font-family: $sansfont;
-            font-weight: 300;
-            font-size: 1.5em;
-			background-color: $blue;
-			color: $beige;  
-			border-radius: 5px;
-			text-align: center;
-
+		display: none;
+		margin: 0px 20px 10px 0;
+		padding: 10px;
+		float: right;
+		font-family: $sansfont;
+		font-weight: 300;
+		font-size: 1.5em;
+		background-color: $blue;
+		color: $beige;  
+		border-radius: 5px;
+		text-align: center;
 	}
-
 }
 
+/* Map
+================================================== */
 #map-container {
-	
 	background-color: #ccc;
 	display: none;
 	height: 300px;
 	width: 100%;
 }
 
-section {
-	background: $beige;
-	color: $blue;
-	padding: 20px;
-}
-
-nav {
-	background-color: #eee;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	right: -200px;
-	width: 200px;
-	z-index: 10;
-	// -webkit-transition: right 0.3s ease;
-	// 	    transition: right 0.3s ease;
-}
-
-body {
-	overflow-x: hidden;
-	position: relative;
-
-
-	// -webkit-transition: left 0.3s ease;
-	// 	    transition: left 0.3s ease;
-
-	&.show-menu {
-		left: -200px;
-		text-align: center;
-
-		a {
-			color: $beige;
-		}
-		
-		nav {
-			right: 0;
-			background-color: $blue;
-			color: $beige;
-
-			
-				li {
-                    /*border: 1px solid $brown;*/
-                    background-color: $green;
-                    color: $beige;
-                    font-size: 20px;
-                    display: block;
-                    margin: 5px 10px 5px 5px;
-                    padding: 15px;
-                    text-align: center;
-                }
-            }
-		}
-	}
-	
-
-
-.input-error {
-	background-color: rgb(247, 226, 226) !important;
-	border-color: red !important;
-}
-
+/* Forms
+================================================== */
 .signup-form-container {
 	margin: 20px auto;
 	overflow: hidden;
 
-.signup-container {
+
+	.signup-container {
 		border: 3px solid $blue;
 		border-radius: 5px;
 		margin: auto;
 		padding: 20px;
 		overflow: auto;
 		width: 300px;
-
-
 
 		h2 {
 			text-align: center;
@@ -251,10 +248,74 @@ body {
 		width: 20%;
 		text-align: center;
 	}
+}
+
+/* Forms - Error for empty inputs
+================================================== */
+.input-error {
+	background-color: rgb(247, 226, 226) !important;
+	border-color: red !important;
+}
+
+/* Photo Gallery CSS & Media Queries
+================================================== */
+.subscribed-photolist,
+.users-images {
+
+	li {
+		border: 1px solid #333;
+		color: #FFF;
+		float: left;
+		padding-bottom: 25%;
+		position: relative;
+		width: 25%;
+	}
 
 	a {
-		display: block;
-		text-decoration: underline;
+		background: #66F;
+		bottom: 10px;
+		left: 10px;
+		overflow: hidden;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
+}
+
+@media only screen and (max-width : 480px) {
+	.subscribed-photolist,
+	.users-images {
+		li {
+			padding-bottom: 100%;
+			width: 100%;
+		}
+	}
+}
+@media only screen and (max-width : 650px) and (min-width : 481px) {
+	.subscribed-photolist,
+	.users-images {
+		li {
+			padding-bottom: 50%;
+			width: 50%;
+		}
+	}
+}
+@media only screen and (max-width : 1050px) and (min-width : 651px) {
+	.subscribed-photolist,
+	.users-images {
+		li {
+			padding-bottom: 33.3%;
+			width: 33.3%;
+		}
+	}
+}
+@media only screen and (max-width : 1290px) and (min-width : 1051px) {
+	.subscribed-photolist,
+	.users-images {
+		li {
+			padding-bottom: 25%;
+			width: 25%;
+		}
 	}
 }
 

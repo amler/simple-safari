@@ -1,15 +1,41 @@
 'use strict';
-/* global menu, DashboardView, DiscoverView, SafarisView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo */
-
-Parse.initialize('tST7HFW9NWFhy9y9fan8kOYqFEy5TVFyV32XV3zk', 'xBNOXQU66455p4QokthOKO8ZLDx5oo0ACV52xuBg');
+/* global menu, DashboardView, DiscoverView, SafarisView, SafariDetailView, LoginView, SignUpView, ForgotPasswordView, HomeView, Map, userGeo, ScavengerHuntsCollection, LocationsCollection, ScavengerHunt, Location, LoadingView, Photo, PhotoDetailView, UserPhotosView, LocationDetailView */
 
 var map = new Map('map-container');
 
 menu.init();
 
+var collections = {
+	scavengerHunts:	new ScavengerHuntsCollection(),
+	locations:		new LocationsCollection()
+};
+
+var models = {
+	scavengerHunt:	new ScavengerHunt(),
+	huntLocation:	new Location(),
+	photo:			new Photo()
+};
+
+var views = {
+	dashboard:		new DashboardView(),
+	discover:		new DiscoverView(),
+	forgotPassword:	new ForgotPasswordView(),
+	home:			new HomeView(),
+	loading:		new LoadingView(),
+	locationDetail: new LocationDetailView(),
+	login:			new LoginView(),
+	photoDetail:	new PhotoDetailView(),
+	userPhoto:		new UserPhotosView(),
+	safaris:		new SafarisView(),
+	safariDetail:	new SafariDetailView(),
+	signup:			new SignUpView()
+	
+};
 
 function changeLayout(showLogin, showMap){
 	menu.hide();
+	views.loading.render();
+	map.deleteAllMarkers();
 	userGeo.clearWatchLocation();
 	if (showLogin === true) {
 		// show login button
@@ -32,20 +58,9 @@ function changeLayout(showLogin, showMap){
 	}
 }
 
-var views = {
-	dashboard:		new DashboardView(),
-	discover:		new DiscoverView(),
-	forgotPassword:	new ForgotPasswordView(),
-	home:			new HomeView(),
-	login:			new LoginView(),
-	safaris:		new SafarisView(),
-	signup:			new SignUpView(),
-};
-
 ////////////////////////
 // Router
 ////////////////////////
-
 var AppRouter = Parse.Router.extend({
 	routes: {
 		''					: 'home',
@@ -53,19 +68,20 @@ var AppRouter = Parse.Router.extend({
 		'signup'			: 'signup',
 		'forgot-password'	: 'forgotPassword',
 		'safaris'			: 'safaris',
+		'safari/:name'		: 'safariDetail',
+		'photo/:id'			: 'photoDetail',
+		'photos'			: 'photoThumbnails',
 		'discover'			: 'discover',
+		'location/:id'		: 'locationDetail',
 		'*actions'			: 'logout'
 	},
-
 	home: function(){
 		var currentUser = Parse.User.current();
 		if (currentUser){
 			changeLayout(false, true);
 			views.dashboard.render();
 			userGeo.findLocation();
-			// query nearby scavhunts
-			// when you get hunts results update map
-			// update list of scavenger hunts
+
 		} else {
 			changeLayout(true, false);
 			views.home.render();
@@ -86,20 +102,41 @@ var AppRouter = Parse.Router.extend({
 	safaris: function(){
 		changeLayout(false, false);
 		views.safaris.render();
-		userGeo.findLocation();
 		// show list of all scavengerhunts you've joined
-
+		// user needs to join a safari
+	},
+	photoDetail: function(id) {
+		changeLayout(false, true);
+		views.photoDetail.findPhoto(id);
+	},
+	photoThumbnails: function() {
+		changeLayout(false, false);	
+		views.userPhoto.render();
+	},
+	safariDetail: function(id){
+		changeLayout(false, true);
+		var selectedHunt = id;
+		var query = new Parse.Query(ScavengerHunt);
+		query.equalTo('objectId', selectedHunt);
+		query.find({
+			success: function(results) {
+				results.forEach(function(hunt) {
+					views.safariDetail.render(hunt);
+				});
+			},
+			error: function(error) {
+				alert('Router/safariDetail Error: ' + error.code + ' ' + error.message);
+			}
+		});
 	},
 	discover: function(){
 		changeLayout(false, true);
 		views.discover.render();
-		userGeo.findLocation();
-		// get users location
-		// query nearby locations
-		// when you get location results update map
-		// update list of nearby locations
 	},
-
+	locationDetail: function(id){
+		changeLayout(false, true);
+		views.locationDetail.subscribedPhoto(id);
+	},
 	logout: function(){
 		Parse.User.logOut();
 		window.router.navigate('login',{trigger:true});
@@ -108,4 +145,3 @@ var AppRouter = Parse.Router.extend({
 
 var router = new AppRouter();
 Parse.history.start();
-
