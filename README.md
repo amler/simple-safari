@@ -33,13 +33,18 @@
 * http://www.raymondcamden.com/2013/5/20/Capturing-camerapicture-data-without-PhoneGap
 
 # Todos
- 
-1. Tasha: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
-2. Get menu to animate sliding in/out smoothly.
-3. Add left and top padding to menu.
-4. Add description field to location data, then add description everywhere location is listed.
-5. Install bourbon and clean up scss for browser prefix.
-6. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+
+1. unit testing: write a test confirming the helper.getDistance function is working
+2. Heather: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
+3. Addd validation so user can only upload images.
+4. Go throught the pages and get rid of bad copy.
+5. Tasha: Location Detail viewquerylocation never being fired.
+6. Get menu to animate sliding in/out smoothly.
+7. Add left and top padding to menu.
+8. Add description field to location data, then add description everywhere location is listed.
+9. Install bourbon and clean up scss for browser prefix.
+10. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+11. Sharing to social media sites.
 
 Future Features: 
 * Get markers linkable

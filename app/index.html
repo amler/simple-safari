@@ -144,7 +144,7 @@
         </script>
 
         <script type="text/template" id="location-item-template">
-            <li>
+            <li data-latitude="<%= attributes.geolocation._latitude %>" data-longitude="<%= attributes.geolocation._longitude %>">
                 <strong><%= attributes.name %></strong>
                 <br />
                 <%= attributes.description %>
