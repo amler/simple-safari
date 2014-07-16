@@ -91,17 +91,23 @@
                <a href="#location/<%=id%>" >
                     <strong><%= attributes.name %></strong>
                     <br />
-                    <%= attributes.description %>
+                    <!--<%= attributes.description %>-->
                 </a>
             </li>
         </script>
 
         <script type="text/template" id="detail-location-template">  
-            <h2>Locations Detail View</h2>
+            <div class= "location-detail"> </div>
             <p>Shows photos user has subscribed to.</p>
             <hr />
             <ul class="subscribed-photolist"></ul>
         </script>
+
+        <script type= "text/template" id="location-name-template">
+                    <h2><%= attributes.name %></h2>
+                
+                    <p><%= attributes.description %></p>
+         </script>
 
         <script type="text/template" id="location-photolist-template">
             <li>
@@ -115,6 +121,7 @@
             <h2>Safaris View</h2>
             <p>Listing of safaris subscribed to.</p>
             <ul class="users-scavengerhunt-list"></ul>
+            <button class="CTA-button">subscribe to a local safari</button>
         </script>
 
         <script type="text/template" id="safaris-listing-template">
