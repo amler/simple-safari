@@ -16,6 +16,7 @@ var UserPhotosView = Parse.View.extend({
 		var user = Parse.User.current();
 		var Photo = Parse.Object.extend('Photo');
 		var query = new Parse.Query(Photo);
+		query.descending('createdAt');
 		query.equalTo('user', user);
 		query.find({
 			success: function(object) {
