@@ -60,6 +60,7 @@ var DiscoverView = Parse.View.extend({
 	},
 	userLocated: function(event) {
 		if ($(event.currentTarget).text() === this.sectionName) {
+			this.addLocations();
 			this.userLocationUpdated();
 			userGeo.watchLocation();
 		}
@@ -69,14 +70,23 @@ var DiscoverView = Parse.View.extend({
 			this.userLocationUpdated();
 		}
 	},
-	userLocationUpdated: function() {
+	addLocations: function() {
 		var templateMethod = _.template($('#location-item-template').text());
 		$('.nearby-safaris').empty();
 		this.locations.forEach(function(location) {
-			var distance = helper.getDistance(userGeo.latitude, userGeo.longitude, location.attributes.geolocation._latitude, location.attributes.geolocation._longitude);
+			var rendered = templateMethod(location);
+			$('.nearby-safaris').append(rendered);
+		});
+	},
+	userLocationUpdated: function() {
+		$('.nearby-safaris').find('li').each(function(){
+			var latitude = $(this).data('latitude');
+			var longitude = $(this).data('longitude');
+			var distance = helper.getDistance(userGeo.latitude, userGeo.longitude, latitude, longitude);
 			if (distance <= 0.05) {
-				var rendered = templateMethod(location);
-				$('.nearby-safaris').append(rendered);
+				$(this).show();
+			} else {
+				$(this).hide();
 			}
 		});
 	},
