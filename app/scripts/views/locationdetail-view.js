@@ -1,5 +1,5 @@
 'use strict';
-/* global Photo, Location, userGeo */
+/* global Photo, Location, userGeo, map */
 
 var LocationDetailView = Parse.View.extend({
 	el: '#view',
