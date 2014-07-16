@@ -5,29 +5,34 @@ nav {
 	height: 100%;
 	position: fixed;
 	top: 0;
+	// margin-right: -200px;
 	right: -200px;
 	width: 200px;
 	z-index: 10;
-	-webkit-transition: right 0.3s ease;
-		    transition: right 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+		    transition: all 0.3s ease;
 }
 
 body {
 	background: $beige;
 	overflow-x: hidden;
 	position: relative;
+	width: 100%;
+	-webkit-transition: all 0.3s ease;
+		    transition: all 0.3s ease;
 
 	//move body on menu
-	&.show-menu {
-		left: -200px;
-		-webkit-transition: left 0.3s ease;
-			    transition: left 0.3s ease;
-
-		nav {
-			right: 0;
-		}
-	}	
 }
+
+.show-menu {
+	// background-color: $blue;
+
+	margin-left: -200px;
+
+	nav {
+		right: 0;
+	}
+}	
 
 /* views render in section #view
 ================================================== */
@@ -39,11 +44,11 @@ section {
 /* views render in section #view
 ================================================== */
 
-
 header {
 	background-color: $green;
 	overflow: auto;
 	padding: 15px 0 0 5px;
+	position: relative;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
