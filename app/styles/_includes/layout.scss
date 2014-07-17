@@ -1,4 +1,8 @@
 @import "variables";
+h1, h2, h3 {
+	font-family: $sansfont;
+	color: $blue;
+}
 
 nav {
 	background-color: $blue;
@@ -14,6 +18,7 @@ nav {
 
 body {
 	background: $beige;
+	font-family: $sansfont;
 	overflow-x: hidden;
 	position: relative;
 	width: 100%;
