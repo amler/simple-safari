@@ -114,11 +114,10 @@
          </script>
 
         <script type="text/template" id="location-photolist-template">
-            <li>
-                <a href="#photo/<%=id%>">
-                    <img class="photo-detail" src="<%= attributes.photoURL %>">
-                </a>
-            </li>
+       
+            <a class="photo-detail" href="#photo/<%=id%>" >
+                <li style="background-image: url(<%= attributes.photoURL %>)"></li>
+            </a>
         </script>
         
         <script type="text/template" id="safaris-view-template">
@@ -174,11 +173,9 @@
         </script>
 
         <script type="text/template" id="userimage-thumbnail-template">
-            <li>
-                <a href="#photo/<%=id%>" >
-                    <img class="photo-detail"  src="<%= attributes.photoURL %>">
-                </a>
-            </li>
+            <a class="photo-detail" href="#photo/<%=id%>" >
+                <li style="background-image: url(<%= attributes.photoURL %>)"></li>
+            </a>
         </script>
 
         <script type="text/template" id="signup-view-template">

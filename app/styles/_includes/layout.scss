@@ -111,19 +111,40 @@ header {
 /* Right-Menu Style
 ================================================== */
 .right-menu {
+
 	h3 {
-		text-align: center;
-		margin: 20px;
+		color: #afdefa;
+		font-family: $sansfont;
+		font-size: 1.9em;
+		padding: 20px;
+		margin: 0;
+		font-weight: 900;
+		background: #0d77b6;
 	}
-	a {
-		background-color: #f08;
-		color: $beige;
-		display: block;
-	    font-size: 1.5em;
-		
-		text-decoration: none;
-		border-bottom: 1px solid #258ecd;
-	    padding: 1em;
+
+	li {
+		margin: 0;
+		font-family: $sansfont;
+
+		a {
+			border-bottom: 1px solid #258ecd;
+			color: $beige;
+			display: block;
+			font-size: 1.5em;
+			margin: 0;
+			padding: 1em;
+			text-decoration: none;
+
+			&:hover {
+				background-color: $green;
+				color: $blue;
+			}
+
+			&:active {
+				background-color: $green;
+				color: $blue;
+			}
+		}
 	}
 }
 
@@ -143,7 +164,7 @@ header {
 	overflow: hidden;
 
 	.signup-container {
-		border: 3px solid $blue;
+		border: 1px solid $blue;
 		border-radius: 5px;
 		margin: auto;
 		padding: 20px;
@@ -181,12 +202,12 @@ header {
 	overflow: hidden;
 
 	.login-container {
-		border: 3px solid $blue;
+		border: 1px solid $blue;
 		border-radius: 5px;
 		margin: auto;
 		padding: 20px;
 		overflow: auto;
-		width: 300px;
+		width: 240px;
 
 		h2 {
 			text-align: center;
@@ -262,14 +283,16 @@ header {
 .users-images {
 
 	li {
-		border: 1px solid #333;
+		// border: 1px solid #333;
 		color: #FFF;
 		float: left;
 		position: relative;
-		height: 230px;
 		width: 23%;
+		height: 230px;
 		margin-right: 1%;
 		overflow: hidden;
+		background-size: cover;
+		background-position: center center;
 		// padding-bottom: 25%;
 	}
 
@@ -280,6 +303,10 @@ header {
 		// position: absolute;
 		// right: 10px;
 		// top: 10px;
+
+		img {
+			display: block;
+		}
 	}
 }
 
@@ -292,25 +319,25 @@ header {
 		}
 	}
 }
-@media only screen and (max-width : 650px) and (min-width : 481px) {
+@media only screen and (min-width : 481px) {
 	.subscribed-photolist,
 	.users-images {
 		li {
 			// padding-bottom: 50%;
-			width: 50%;
+			width: 48%;
 		}
 	}
 }
-@media only screen and (max-width : 1050px) and (min-width : 651px) {
+@media only screen and (min-width : 700px) {
 	.subscribed-photolist,
 	.users-images {
 		li {
 			// padding-bottom: 33.3%;
-			width: 33.3%;
+			width: 32.3%;
 		}
 	}
 }
-@media only screen and (max-width : 1290px) and (min-width : 1051px) {
+@media only screen and (min-width : 1051px) {
 	.header-content {
 		border: 1px solid red;
 		width: 80%;
@@ -320,7 +347,7 @@ header {
 	.users-images {
 		li {
 			// padding-bottom: 25%;
-			width: 25%;
+			width: 24%;
 		}
 	}
 }

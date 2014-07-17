@@ -39,7 +39,7 @@ function changeLayout(showLogin, showMap){
 	userGeo.clearWatchLocation();
 	if (showLogin === true) {
 		// show login button
-		$('header .button').show();
+		// $('header .button').show();
 		// hide menu button
 		$('header button').hide();
 	} else {
