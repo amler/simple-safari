@@ -5,7 +5,6 @@ nav {
 	height: 100%;
 	position: fixed;
 	top: 0;
-	// margin-right: -200px;
 	right: -200px;
 	width: 200px;
 	z-index: 10;
@@ -20,13 +19,9 @@ body {
 	width: 100%;
 	-webkit-transition: all 0.3s ease;
 		    transition: all 0.3s ease;
-
-	//move body on menu
 }
 
 .show-menu {
-	// background-color: $blue;
-
 	margin-left: -200px;
 
 	nav {
@@ -46,6 +41,7 @@ section {
 
 header {
 	background-color: $green;
+	height: 100px;
 	overflow: auto;
 	padding: 15px 0 0 5px;
 	position: relative;
@@ -56,15 +52,15 @@ header {
 	
 	.header-content {
 		color: $beige;
+		margin: 0 auto;
+		width: 80%;
 
 		h1 {
 			display: inline-block;
-			font-size: 1.5em;
+			font-size: 2em;
 			font-family: $sansfont;
 			font-weight: 900;
 			color: $blue;
-			margin: auto;
-			padding: 0px;
 		}
 
 		a {
@@ -73,8 +69,8 @@ header {
 		}
 
 		img {
-			width: 5%;
-			margin:auto;
+			margin: 5px;
+			width: 70px;
 		}
 
 		p {
@@ -112,6 +108,25 @@ header {
 	}
 }
 
+/* Right-Menu Style
+================================================== */
+.right-menu {
+	h3 {
+		text-align: center;
+		margin: 20px;
+	}
+	a {
+		background-color: #f08;
+		color: $beige;
+		display: block;
+	    font-size: 1.5em;
+		
+		text-decoration: none;
+		border-bottom: 1px solid #258ecd;
+	    padding: 1em;
+	}
+}
+
 /* Map
 ================================================== */
 #map-container {
@@ -126,7 +141,6 @@ header {
 .signup-form-container {
 	margin: 20px auto;
 	overflow: hidden;
-
 
 	.signup-container {
 		border: 3px solid $blue;
@@ -251,19 +265,21 @@ header {
 		border: 1px solid #333;
 		color: #FFF;
 		float: left;
-		padding-bottom: 25%;
 		position: relative;
-		width: 25%;
+		height: 230px;
+		width: 23%;
+		margin-right: 1%;
+		overflow: hidden;
+		// padding-bottom: 25%;
 	}
 
 	a {
-		background: #66F;
-		bottom: 10px;
-		left: 10px;
-		overflow: hidden;
-		position: absolute;
-		right: 10px;
-		top: 10px;
+		background: red;
+		// bottom: 100px;
+		// left: 10px;
+		// position: absolute;
+		// right: 10px;
+		// top: 10px;
 	}
 }
 
@@ -271,7 +287,7 @@ header {
 	.subscribed-photolist,
 	.users-images {
 		li {
-			padding-bottom: 100%;
+			// padding-bottom: 100%;
 			width: 100%;
 		}
 	}
@@ -280,7 +296,7 @@ header {
 	.subscribed-photolist,
 	.users-images {
 		li {
-			padding-bottom: 50%;
+			// padding-bottom: 50%;
 			width: 50%;
 		}
 	}
@@ -289,7 +305,7 @@ header {
 	.subscribed-photolist,
 	.users-images {
 		li {
-			padding-bottom: 33.3%;
+			// padding-bottom: 33.3%;
 			width: 33.3%;
 		}
 	}
@@ -303,9 +319,8 @@ header {
 	.subscribed-photolist,
 	.users-images {
 		li {
-			padding-bottom: 25%;
+			// padding-bottom: 25%;
 			width: 25%;
 		}
 	}
 }
-
