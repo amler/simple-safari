@@ -1,6 +1,7 @@
 @import "variables";
 h1, h2, h3 {
 	font-family: $sansfont;
+	font-weight: 900px;
 	color: $blue;
 }
 
@@ -34,11 +35,83 @@ body {
 	}
 }	
 
+/* Home page wrap
+================================================== */
+.homepage-wrap {
+	background-image: url("http://upload.wikimedia.org/wikipedia/commons/f/f7/Soho_-_map_1.png");
+	opacity: 0.5;
+	padding: 0%;
+	height: 300px;
+	width: 100%;
+	
+	h2 {
+		text-align: center;
+		
+	}
+
+}
+
+.button {
+     	background-color: $blue;
+        border-radius: 5px;
+        display: block;
+        font-family: $sansfont;
+        font-weight: 400;
+        font-size: 1.5em;
+        margin: 20px auto 20px;
+        padding: 25px;
+        width: 20%;
+        text-align: center;
+        z-index: -10px;
+}
+
+
+.container {
+	padding: 20px;
+}
+
+
+.paragraph-container {
+	padding: 20px;
+
+
+	h4 {
+		text-align: center;
+		font-size: 40px;
+		color: $blue;
+	}
+
+	p {
+		height: 20px;
+		width: 50%;
+		font-size: 15px;
+		margin-top: 50px;
+	}
+	
+	img {
+		padding: 50px;
+		height: 400px;
+	}	
+}
+
+.footer {
+    background-color: $brown;
+    height: 100px;
+}
+
+
+
+
+
+
+
+
+
 /* views render in section #view
 ================================================== */
+
 section {
 	color: $brown;
-	padding: 20px;
 }
 
 /* views render in section #view

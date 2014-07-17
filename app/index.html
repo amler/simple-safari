@@ -48,7 +48,7 @@
             </header>
             <div id="map-container"></div>
             <section id="view"></section>
-        </main>
+       </main>
         <nav class="right-menu">
             <h3>Menu</h3>
             <ul>
@@ -62,9 +62,20 @@
 
         <!-- Template Scripts -->
         <script type="text/template" id="home-view-template">
-            <h2>Welcome to Selfie Safari</h2>
-            <p>Join the party and start a safari!</p>
-            <p><a href="#/signup" class="button">Sign Up!</a></p>
+            <div class= "homepage-wrap">
+                <class="container">    
+                <h2>Welcome to Selfie Safari</h2>
+                <p><a href="#/signup" class="button">Sign Up!</a></p>
+            </div>
+            </div>
+            <div class="paragraph-container">
+                <h4>Discover and Play</h4>
+                <p>Do you like exploring new gems and creating memories?  If so, you are in the right place.  SelfieSafari takes you on an exciting journey about the town.  Our app controls the organizational data needed for each safari, allowing each player to focus on user interaction and gameplay.   </p>
+                     <img src="http://www.iclarified.com/images/news/37828/163366/163366.png">
+                 
+                    <img src="https://makeitpossible.net/portafolio/html/images/iphone5.png">
+            </div>
+            <div class="footer"></div>
         </script>
 
         <script type="text/template" id="loading-view-template">
@@ -72,9 +83,11 @@
         </script>
 
         <script type="text/template" id="dashboard-view-template">
-            <h2>Dashboard View</h2>
-            <p>Listing of nearby safaries</p>
-            <ul class="nearby-safaris"></ul>
+            <div class="container">
+                <h2>Dashboard View</h2>
+                <p>Listing of nearby safaries</p>
+                <ul class="nearby-safaris"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="hunt-item-template">
@@ -87,12 +100,14 @@
         </script>
 
         <script type="text/template" id="safaridetail-view-template">
-            <h2><%= attributes.name %></h2>
-            <p><%= attributes.description %></p>
-            <button class="subscribe-scavengerhunt" style="display:none;">Subscribe</button>
-            <button class="unsubscribe-scavengerhunt" style="display:none;">Unsubscribe</button>
-            <hr/>
-            <ul class="selected-safari-locations"></ul>
+            <div class="container">
+                <h2><%= attributes.name %></h2>
+                <p><%= attributes.description %></p>
+                <button class="subscribe-scavengerhunt" style="display:none;">Subscribe</button>
+                <button class="unsubscribe-scavengerhunt" style="display:none;">Unsubscribe</button>
+                <hr/>
+                <ul class="selected-safari-locations"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="location-listing-template">
@@ -102,29 +117,32 @@
         </script>
 
         <script type="text/template" id="detail-location-template">  
-            <div class= "location-detail"> </div>
-            <p>Shows photos user has subscribed to.</p>
-            <hr />
-            <ul class="subscribed-photolist"></ul>
+            <div class="container">
+                <div class= "location-detail"> </div>
+                <p>Shows photos user has subscribed to.</p>
+                <hr />
+                <ul class="subscribed-photolist"></ul>
+            </div>
         </script>
 
-        <script type= "text/template" id="location-name-template">
-            <h2><%= attributes.name %></h2>
-            <p><%= attributes.description %></p>
+        <script type= "text/template" id="location-name-template">   
+                <h2><%= attributes.name %></h2>
+                <p><%= attributes.description %></p>
          </script>
 
         <script type="text/template" id="location-photolist-template">
-       
             <a class="photo-detail" href="#photo/<%=id%>" >
                 <li style="background-image: url(<%= attributes.photoURL %>)"></li>
             </a>
         </script>
         
         <script type="text/template" id="safaris-view-template">
-            <h2>Safaris View</h2>
-            <p>Listing of safaris subscribed to.</p>
-            <ul class="users-scavengerhunt-list"></ul>
-            <button class="CTA-button">subscribe to a local safari</button>
+            <div class="container">
+                <h2>Safaris View</h2>
+                <p>Listing of safaris subscribed to.</p>
+                <ul class="users-scavengerhunt-list"></ul>
+                <button class="CTA-button">subscribe to a local safari</button>
+            </div>
         </script>
 
         <script type="text/template" id="safaris-listing-template">
@@ -138,10 +156,12 @@
         </script>
 
         <script type="text/template" id="discover-view-template">
-            <h2>Discover View</h2>
-            <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
-            <hr />
-            <ul class="nearby-safaris"></ul>
+            <div class="container">
+                <h2>Discover View</h2>
+                <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
+                <hr />
+                <ul class="nearby-safaris"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="location-item-template">
@@ -157,8 +177,10 @@
         </script>
 
         <script type="text/template" id="photodetail-view-template">
-            <h1 class="photodetail-location-name"></h1>
-            <img class="photo-detail"  src="<%= attributes.photoURL %>">
+            <div class="container">
+                <h1 class="photodetail-location-name"></h1>
+                <img class="photo-detail"  src="<%= attributes.photoURL %>">
+            </div>
         </script>
 
         <script type="text/template" id="fetched-location-template">
@@ -166,10 +188,12 @@
         </script>
 
         <script type="text/template" id="userphotos-view-template">
-            <h2>User Photos View</h2>
-            <p>Shows photos user has posted.</p>
-            <hr />
-            <ul class="users-images"></ul>
+            <div class="container">    
+                <h2>User Photos View</h2>
+                <p>Shows photos user has posted.</p>
+                <hr />
+                <ul class="users-images"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="userimage-thumbnail-template">
