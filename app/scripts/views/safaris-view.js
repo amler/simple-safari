@@ -26,8 +26,8 @@ var SafarisView = Parse.View.extend({
 					$('.users-scavengerhunt-list').append(rendered);
 				});
 			},
-			error: function(error) {
-				alert('User ScavengerHunt error: ', error);
+			error: function(error, results) {
+
 			}
 		});
 	},
@@ -41,6 +41,7 @@ var SafarisView = Parse.View.extend({
 				results.forEach(function(hunt){
 					that.selectedHunt = hunt;
 					that.unsubscribe();
+
 				});
 			},
 			error: function(error) {
@@ -56,3 +57,5 @@ var SafarisView = Parse.View.extend({
 		this.render();
 	}	
 });
+
+
