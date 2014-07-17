@@ -88,11 +88,7 @@
 
         <script type="text/template" id="location-listing-template">
             <li>
-               <a href="#location/<%=id%>" >
-                    <strong><%= attributes.name %></strong>
-                    <br />
-                    <!--<%= attributes.description %>-->
-                </a>
+               <a href="#location/<%=id%>"><%= attributes.name %></a>
             </li>
         </script>
 
@@ -104,9 +100,8 @@
         </script>
 
         <script type= "text/template" id="location-name-template">
-                    <h2><%= attributes.name %></h2>
-                
-                    <p><%= attributes.description %></p>
+            <h2><%= attributes.name %></h2>
+            <p><%= attributes.description %></p>
          </script>
 
         <script type="text/template" id="location-photolist-template">
@@ -176,7 +171,6 @@
                 </a>
             </li>
         </script>
-
 
         <script type="text/template" id="signup-view-template">
             <h2>Sign Up for Selfie Safari</h2>

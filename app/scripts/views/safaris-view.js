@@ -31,9 +31,7 @@ var SafarisView = Parse.View.extend({
 			}
 		});
 	},
-
-
-retrieveHunt: function(event){
+	retrieveHunt: function(event){
 		var that = this;
 		var huntObjectId = $(event.currentTarget).data('object-id');
 		var query = new Parse.Query(ScavengerHunt);
