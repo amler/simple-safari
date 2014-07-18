@@ -42,13 +42,13 @@
                 <div class="header-content"> 
                     <a href "#"> <img src="images/SelfiSafari-logo.png" /></a>
                     <h1 class="selfie-header"><a href = "#"><span> Selfie</span>Safari&reg;</a></h1> 
-                    <a class="login button" href="#/login">Login</a>
+                    <a class="button login" href="#/login">Login</a>
                     <button class="toggle-menu">Menu</button>
                 </div>
             </header>
             <div id="map-container"></div>
             <section id="view"></section>
-        </main>
+       </main>
         <nav class="right-menu">
             <h3>Menu</h3>
             <ul>
@@ -59,23 +59,46 @@
                 <li><a href="#/log-out">Log Out</a></li>
             </ul>
         </nav>
-
         <!-- Template Scripts -->
         <script type="text/template" id="home-view-template">
-            <h2>Welcome to Selfie Safari</h2>
-            <p>Join the party and start a safari!</p>
-            <p><a href="#/signup" class="button">Sign Up!</a></p>
+            <div class= "homepage-wrap"></div>
+            <div class="container">
+                <div class="game-intro">
+                    <h2>Join the party and start your SelfieSafari!</h2>
+                    <p>
+                        Do you like exploring new places? Do you also like striking a pose and snappin’ a quick selfie?  If so, get that duck face ready for <span>SelfieSafari!</span> Find your local neighborhood’s hidden gems with our hip safaris.  
+                    </p>
+                    
+                    <a href="#/signup" class="button">Sign up and start your SelfieSafari!</a>
+                </div>
+                <div class="game-play">
+                    <img class="computer" src="../images/macbook.png">    
+                    <img class="iphone" src="../images/iphone5.png">
+                    <div class="game-play-info">
+                        <h2>Subscribe. Find a location. Snap a selfie!</h2>
+                        <p>
+                            Users discover new locations and accumulate memories by uploading images using their device’s camera. Real-time interaction allows for more exciting safaris. Discover player’s photos and locations throughout the game.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer"></div>
         </script>
 
         <script type="text/template" id="loading-view-template">
-            <h2>Loading...</h2>
+            <div class="container">
+                <h2 class="loading">Loading...</h2>
+                <div class="spinner"></div>
+            </div>
         </script>
 
         <script type="text/template" id="dashboard-view-template">
-            <h2>Nearby Safaris</h2>
-            <p>Checkout these local safaris within 30 miles of your current location!</p>
-            <hr/>
-            <ul class="nearby-safaris"></ul>
+            <div class="container">
+                <h2>Nearby Safaris</h2>
+                <p>Checkout these local safaris within 30 miles of your current location!</p>
+                <hr/>
+                <ul class="nearby-safaris"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="hunt-item-template">
@@ -88,12 +111,14 @@
         </script>
 
         <script type="text/template" id="safaridetail-view-template">
-            <h2><%= attributes.name %></h2>
-            <p><%= attributes.description %></p>
-            <button class="subscribe-scavengerhunt" style="display:none;">Subscribe</button>
-            <button class="unsubscribe-scavengerhunt" style="display:none;">Unsubscribe</button>
-            <hr/>
-            <ul class="selected-safari-locations"></ul>
+            <div class="container">
+                <h2><%= attributes.name %></h2>
+                <p><%= attributes.description %></p>
+                <button class="subscribe-scavengerhunt" style="display:none;">Subscribe</button>
+                <button class="unsubscribe-scavengerhunt" style="display:none;">Unsubscribe</button>
+                <hr/>
+                <ul class="selected-safari-locations"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="location-listing-template">
@@ -102,16 +127,18 @@
             </li>
         </script>
 
-        <script type="text/template" id="detail-location-template">  
-            <h2 class="location-detail"></h2>
-            <p>Here are 10 of the most recent selfies from this location.</p>
-            <hr />
-            <ul class="subscribed-photolist"></ul>
+        <script type="text/template" id="detail-location-template">
+            <div class="container">
+                <h2 class="location-detail"></h2>
+                <p>Here are 10 of the most recent selfies from this location.</p>
+                <hr />
+                <ul class="subscribed-photolist"></ul>
+            </div>
         </script>
 
-        <script type= "text/template" id="location-name-template">
-            <h2><%= attributes.name %></h2>
-            <p><%= attributes.description %></p>
+        <script type= "text/template" id="location-name-template">   
+                <h2><%= attributes.name %></h2>
+                <p><%= attributes.description %></p>
          </script>
 
         <script type="text/template" id="location-photolist-template">
@@ -121,10 +148,12 @@
         </script>
         
         <script type="text/template" id="safaris-view-template">
-            <h2>Your Safaris</h2>
-            <p>Here are all your current safaris.</p>
-            <hr/>
-            <ul class="users-scavengerhunt-list"></ul>
+            <div class="container">
+                <h2>Your Safaris</h2>
+                <p>Here are all your current safaris.</p>
+                <hr/>
+                <ul class="users-scavengerhunt-list"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="safaris-listing-template">
@@ -137,10 +166,12 @@
         </script>
 
         <script type="text/template" id="discover-view-template">
-            <h2>Discover Mode</h2>
-            <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
-            <hr />
-            <ul class="nearby-safaris"></ul>
+            <div class="container">
+                <h2>Discover Mode</h2>
+                <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
+                <hr />
+                <ul class="nearby-safaris"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="location-item-template">
@@ -156,8 +187,10 @@
         </script>
 
         <script type="text/template" id="photodetail-view-template">
-            <div class="photodetail-location-name"></div>
-            <img class="photo-detail"  src="<%= attributes.photoURL %>">
+            <div class="container">
+                <div class="photodetail-location-name"></div>
+                <img class="photo-detail"  src="<%= attributes.photoURL %>">
+            </div>
         </script>
 
         <script type="text/template" id="fetched-location-template">
@@ -166,9 +199,11 @@
         </script>
 
         <script type="text/template" id="userphotos-view-template">
-            <h2>Your Selfies</h2>
-            <hr />
-            <ul class="users-images"></ul>
+            <div class="container">    
+                <h2>Your Selfies</h2>
+                <hr />
+                <ul class="users-images"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="userimage-thumbnail-template">

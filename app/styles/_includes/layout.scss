@@ -71,13 +71,100 @@ input {
 	margin: 10px auto;
 }
 
-/* views render in section #view - button style for all anchors.
+
+/* Home page wrap
+================================================== */
+.homepage-wrap {
+	background-image: url("../images/homepage-map.png");
+	padding: 0%;
+	height: 250px;
+	width: 100%;
+	
+	h2 {
+		color: $blue;
+		padding-top: 100px;
+		font-size: 50px;
+		font-weight: bold;
+	}
+}
+
+.container {
+	padding: 20px;
+
+	.game-intro {
+		margin: 60px auto 150px;
+		width: 70%;
+		h2 {
+			font-size: 2.5em;
+			margin: 0 0 40px 0;
+		}
+
+		p {
+			font-size: 18px;
+			line-height: 1.6;
+			margin: 0 0 50px 0;
+		}
+		
+		.button {
+			background-color: $blue;
+			border-radius: 5px;
+			color: $beige;
+			display: block;
+			font-family: $sansfont;
+			font-size: 26px;
+			font-weight: 900;
+			margin: 20px auto;
+			outline: none;
+			padding: 20px;
+			text-align: center;
+			text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+			width: 80%;
+
+			&:hover {
+				background-color: $green;
+				color: $blue;
+			}
+		}
+	}
+
+	.game-play {
+		overflow: hidden;
+		margin: 60px auto 150px;
+		width: 60%;
+
+
+		.computer {
+			float: left;
+			width: 28%; 
+		}
+		.iphone {
+			float: left;
+			width: 28%;
+		}
+		.game-play-info {
+			h2 {
+				margin: 40px 0 40px 0;
+			}
+		}
+	}
+}
+
+.footer {
+	background-color: $brown;
+	// bottom: 0;
+	height: 300px;
+	// position: fixed;
+	// right: 0;
+	width: 100%;
+}
+
+/* views render in section #view
 ================================================== */
 
 section {
 	color: $brown;
 	margin: 0 auto;
-	padding: 10px;
+	// padding: 10px;
 }
 
 
@@ -87,7 +174,6 @@ section {
 header {
 	background-color: $green;
 	height: 100px;
-	
 	padding: 15px 0 0 15px;
 	position: relative;
 	width: 100%;
@@ -165,7 +251,6 @@ header {
 		
 	}
 }
-
 
 /* Right-Menu Style
 ================================================== */
@@ -401,8 +486,10 @@ header {
 		}
 	}
 }
+
 /* My Safaris
 ================================================== */
+
 .users-scavengerhunt-list {
 	li {
 		font-size: 1.6em;
@@ -425,7 +512,7 @@ header {
 }
 
 
-/* #Fil Input
+/* Capture Input
 ================================================== */
 
 .capture-input-container {
@@ -453,6 +540,16 @@ header {
 	}
 }
 
+/* safari location listing
+================================================== */
+.selected-safari-locations {
+	a {
+		font-size: 20px;
+		color: $brown;
+		text-decoration: none;
+		font-weight: bold;
+	}
+}
 
 /* Photo Gallery CSS & Media Queries
 ================================================== */
@@ -486,14 +583,68 @@ header {
 			display: none;
 		}	
 	}
+
+	.container {
+		.game-intro {
+			margin: 50px auto 100px;
+			width: 100%;
+		}
+		h2 {
+			font-size: 1.9em;
+			line-height: 120%;
+			padding: 0;
+		}
+
+		.button {
+			font-size: 16px;
+		}
+	
+		.game-play {
+			width: 100%;
+
+			.game-play-info{
+				h2 {
+					font-size: 1.9em;
+					line-height: 120%;
+					padding: 0;
+				}
+			}
+			.computer {
+				display: none;
+			}
+			.iphone {
+				margin: 0 auto;
+				width: 100%;
+			}
+		}
+	}
+
 	.subscribed-photolist,
 	.users-images {
 		li {
 			width: 100%;
 		}
 	}
+	.nearby-safaris a {
+		font-size: 2px;
+		font-weight: bold;
+		// margin: 10px 5px 25px 0;
+		padding: 5px;
+
+	}
+
 }
 @media only screen and (min-width : 481px) {
+	.game-play {
+		/* .computer {
+			display: none;
+		} */
+		.iphone {
+			margin: 0 auto;
+			width: 50%;
+		}
+	}
+
 	.subscribed-photolist,
 	.users-images {
 		li {
