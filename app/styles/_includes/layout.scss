@@ -387,15 +387,17 @@ header {
 		color: $beige;  
 		display: block; 
 		font-family: $sansfont;
-		font-size: 0.7em;
-		font-weight: 400;
+		font-size: 16px;
+		font-weight: bold;
 		margin: 10px 5px 25px 0;
 		padding: 10px 15px;
 		text-align: center;
+		text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
 		width: 180px;
 
 		&:hover {
 			background-color: $green;
+			color: $blue;
 		}
 	}
 }
@@ -415,6 +417,10 @@ header {
 	p {
 		color: $brown;
 		margin: 20px 0 5px;
+	}
+
+	.unsubscribe-safari-view {
+		margin: 5px 5px 25px 0;
 	}
 }
 
