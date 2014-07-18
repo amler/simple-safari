@@ -137,7 +137,7 @@
         </script>
 
         <script type="text/template" id="discover-view-template">
-            <h2>Discover View</h2>
+            <h2>Discover Mode</h2>
             <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
             <hr />
             <ul class="nearby-safaris"></ul>
@@ -147,7 +147,7 @@
             <li data-latitude="<%= attributes.geolocation._latitude %>" data-longitude="<%= attributes.geolocation._longitude %>">
                 <strong><%= attributes.name %></strong>
                 <br />
-                <%= attributes.description %>
+                <p><%= attributes.description %></p>
                 <div class="capture-input-container">
                     <label for="file-input">Select Photo</label>
                     <input class="photo" data-object-id="<%=id%>" type="file" accept="image/*;capture=camera">
@@ -156,17 +156,17 @@
         </script>
 
         <script type="text/template" id="photodetail-view-template">
-            <h1 class="photodetail-location-name"></h1>
+            <div class="photodetail-location-name"></div>
             <img class="photo-detail"  src="<%= attributes.photoURL %>">
         </script>
 
         <script type="text/template" id="fetched-location-template">
-            <%= attributes.name %>
+            <h2><%= attributes.name %></h2>
+            <p><%= attributes.description %></p>
         </script>
 
         <script type="text/template" id="userphotos-view-template">
-            <h2>User Photos View</h2>
-            <p>Shows photos user has posted.</p>
+            <h2>Your Selfies</h2>
             <hr />
             <ul class="users-images"></ul>
         </script>
