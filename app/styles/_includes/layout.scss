@@ -21,6 +21,7 @@ body {
 h1, h2, h3 {
 	color: $blue;
 	font-family: $sansfont;
+	font-size: 2em;
 	font-weight: 900;
 }
 
@@ -224,11 +225,15 @@ header {
 		margin: auto;
 		padding: 20px;
 		overflow: auto;
-		width: 300px;
+		width: 240px;
 
 		h2 {
 			text-align: center;
 			color: $blue;
+		}
+
+		input {
+			margin: 10px auto;
 		}
 
 		.signup-button {
@@ -238,7 +243,7 @@ header {
 			font-family: $sansfont;
 			font-weight: 400;
 			font-size: 16px;
-			margin: 5px auto;
+			margin: 5px 10px;
 			padding: 10px;
 			width: 50%;
 			text-align: center;
@@ -248,7 +253,18 @@ header {
 			&:active {
 				background-color: $green;
 			}
-		}  
+		}
+
+		a {
+			color: $brown;
+			font-size: 16px;
+			font-weight: bold;
+
+			&:hover,
+			&:active {
+				color: $orange;
+			}
+		} 
     }
 }
 
@@ -331,11 +347,12 @@ header {
 		float: left;
 		font-family: $sansfont;
 		font-weight: 400;
-		font-size: 1em;
+		font-size: 16px;
 		margin: 30px 0 0 0;
 		padding: 6px;
 		width: 20%;
 		text-align: center;
+		text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
 	}
 }
 
