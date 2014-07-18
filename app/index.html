@@ -132,8 +132,8 @@
                 <strong><%= attributes.name %></strong>
                 <br />
                 <p><%= attributes.description %></p>
+                <button class="unsubscribe-safari-view" data-object-id="<%=id%>">Unsubscribe</button>
             </li>
-            <button class="unsubscribe-safari-view" data-object-id="<%=id%>">Unsubscribe</button>
         </script>
 
         <script type="text/template" id="discover-view-template">
@@ -203,13 +203,14 @@
                 </div>
             </div>
         </script>
-
         <script type="text/template" id="forgotpassword-view-template">
             <div class = "forgot-password-container">
-                <h2>Forgot your password?</h2>
-                <p>Enter your email address to reset your password.</p>
-                <input type="text" class="enter-email" placeholder="Email" />
-                <button class="forgot-password-button">Enter</button>
+                <div class="forgot-container">
+                    <h2>Forgot your password?</h2>
+                    <p>Enter your email address to reset your password.</p>
+                    <input type="text" class="enter-email" placeholder="Email" />
+                    <button class="forgot-password-button">Enter</button>
+                </div>
             </div>
         </script>
 

@@ -54,15 +54,21 @@ button {
 	border-radius: 5px;
 	color: $beige;  
 	font-family: $sansfont;
-	font-size: 1em;
+	font-size: 16px;
 	font-weight: 400;
 	margin: 8px 5px 10px 0;
+	outline: none;
 	padding: 10px 15px;
 	text-align: center;
+	text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
 
 	&:hover {
 		background-color: $green;
 	}
+}
+
+input {
+	margin: 10px auto;
 }
 
 /* views render in section #view - button style for all anchors.
@@ -229,11 +235,6 @@ header {
 
 		h2 {
 			text-align: center;
-			color: $blue;
-		}
-
-		input {
-			margin: 10px auto;
 		}
 
 		.signup-button {
@@ -283,11 +284,8 @@ header {
 
 		h2 {
 			text-align: center;
-			color: $blue;
 		}
-		input {
-			margin: 10px auto;
-		}
+
 		.login-button {
 			background-color: $blue;
 			border-radius: 5px;
@@ -327,32 +325,33 @@ header {
 }
 
 .forgot-password-container {
-	margin: 80px auto;
+	margin: 20px auto;
 	overflow: hidden;
-	width: 50%;
 
-	.enter-email {
+	.forgot-container {
+		border: 1px solid $blue;
 		border-radius: 5px;
-		float: left;
-		height: 30px;
-		margin: 30px 10px 0 0;
-		width: 70%;
-	}
+		margin: auto;
+		padding: 20px;
+		overflow: auto;
+		width: 240px;
 
-	.forgot-password-button {
-		background-color: $blue;
-		border-radius: 5px;
-		color: #FFF;
-		display: inline-block;
-		float: left;
-		font-family: $sansfont;
-		font-weight: 400;
-		font-size: 16px;
-		margin: 30px 0 0 0;
-		padding: 6px;
-		width: 20%;
-		text-align: center;
-		text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+		h2 {
+			text-align: center;
+		}
+
+		.forgot-password-button {
+			border-radius: 5px;
+			color: $beige;
+			font-family: $sansfont;
+			font-weight: 400;
+			font-size: 16px;
+			margin: 5px 0;
+			padding: 10px;
+			width: 50%;
+			text-align: center;
+			text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+		}
 	}
 }
 
@@ -406,6 +405,7 @@ header {
 	li {
 		font-size: 1.6em;
 		padding: 5px;
+		margin: 0;
 
 		strong {
 			color: $brown;
