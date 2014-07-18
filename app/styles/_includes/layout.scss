@@ -1,20 +1,4 @@
 @import "variables";
-h1, h2, h3 {
-	font-family: $sansfont;
-	color: $blue;
-}
-
-nav {
-	background-color: $blue;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	right: -200px;
-	width: 200px;
-	z-index: 10;
-	-webkit-transition: all 0.3s ease;
-		    transition: all 0.3s ease;
-}
 
 body {
 	background: $beige;
@@ -32,23 +16,72 @@ body {
 	nav {
 		right: 0;
 	}
-}	
-
-/* views render in section #view
-================================================== */
-section {
-	color: $brown;
-	padding: 20px;
 }
 
-/* views render in section #view
+h1, h2, h3 {
+	color: $blue;
+	font-family: $sansfont;
+	font-weight: 900;
+}
+
+p {
+	color: $brown;
+	font-size: 16px;
+	font-weight: 400;
+}
+		
+hr {
+	border: 1px solid $brown;
+	margin-left: auto; 
+	margin-right: auto; 
+}
+
+nav {
+	background-color: $blue;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: -200px;
+	width: 200px;
+	z-index: 10;
+	-webkit-transition: all 0.3s ease;
+		    transition: all 0.3s ease;
+}
+
+button {
+	background-color: $blue;
+	border-radius: 5px;
+	color: $beige;  
+	font-family: $sansfont;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 8px 5px 10px 0;
+	padding: 10px 15px;
+	text-align: center;
+
+	&:hover {
+		background-color: $green;
+	}
+}
+
+/* views render in section #view - button style for all anchors.
+================================================== */
+
+section {
+	color: $brown;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+
+/* Header
 ================================================== */
 
 header {
 	background-color: $green;
 	height: 100px;
-	overflow: auto;
-	padding: 15px 0 0 5px;
+	
+	padding: 15px 0 0 15px;
 	position: relative;
 	width: 100%;
 	-webkit-box-sizing: border-box;
@@ -57,71 +90,79 @@ header {
 	
 	.header-content {
 		color: $beige;
+		overflow: hidden;
 		margin: 0 auto;
 		width: 80%;
 
-		h1 {
-			display: inline-block;
-			font-size: 2em;
-			font-family: $sansfont;
-			font-weight: 900;
-			color: $blue;
+		img {
+			float: left;
+			margin: 0;
+			width: 70px;
+		    -webkit-filter: drop-shadow( 1px 1px rgba(78, 77, 77, 0.75));
+
 		}
 
 		a {
 			color: $beige;
+			text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
 			text-decoration: none;
 		}
 
-		img {
-			margin: 5px;
-			width: 70px;
-		}
-
-		p {
-			margin: 20px 0 0 0;
-			padding: 10px 0 0 0;
+		h1 {
+			float: left;
+			font-size: 3em;
+			font-family: $sansfont;
+			font-weight: bold;
+			letter-spacing: -1px;
+			margin-top: 8px;
 		}
 
 		span {
-			color: $blue;
 			font-family: $scriptfont;
 			font-weight: 900;
-			font-size: 30px;
-			margin-top: 20px;
-			text-decoration: none;
-			
-			&:visited {
-				text-decoration: none;
-			}
 		}
 
-		.button,
 		button {
-			display: none;
-			margin: 0px 20px 10px 0;
-			padding: 10px;
+			background-color: $blue;
+			border-radius: 5px;
+			color: $beige;  
+			display: none; 
 			float: right;
 			font-family: $sansfont;
-			font-weight: 300;
 			font-size: 1.5em;
-			background-color: $blue;
-			color: $beige;  
-			border-radius: 5px;
+			font-weight: 400;
+			margin: 8px 5px 10px 0;
+			padding: 10px 15px;
 			text-align: center;
 		}
 	}
 }
 
+.login {
+	background-color: $blue;
+	border-radius: 5px;
+	color: $beige;  
+	display: none; 
+	float: right;
+	font-family: $sansfont;
+	font-size: 1.5em;
+	font-weight: 400;
+	margin: 8px 5px 10px 0;
+	padding: 10px 15px;
+	text-align: center;
+}
+
+
 /* Right-Menu Style
 ================================================== */
+
 .right-menu {
 
 	h3 {
-		color: #afdefa;
+		color: $beige;
 		font-family: $sansfont;
 		font-size: 1.9em;
-		padding: 20px;
+		padding: 33px;
 		margin: 0;
 		font-weight: 900;
 		background: #0d77b6;
@@ -155,6 +196,7 @@ header {
 
 /* Map
 ================================================== */
+
 #map-container {
 	background-color: #ccc;
 	display: none;
@@ -164,6 +206,7 @@ header {
 
 /* Forms
 ================================================== */
+
 .signup-form-container {
 	margin: 20px auto;
 	overflow: hidden;
@@ -277,18 +320,103 @@ header {
 
 /* Forms - Error for empty inputs
 ================================================== */
+
 .input-error {
 	background-color: rgb(247, 226, 226) !important;
 	border-color: red !important;
 }
 
+/* Dashboard
+================================================== */
+
+.nearby-safaris {
+	li {
+		font-size: 1.6em;
+		padding: 5px;
+
+		strong {
+			color: $brown;
+		}
+	}
+	
+	p {
+		color: $brown;
+		margin: 20px 0 5px;
+	}
+
+	a {
+		background-color: $blue;
+		border-radius: 5px;
+		color: $beige;  
+		display: block; 
+		font-family: $sansfont;
+		font-size: 0.7em;
+		font-weight: 400;
+		margin: 10px 5px 25px 0;
+		padding: 10px 15px;
+		text-align: center;
+		width: 180px;
+
+		&:hover {
+			background-color: $green;
+		}
+	}
+}
+/* My Safaris
+================================================== */
+.users-scavengerhunt-list {
+	li {
+		font-size: 1.6em;
+		padding: 5px;
+
+		strong {
+			color: $brown;
+		}
+	}
+	
+	p {
+		color: $brown;
+		margin: 20px 0 5px;
+	}
+}
+
+
+/* #Fil Input
+================================================== */
+
+.capture-input-container {
+	display: inline-block;
+	margin: 10px 0;
+	position: relative;
+
+	label {
+		background: $blue;
+		border-radius: 5px;
+		color: $beige;
+		padding: 10px 20px;
+		text-align: center;
+	}
+
+	input {
+		height: 100%;
+		left: 0;
+		margin: 0;
+		opacity: 0;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
+
+
 /* Photo Gallery CSS & Media Queries
 ================================================== */
+
 .subscribed-photolist,
 .users-images {
 
 	li {
-		// border: 1px solid #333;
 		color: #FFF;
 		float: left;
 		position: relative;
@@ -298,17 +426,9 @@ header {
 		overflow: hidden;
 		background-size: cover;
 		background-position: center center;
-		// padding-bottom: 25%;
 	}
 
 	a {
-		background: red;
-		// bottom: 100px;
-		// left: 10px;
-		// position: absolute;
-		// right: 10px;
-		// top: 10px;
-
 		img {
 			display: block;
 		}
@@ -316,10 +436,15 @@ header {
 }
 
 @media only screen and (max-width : 480px) {
+	.header-content {
+		width: 100%;
+		.selfie-header {
+			display: none;
+		}	
+	}
 	.subscribed-photolist,
 	.users-images {
 		li {
-			// padding-bottom: 100%;
 			width: 100%;
 		}
 	}
@@ -328,7 +453,6 @@ header {
 	.subscribed-photolist,
 	.users-images {
 		li {
-			// padding-bottom: 50%;
 			width: 48%;
 		}
 	}
@@ -337,21 +461,14 @@ header {
 	.subscribed-photolist,
 	.users-images {
 		li {
-			// padding-bottom: 33.3%;
 			width: 32.3%;
 		}
 	}
 }
 @media only screen and (min-width : 1051px) {
-	.header-content {
-		border: 1px solid red;
-		width: 80%;
-	}
-	
 	.subscribed-photolist,
 	.users-images {
 		li {
-			// padding-bottom: 25%;
 			width: 24%;
 		}
 	}

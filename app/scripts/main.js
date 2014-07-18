@@ -39,7 +39,7 @@ function changeLayout(showLogin, showMap){
 	userGeo.clearWatchLocation();
 	if (showLogin === true) {
 		// show login button
-		// $('header .button').show();
+		$('header .button').show();
 		// hide menu button
 		$('header button').hide();
 	} else {
@@ -73,6 +73,7 @@ var AppRouter = Parse.Router.extend({
 		'photo/:id'			: 'photoDetail',
 		'photos'			: 'photoThumbnails',
 		'discover'			: 'discover',
+		'loading'			: 'loading',
 		'location/:id'		: 'locationDetail',
 		'*actions'			: 'logout'
 	},
@@ -138,6 +139,10 @@ var AppRouter = Parse.Router.extend({
 	locationDetail: function(id){
 		changeLayout(false, true);
 		views.locationDetail.subscribedPhoto(id);
+	},
+	loading: function(){
+		changeLayout(false, true);
+		views.loading.render();
 	},
 	logout: function(){
 		Parse.User.logOut();

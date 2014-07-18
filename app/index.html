@@ -41,8 +41,8 @@
             <header>
                 <div class="header-content"> 
                     <a href "#"> <img src="images/SelfiSafari-logo.png" /></a>
-                    <h1> <a href = "#"><span> Selfie</span>Safari&reg;</a></h1> 
-                    <a class="button" href="#/login">Login</a>
+                    <h1 class="selfie-header"><a href = "#"><span> Selfie</span>Safari&reg;</a></h1> 
+                    <a class="login button" href="#/login">Login</a>
                     <button class="toggle-menu">Menu</button>
                 </div>
             </header>
@@ -52,7 +52,7 @@
         <nav class="right-menu">
             <h3>Menu</h3>
             <ul>
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Nearby Safaris</a></li>
                 <li><a href="#/safaris">My Safaris</a></li>
                 <li><a href="#/discover">Discover</a></li>
                 <li><a href="#/photos">My Selfies</a></li>
@@ -72,8 +72,9 @@
         </script>
 
         <script type="text/template" id="dashboard-view-template">
-            <h2>Dashboard View</h2>
-            <p>Listing of nearby safaries</p>
+            <h2>Nearby Safaris</h2>
+            <p>Checkout these local safaris within 30 miles of your current location!</p>
+            <hr/>
             <ul class="nearby-safaris"></ul>
         </script>
 
@@ -81,7 +82,7 @@
             <li>
                 <strong><%= attributes.name %></strong>
                 <br />
-                <%= attributes.description %>
+                <p><%= attributes.description %></p>
                 <a href="#/safari/<%=id%>" class="button">Checkout Safari</a>
             </li>
         </script>
@@ -103,7 +104,7 @@
 
         <script type="text/template" id="detail-location-template">  
             <div class= "location-detail"> </div>
-            <p>Shows photos user has subscribed to.</p>
+            <p>Here are 10 of the most recent selfies from this location.</p>
             <hr />
             <ul class="subscribed-photolist"></ul>
         </script>
@@ -114,27 +115,25 @@
          </script>
 
         <script type="text/template" id="location-photolist-template">
-       
             <a class="photo-detail" href="#photo/<%=id%>" >
                 <li style="background-image: url(<%= attributes.photoURL %>)"></li>
             </a>
         </script>
         
         <script type="text/template" id="safaris-view-template">
-            <h2>Safaris View</h2>
-            <p>Listing of safaris subscribed to.</p>
+            <h2>Your Safaris</h2>
+            <p>Here are all your current safaris.</p>
+            <hr/>
             <ul class="users-scavengerhunt-list"></ul>
-            <button class="CTA-button">subscribe to a local safari</button>
         </script>
 
         <script type="text/template" id="safaris-listing-template">
             <li>
                 <strong><%= attributes.name %></strong>
                 <br />
-                <%= attributes.description %>
+                <p><%= attributes.description %></p>
             </li>
             <button class="unsubscribe-safari-view" data-object-id="<%=id%>">Unsubscribe</button>
-            <hr/>
         </script>
 
         <script type="text/template" id="discover-view-template">
