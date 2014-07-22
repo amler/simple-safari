@@ -1,15 +1,5 @@
-# Initial Project Setup
-
-1. Run yo webapp
-
-## Project Setup after cloning repo
-
-1. Run npm install.
-2. Run bower install.
-3. Change directory into 'test' and run bower install again.
-
-# Run local site
-1. Run grunt serve
+# Simple Safari
+Using the work done from a previous repository, Tasha and I created the simple safari repo which is more streamline and functional. The code created by TOVERkij15 was implemented in this new repository. Tasha's previous exploration of HTML5 geolocation was also helpful in the creation of the userGeo object.
 
 ## Resources for Parse
 * https://parse.com/docs/js/symbols/Parse.Query.html#withinMiles
