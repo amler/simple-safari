@@ -40,6 +40,7 @@ var LocationDetailView = Parse.View.extend({
 		var query = new Parse.Query(Photo);
 		query.descending('createdAt');
 		query.equalTo('location', location);
+		query.limit(10);
 		query.find({
 			success: function(results) {
 				var templateMethod = _.template($('#location-photolist-template').text());

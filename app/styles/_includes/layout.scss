@@ -1,130 +1,675 @@
-header {
-	background-color: #999;
-	overflow: auto;
-	padding: 15px;
+@import "variables";
+
+body {
+	background: $beige;
+	font-family: $sansfont;
+	overflow-x: hidden;
+	position: relative;
 	width: 100%;
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+	-webkit-transition: all 0.3s ease;
+		    transition: all 0.3s ease;
+}
 
-	h1 {
-		display: inline-block;
-		font-size: 1.5em;
-		margin: 10px 0;
-		padding: 0;
-	}
+.show-menu {
+	margin-left: -200px;
 
-	.button,
-	button {
-		display: none;
-		float: right;
-		margin: 20px 0 10px 0;
+	nav {
+		right: 0;
 	}
 }
 
-#map-container {
-	background-color: #ccc;
-	display: none;
-	height: 200px;
-	width: 100%;
+h1, h2, h3 {
+	color: $blue;
+	font-family: $sansfont;
+	font-size: 2em;
+	font-weight: 900;
 }
 
-section {
-	padding: 20px;
+p {
+	color: $brown;
+	font-size: 16px;
+	font-weight: 400;
+}
+		
+hr {
+	border: 1px solid $brown;
+	margin-left: auto; 
+	margin-right: auto; 
 }
 
 nav {
-	background-color: #eee;
+	background-color: $blue;
 	height: 100%;
 	position: fixed;
 	top: 0;
 	right: -200px;
 	width: 200px;
 	z-index: 10;
-	// -webkit-transition: right 0.3s ease;
-	// 	    transition: right 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+		    transition: all 0.3s ease;
 }
 
-body {
-	overflow-x: hidden;
-	position: relative;
-	// -webkit-transition: left 0.3s ease;
-	// 	    transition: left 0.3s ease;
+button {
+	background-color: $blue;
+	border-radius: 5px;
+	color: $beige;  
+	font-family: $sansfont;
+	font-size: 16px;
+	font-weight: 400;
+	margin: 8px 5px 10px 0;
+	outline: none;
+	padding: 10px 15px;
+	text-align: center;
+	text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
 
-	&.show-menu {
-		left: -200px;
+	&:hover {
+		background-color: $green;
+	}
+}
+
+input {
+	margin: 10px auto;
+}
+
+
+/* Home page wrap
+================================================== */
+.homepage-wrap {
+	background-image: url("../images/homepage-map.png");
+	padding: 0%;
+	height: 250px;
+	width: 100%;
+	
+	h2 {
+		color: $blue;
+		padding-top: 100px;
+		font-size: 50px;
+		font-weight: bold;
+	}
+}
+
+.container {
+	padding: 20px;
+
+	.game-intro {
+		margin: 60px auto 120px;
+		width: 70%;
+		h2 {
+			font-size: 2.5em;
+			margin: 0 0 40px 20px;
+		}
+
+		p {
+			font-size: 18px;
+			line-height: 1.6;
+			margin: 0 0 50px 20px;
+		}
 		
-		nav {
-			right: 0;
+		.button {
+			background-color: $blue;
+			border-radius: 5px;
+			color: $beige;
+			display: block;
+			font-family: $sansfont;
+			font-size: 26px;
+			font-weight: 900;
+			margin: 20px auto;
+			outline: none;
+			padding: 20px;
+			text-align: center;
+			text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+			width: 80%;
+
+			&:hover {
+				background-color: $green;
+				color: $blue;
+			}
+		}
+	}
+
+	.game-play {
+		overflow: hidden;
+		margin: 40px auto 150px;
+		width: 60%;
+
+		p {
+			font-size: 18px;
+			line-height: 1.6;
+			margin: 0 0 50px 0;
+		}
+
+		.computer {
+			float: left;
+			width: 30%; 
+		}
+		.iphone {
+			float: left;
+			width: 30%;
+		}
+		.game-play-info {
+			h2 {
+				margin: 40px 0 40px 0;
+			}
 		}
 	}
 }
+
+.footer {
+	background-color: $brown;
+	// bottom: 0;
+	height: 300px;
+	// position: fixed;
+	// right: 0;
+	width: 100%;
+}
+
+/* views render in section #view
+================================================== */
+
+section {
+	color: $brown;
+	margin: 0 auto;
+	// padding: 10px;
+}
+
+
+/* Header
+================================================== */
+
+header {
+	background-color: $green;
+	height: 100px;
+	padding: 15px 0 0 15px;
+	position: relative;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	
+	.header-content {
+		color: $beige;
+		overflow: hidden;
+		margin: 0 auto;
+		width: 80%;
+
+		img {
+			float: left;
+			margin: 0;
+			width: 70px;
+		    -webkit-filter: drop-shadow( 1px 1px rgba(78, 77, 77, 0.75));
+
+		}
+
+		a {
+			color: $beige;
+			text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+			text-decoration: none;
+		}
+
+		h1 {
+			float: left;
+			font-size: 3em;
+			font-family: $sansfont;
+			font-weight: bold;
+			letter-spacing: -1px;
+			margin-top: 8px;
+		}
+
+		span {
+			font-family: $scriptfont;
+			font-weight: 900;
+		}
+
+		button {
+			background-color: $blue;
+			border-radius: 5px;
+			color: $beige;  
+			display: none; 
+			float: right;
+			font-family: $sansfont;
+			font-size: 1.5em;
+			font-weight: 400;
+			margin: 8px 5px 10px 0;
+			padding: 10px 15px;
+			text-align: center;
+			text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+		}
+	}
+}
+
+.login {
+	background-color: $blue;
+	border-radius: 5px;
+	color: $beige;  
+	display: none; 
+	float: right;
+	font-family: $sansfont;
+	font-size: 1.5em;
+	font-weight: 400;
+	margin: 8px 5px 10px 0;
+	padding: 10px 15px;
+	text-align: center;
+
+	&:hover {
+	background-color: $blue;
+	color: $beige;
+		
+	}
+}
+
+/* Right-Menu Style
+================================================== */
+
+.right-menu {
+
+	h3 {
+		color: $beige;
+		font-family: $sansfont;
+		font-size: 1.9em;
+		padding: 33px;
+		margin: 0;
+		font-weight: 900;
+		background: #0d77b6;
+	}
+
+	li {
+		margin: 0;
+		font-family: $sansfont;
+
+		a {
+			border-bottom: 1px solid #258ecd;
+			color: $beige;
+			display: block;
+			font-size: 1.5em;
+			margin: 0;
+			padding: 1em;
+			text-decoration: none;
+
+			&:hover {
+				background-color: $green;
+				color: $blue;
+			}
+
+			&:active {
+				background-color: $green;
+				color: $blue;
+			}
+		}
+	}
+}
+
+/* Map
+================================================== */
+
+#map-container {
+	background-color: #ccc;
+	display: none;
+	height: 300px;
+	width: 100%;
+}
+
+/* Forms
+================================================== */
+
+.signup-form-container {
+	margin: 20px auto;
+	overflow: hidden;
+
+	.signup-container {
+		border: 1px solid $blue;
+		border-radius: 5px;
+		margin: auto;
+		padding: 20px;
+		overflow: auto;
+		width: 240px;
+
+		h2 {
+			text-align: center;
+		}
+
+		.signup-button {
+			background-color: $blue;
+			border-radius: 5px;
+			color: $beige;
+			font-family: $sansfont;
+			font-weight: 400;
+			font-size: 16px;
+			margin: 5px 10px;
+			padding: 10px;
+			width: 50%;
+			text-align: center;
+			text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+
+			&:hover,
+			&:active {
+				background-color: $green;
+			}
+		}
+
+		a {
+			color: $brown;
+			font-size: 16px;
+			font-weight: bold;
+
+			&:hover,
+			&:active {
+				color: $orange;
+			}
+		} 
+    }
+}
+
+
+.login-form-container {
+	margin: 20px auto;
+	overflow: hidden;
+
+	.login-container {
+		border: 1px solid $blue;
+		border-radius: 5px;
+		margin: auto;
+		padding: 20px;
+		overflow: auto;
+		width: 240px;
+
+		h2 {
+			text-align: center;
+		}
+
+		.login-button {
+			background-color: $blue;
+			border-radius: 5px;
+			color: $beige;
+			font-family: $sansfont;
+			font-weight: 400;
+			font-size: 16px;
+			margin: 5px 10px;
+			padding: 10px;
+			width: 50%;
+			text-align: center;
+			text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+
+			&:hover,
+			&:active {
+				background-color: $green;
+			}
+		}
+		a {
+			color: $brown;
+			font-size: 16px;
+			font-weight: bold;
+
+			&:hover,
+			&:active {
+				color: $orange;
+			}
+		}
+	}
+
+	.forgot-password-link {
+		color: $blue;
+		display: block;
+		margin: 10px auto;
+		text-align: center;
+	}
+}
+
+.forgot-password-container {
+	margin: 20px auto;
+	overflow: hidden;
+
+	.forgot-container {
+		border: 1px solid $blue;
+		border-radius: 5px;
+		margin: auto;
+		padding: 20px;
+		overflow: auto;
+		width: 240px;
+
+		h2 {
+			text-align: center;
+		}
+
+		.forgot-password-button {
+			border-radius: 5px;
+			color: $beige;
+			font-family: $sansfont;
+			font-weight: 400;
+			font-size: 16px;
+			margin: 5px 0;
+			padding: 10px;
+			width: 50%;
+			text-align: center;
+			text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+		}
+	}
+}
+
+/* Forms - Error for empty inputs
+================================================== */
 
 .input-error {
 	background-color: rgb(247, 226, 226) !important;
 	border-color: red !important;
 }
 
+/* Dashboard
+================================================== */
+
+.nearby-safaris {
+	li {
+		font-size: 1.6em;
+		padding: 5px;
+
+		strong {
+			color: $brown;
+		}
+	}
+	
+	p {
+		color: $brown;
+		margin: 20px 0 5px;
+	}
+
+	a {
+		background-color: $blue;
+		border-radius: 5px;
+		color: $beige;  
+		display: block; 
+		font-family: $sansfont;
+		font-size: 16px;
+		font-weight: bold;
+		margin: 10px 5px 25px 0;
+		padding: 10px 15px;
+		text-align: center;
+		text-shadow: 1px 1px rgba(78, 77, 77, 0.75);
+		width: 180px;
+
+		&:hover {
+			background-color: $green;
+			color: $blue;
+		}
+	}
+}
+
+/* My Safaris
+================================================== */
+
+.users-scavengerhunt-list {
+	li {
+		font-size: 1.6em;
+		padding: 5px;
+		margin: 0;
+
+		strong {
+			color: $brown;
+		}
+	}
+	
+	p {
+		color: $brown;
+		margin: 20px 0 5px;
+	}
+
+	.unsubscribe-safari-view {
+		margin: 5px 5px 25px 0;
+	}
+}
+
+
+/* Capture Input
+================================================== */
+
+.capture-input-container {
+	display: inline-block;
+	margin: 10px 0 30px;
+	position: relative;
+
+	label {
+		background: $blue;
+		border-radius: 5px;
+		color: $beige;
+		padding: 10px 20px;
+		text-align: center;
+	}
+
+	input {
+		height: 100%;
+		left: 0;
+		margin: 0;
+		opacity: 0;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
+
+/* safari location listing
+================================================== */
+.selected-safari-locations {
+	a {
+		font-size: 20px;
+		color: $brown;
+		text-decoration: none;
+		font-weight: bold;
+	}
+}
+
+/* Photo Gallery CSS & Media Queries
+================================================== */
+
 .subscribed-photolist,
 .users-images {
 
 	li {
-		border: 1px solid #333;
 		color: #FFF;
 		float: left;
-		padding-bottom: 25%;
 		position: relative;
-		width: 25%;
+		width: 23%;
+		height: 230px;
+		margin-right: 1%;
+		overflow: hidden;
+		background-size: cover;
+		background-position: center center;
 	}
 
 	a {
-		background: #66F;
-		bottom: 10px;
-		left: 10px;
-		overflow: hidden;
-		position: absolute;
-		right: 10px;
-		top: 10px;
+		img {
+			display: block;
+		}
 	}
 }
 
 @media only screen and (max-width : 480px) {
-   /* Smartphone view: 1 tile */
+	.header-content {
+		width: 100%;
+		.selfie-header {
+			display: none;
+		}	
+	}
+
+	.container {
+		.game-intro {
+			margin: 50px auto 100px;
+			width: 100%;
+		}
+		h2 {
+			font-size: 1.9em;
+			line-height: 120%;
+			padding: 0;
+		}
+
+		.button {
+			font-size: 16px;
+		}
+	
+		.game-play {
+			width: 100%;
+
+			.game-play-info{
+				h2 {
+					font-size: 1.9em;
+					line-height: 120%;
+					padding: 0;
+				}
+			}
+			.computer {
+				display: none;
+			}
+			.iphone {
+				margin: 0 auto;
+				width: 100%;
+			}
+		}
+	}
+
 	.subscribed-photolist,
 	.users-images {
 		li {
-			padding-bottom: 100%;
 			width: 100%;
 		}
 	}
+	.nearby-safaris a {
+		font-size: 2px;
+		font-weight: bold;
+		// margin: 10px 5px 25px 0;
+		padding: 5px;
+
+	}
+
 }
-@media only screen and (max-width : 650px) and (min-width : 481px) {
-   /* Tablet view: 2 tiles */
-	.subscribed-photolist,
-	.users-images {
-		li {
-			padding-bottom: 50%;
+@media only screen and (min-width : 481px) {
+	.game-play {
+		/* .computer {
+			display: none;
+		} */
+		.iphone {
+			margin: 0 auto;
 			width: 50%;
 		}
 	}
-}
-@media only screen and (max-width : 1050px) and (min-width : 651px) {
-   /* Small desktop / ipad view: 3 tiles */
+
 	.subscribed-photolist,
 	.users-images {
 		li {
-			padding-bottom: 33.3%;
-			width: 33.3%;
+			width: 48%;
 		}
 	}
 }
-@media only screen and (max-width : 1290px) and (min-width : 1051px) {
-   /* Medium desktop: 4 tiles */
+@media only screen and (min-width : 700px) {
 	.subscribed-photolist,
 	.users-images {
 		li {
-			padding-bottom: 25%;
-			width: 25%;
+			width: 32.3%;
+		}
+	}
+}
+@media only screen and (min-width : 1051px) {
+	.subscribed-photolist,
+	.users-images {
+		li {
+			width: 24%;
 		}
 	}
 }

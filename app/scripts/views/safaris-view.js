@@ -31,7 +31,7 @@ var SafarisView = Parse.View.extend({
 			}
 		});
 	},
-	retrieveHunt: function(event){
+	retrieveHunt: function(event) {
 		var that = this;
 		var huntObjectId = $(event.currentTarget).data('object-id');
 		var query = new Parse.Query(ScavengerHunt);
@@ -49,7 +49,7 @@ var SafarisView = Parse.View.extend({
 			}
 		});
 	},
-	unsubscribe: function(){
+	unsubscribe: function() {
 		var user = Parse.User.current();
 		var relation = user.relation('scavengerHunts');
 		relation.remove(this.selectedHunt);

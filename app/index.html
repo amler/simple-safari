@@ -26,25 +26,33 @@
         <link rel="icon" type="image/png" href="images/icons/favicon-160.png" sizes="160x160" />
         <link rel="icon" type="image/png" href="images/icons/favicon-196.png" sizes="196x196" />
         <link rel="shortcut icon" href="images/icons/favicon.ico" />
+
         <!-- build:css(.tmp) styles/main.css-->
         <link rel="stylesheet" href="styles/main.css"/>
         <!-- endbuild -->
+        
+        <!-- FONTS -->
+        <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,900' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmP_lrkRi-SLUJdaBJ7BgUdcDKS_VuiRU"></script>
     </head>
     <body>
         <main>
             <header>
-                <h1><a href="#">Selfie Safari</a></h1>
-                <a class="button" href="#/login">Login</a>
-                <button class="toggle-menu">Menu</button>
+                <div class="header-content"> 
+                    <a href "#"> <img src="images/SelfiSafari-logo.png" /></a>
+                    <h1 class="selfie-header"><a href = "#"><span> Selfie</span>Safari&reg;</a></h1> 
+                    <a class="button login" href="#/login">Login</a>
+                    <button class="toggle-menu">Menu</button>
+                </div>
             </header>
             <div id="map-container"></div>
             <section id="view"></section>
-        </main>
-        <nav>
+       </main>
+        <nav class="right-menu">
             <h3>Menu</h3>
             <ul>
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Nearby Safaris</a></li>
                 <li><a href="#/safaris">My Safaris</a></li>
                 <li><a href="#/discover">Discover</a></li>
                 <li><a href="#/photos">My Selfies</a></li>
@@ -53,37 +61,64 @@
         </nav>
         <!-- Template Scripts -->
         <script type="text/template" id="home-view-template">
-            <h2>Welcome to Selfie Safari</h2>
-            <p>Join the party and start a safari!!!!!</p>
-            <p><a href="#/signup" class="button">Sign Up!</a></p>
+            <div class= "homepage-wrap"></div>
+            <div class="container">
+                <div class="game-intro">
+                    <h2>Join the party and start your SelfieSafari!</h2>
+                    <p>
+                        Do you like exploring new places? Do you also like striking a pose and snappin’ a quick selfie?  If so, get that duck face ready for <span>SelfieSafari!</span> Find your local neighborhood’s hidden gems with our hip safaris.  
+                    </p>
+                    
+                    <a href="#/signup" class="button">Sign up and start your SelfieSafari!</a>
+                </div>
+                <div class="game-play">
+                    <img class="computer" src="../images/macbook.png">    
+                    <img class="iphone" src="../images/iphone5.png">
+                    <div class="game-play-info">
+                        <h2>Subscribe. Find a location. Snap a selfie!</h2>
+                        <p>
+                            Users discover new locations and accumulate memories by uploading images using their device’s camera. Real-time interaction allows for more exciting safaris. Discover player’s photos and locations throughout the game.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer"></div>
         </script>
 
         <script type="text/template" id="loading-view-template">
-            <h2>Loading...</h2>
+            <div class="container">
+                <h2 class="loading">Loading...</h2>
+                <div class="spinner"></div>
+            </div>
         </script>
 
         <script type="text/template" id="dashboard-view-template">
-            <h2>Dashboard View</h2>
-            <p>Listing of nearby safaries</p>
-            <ul class="nearby-safaris"></ul>
+            <div class="container">
+                <h2>Nearby Safaris</h2>
+                <p>Checkout these local safaris within 30 miles of your current location!</p>
+                <hr/>
+                <ul class="nearby-safaris"></ul>
+            </div>
         </script>
 
-         <script type="text/template" id="hunt-item-template">
+        <script type="text/template" id="hunt-item-template">
             <li>
                 <strong><%= attributes.name %></strong>
                 <br />
-                <%= attributes.description %>
+                <p><%= attributes.description %></p>
                 <a href="#/safari/<%=id%>" class="button">Checkout Safari</a>
             </li>
         </script>
 
         <script type="text/template" id="safaridetail-view-template">
-            <h2><%= attributes.name %></h2>
-            <p><%= attributes.description %></p>
-            <button class="subscribe-scavengerhunt" style="display:none;">Subscribe</button>
-            <button class="unsubscribe-scavengerhunt" style="display:none;">Unsubscribe</button>
-            <hr/>
-            <ul class="selected-safari-locations"></ul>
+            <div class="container">
+                <h2><%= attributes.name %></h2>
+                <p><%= attributes.description %></p>
+                <button class="subscribe-scavengerhunt" style="display:none;">Subscribe</button>
+                <button class="unsubscribe-scavengerhunt" style="display:none;">Unsubscribe</button>
+                <hr/>
+                <ul class="selected-safari-locations"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="location-listing-template">
@@ -92,55 +127,58 @@
             </li>
         </script>
 
-        <script type="text/template" id="detail-location-template">  
-            <div class= "location-detail"> </div>
-            <p>Shows photos user has subscribed to.</p>
-            <hr />
-            <ul class="subscribed-photolist"></ul>
+        <script type="text/template" id="detail-location-template">
+            <div class="container">
+                <h2 class="location-detail"></h2>
+                <p>Here are 10 of the most recent selfies from this location.</p>
+                <hr />
+                <ul class="subscribed-photolist"></ul>
+            </div>
         </script>
 
-        <script type= "text/template" id="location-name-template">
-            <h2><%= attributes.name %></h2>
-            <p><%= attributes.description %></p>
+        <script type= "text/template" id="location-name-template">   
+                <h2><%= attributes.name %></h2>
+                <p><%= attributes.description %></p>
          </script>
 
         <script type="text/template" id="location-photolist-template">
-            <li>
-                <a href="#photo/<%=id%>">
-                    <img class="photo-detail" src="<%= attributes.photoURL %>">
-                </a>
-            </li>
+            <a class="photo-detail" href="#photo/<%=id%>" >
+                <li style="background-image: url(<%= attributes.photoURL %>)"></li>
+            </a>
         </script>
         
         <script type="text/template" id="safaris-view-template">
-            <h2>Safaris View</h2>
-            <p>Listing of safaris subscribed to.</p>
-            <ul class="users-scavengerhunt-list"></ul>
-            <button class="CTA-button">subscribe to a local safari</button>
+            <div class="container">
+                <h2>Your Safaris</h2>
+                <p>Here are all your current safaris.</p>
+                <hr/>
+                <ul class="users-scavengerhunt-list"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="safaris-listing-template">
             <li>
                 <strong><%= attributes.name %></strong>
                 <br />
-                <%= attributes.description %>
+                <p><%= attributes.description %></p>
+                <button class="unsubscribe-safari-view" data-object-id="<%=id%>">Unsubscribe</button>
             </li>
-            <button class="unsubscribe-safari-view" data-object-id="<%=id%>">Unsubscribe</button>
-            <hr/>
         </script>
 
         <script type="text/template" id="discover-view-template">
-            <h2>Discover View</h2>
-            <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
-            <hr />
-            <ul class="nearby-safaris"></ul>
+            <div class="container">
+                <h2>Discover Mode</h2>
+                <p>Here are locations within .05 miles of your current location. If you don’t see any location listings, please get closer to a map marker.</p>
+                <hr />
+                <ul class="nearby-safaris"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="location-item-template">
             <li data-latitude="<%= attributes.geolocation._latitude %>" data-longitude="<%= attributes.geolocation._longitude %>">
                 <strong><%= attributes.name %></strong>
                 <br />
-                <%= attributes.description %>
+                <p><%= attributes.description %></p>
                 <div class="capture-input-container">
                     <label for="file-input">Select Photo</label>
                     <input class="photo" data-object-id="<%=id%>" type="file" accept="image/*;capture=camera">
@@ -149,53 +187,66 @@
         </script>
 
         <script type="text/template" id="photodetail-view-template">
-            <h1 class="photodetail-location-name"></h1>
-            <img class="photo-detail"  src="<%= attributes.photoURL %>">
+            <div class="container">
+                <div class="photodetail-location-name"></div>
+                <img class="photo-detail"  src="<%= attributes.photoURL %>">
+            </div>
         </script>
 
         <script type="text/template" id="fetched-location-template">
-            <%= attributes.name %>
+            <h2><%= attributes.name %></h2>
+            <p><%= attributes.description %></p>
         </script>
 
         <script type="text/template" id="userphotos-view-template">
-            <h2>User Photos View</h2>
-            <p>Shows photos user has posted.</p>
-            <hr />
-            <ul class="users-images"></ul>
+            <div class="container">    
+                <h2>Your Selfies</h2>
+                <hr />
+                <ul class="users-images"></ul>
+            </div>
         </script>
 
         <script type="text/template" id="userimage-thumbnail-template">
-            <li>
-                <a href="#photo/<%=id%>" >
-                    <img class="photo-detail"  src="<%= attributes.photoURL %>">
-                </a>
-            </li>
+            <a class="photo-detail" href="#photo/<%=id%>" >
+                <li style="background-image: url(<%= attributes.photoURL %>)"></li>
+            </a>
         </script>
 
         <script type="text/template" id="signup-view-template">
-            <h2>Sign Up for Selfie Safari</h2>
-            <input type="text" class="signup-username" placeholder="Username" />
-            <input type="password" class="signup-password" placeholder="Create a Password" />
-            <input type="email" class="signup-email" placeholder="Enter email" />
-            <button class="signup-button">Sign Up</button>
-            <a href="#/login">Login?</a>
+            <div class = "signup-form-container">
+                <div class = "signup-container">
+                    <h2>Sign Up for SelfieSafari</h2>
+                    <input type="text" class="signup-username" placeholder="Username" />
+                    <input type="password" class="signup-password" placeholder="Create a Password" />
+                    <input type="email" class="signup-email" placeholder="Enter email" />
+                    <button class="signup-button">Sign Up</button>
+                    <a href="#/login">Login?</a>
+                </div>
+            </div>
         </script>
-
+        
         <script type="text/template" id="login-view-template">
-            <h2>Log in to Selfie Safari</h2>
-            <input type="text" class="login-username" placeholder="Username" />
-            <input type="password" class="login-password" placeholder="Password" />
-            <button class="login-button">Login</button>
-            <a href="#/signup">Sign Up?</a>
-            <br />
-            <a href="#/forgot-password">Forgot your password?</a>
+            <div class = "login-form-container">
+                <div class = "login-container">
+                    <h2>Sign in to SelfieSafari</h2>
+                    <input type="text" class="login-username" placeholder="Username" />
+                    <input type="password" class="login-password" placeholder="Password" />
+                    <button class="login-button">Sign in</button>
+                    <a href="#/signup">Sign Up?</a>
+                    <br />
+                    <a href="#/forgot-password" class="forgot-password-link">Forgot your password?</a>
+                </div>
+            </div>
         </script>
-
         <script type="text/template" id="forgotpassword-view-template">
-            <h2>Forgot your password?</h2>
-            <p>Enter your email address to reset your password.</p>
-            <input type="text" class="enter-email" placeholder="Email" />
-            <button class="forgot-password-button">Enter</button>
+            <div class = "forgot-password-container">
+                <div class="forgot-container">
+                    <h2>Forgot your password?</h2>
+                    <p>Enter your email address to reset your password.</p>
+                    <input type="text" class="enter-email" placeholder="Email" />
+                    <button class="forgot-password-button">Enter</button>
+                </div>
+            </div>
         </script>
 
         <!-- build:js scripts/vendor.js-->
@@ -245,5 +296,5 @@
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 
-</body>
+    </body>
 </html>

@@ -121,6 +121,7 @@ var AppRouter = Parse.Router.extend({
 		query.equalTo('objectId', selectedHunt);
 		query.find({
 			success: function(results) {
+				console.log(results.length);
 				results.forEach(function(hunt) {
 					views.safariDetail.render(hunt);
 				});
