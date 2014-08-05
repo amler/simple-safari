@@ -24,21 +24,22 @@ Using the work done from a previous repository, Tasha and I created the simple s
 
 # Todos
 
-1. Tasha: Add description field to location data, then add description everywhere location is listed.
-2. Heather: Fine tune CSS -  Add left and top padding to menu.
-3. Heather: write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
-4. Tasha: Go through the pages and get rid of bad copy - write blurbs for home page.
-5. Add validation so user can only upload images.
-6. Install bourbon and clean up scss for browser prefix.
-7. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
-8. Sharing to social media sites.
+1. Add a page to add a location to a scavenger hunt
+2. Write condition if you're on the safari detail route and no records are found for the id, trigger the logout route.
+3. Signup - Error handling
+4. Login - Error handling
+5. Get markers linkable
+6. Add validation so user can only upload images.
+7. Install bourbon and clean up scss for browser prefix.
+8. Fine tune CSS.
+9. Distinguish between subscribed and unsubscribed scavengerhunts in dashboard
+10. Sharing to social media sites.
+11. discover: for each location listed, show the distance from the user
+12. discover: for each location listed, show an arrow pointing toward the location (only on iOS)
+13. Homepage - UI
 
 Bonus: 
 * unit testing: write a test confirming the helper.getDistance function is working
-* Get markers linkable
-* discover: for each location listed, show the distance from the user
-* discover: for each location listed, show an arrow pointing toward the location (only on iOS)
-
 
 
 
