@@ -47,7 +47,8 @@
                 </div>
             </header>
             <div id="map-container"></div>
-            <section id="view"></section>
+            <section id="view">
+            </section>
        </main>
         <nav class="right-menu">
             <h3>Menu</h3>
@@ -56,6 +57,7 @@
                 <li><a href="#/safaris">My Safaris</a></li>
                 <li><a href="#/discover">Discover</a></li>
                 <li><a href="#/photos">My Selfies</a></li>
+                <li><a href="#/add-location">Add Location</a></li>
                 <li><a href="#/log-out">Log Out</a></li>
             </ul>
         </nav>
@@ -206,6 +208,24 @@
             </div>
         </script>
 
+        <script type="text/template" id="addlocation-view-template">
+            <form>
+                <h2>Create your Safari</h2>
+                <p>Found a cool spot. Instructions on how to add a location to a safari.</p>
+                <select name="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <label for="Name">Name</label>
+                <input type="text" id="Name" placeholder="Name the location"/>
+                <label for="gelocation">Geolocation</label>
+                <input type="password" id="password"/>
+                <button id="login" class="button">Login</button>
+            </form>
+        </script>
+
         <script type="text/template" id="userimage-thumbnail-template">
             <a class="photo-detail" href="#photo/<%=id%>" >
                 <li style="background-image: url(<%= attributes.photoURL %>)"></li>
@@ -238,6 +258,7 @@
                 </div>
             </div>
         </script>
+
         <script type="text/template" id="forgotpassword-view-template">
             <div class = "forgot-password-container">
                 <div class="forgot-container">
@@ -281,6 +302,7 @@
         <script src="scripts/models/location-model.js"></script>
         <script src="scripts/models/scavengerhunt-model.js"></script>
         <script src="scripts/models/photo-model.js"></script>
+        <script src="scripts/views/addlocation-view.js"></script>
         <script src="scripts/views/dashboard-view.js"></script>
         <script src="scripts/views/discover-view.js"></script>
         <script src="scripts/views/forgotpassword-view.js"></script>
