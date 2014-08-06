@@ -210,20 +210,28 @@
 
         <script type="text/template" id="addlocation-view-template">
             <form>
-                <h2>Create your Safari</h2>
-                <p>Found a cool spot. Instructions on how to add a location to a safari.</p>
-                <select name="cars">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
-                </select>
-                <label for="Name">Name</label>
-                <input type="text" id="Name" placeholder="Name the location"/>
-                <label for="gelocation">Geolocation</label>
-                <input type="password" id="password"/>
-                <button id="login" class="button">Login</button>
+                <fieldset>
+                    <h2>Create your Safari</h2>
+                    <p>Found a cool spot. Instructions on how to add a location to a safari.</p>
+                    
+                    <p>
+                        <label for="scavenger-hunt">Scavenger Hunt:</label><br />
+                        <select name="safaris" id="safari"></select>
+                    </p>
+                    <p>
+                    <label for="Name">Name</label>
+                    <input type="text" id="Name" placeholder="Name the location"/>
+                    <label for="gelocation">Geolocation</label>
+                    <input id="latitude" placeholder="Latitude" type="number" step="any" />
+                    <input id="longitude" placeholder="Longitude" type="number" step="any" />
+                    <button class="get-geolocation">Find Coordinates</button>
+                    </p>
+                </fieldset>
             </form>
+        </script>
+
+        <script type="text/template" id="addlocation-menu-template">
+            <option value="<%=id%>"> <%=attributes.name%> </option>
         </script>
 
         <script type="text/template" id="userimage-thumbnail-template">
