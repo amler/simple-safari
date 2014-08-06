@@ -5,7 +5,7 @@ var AddLocationView = Parse.View.extend({
 	template: _.template($('#addlocation-view-template').text()),
 	sectionName: '',
 	events: {
-		// 'userGeoLocated h2' : 'queryLocations'
+		'click .get-geolocation' : 'getGeoLocation'
 	},
 	render: function() {
 		this.$el.html(this.template);
@@ -22,7 +22,6 @@ var AddLocationView = Parse.View.extend({
 		query.find({
 			success: function(results) {
 				results.forEach(function(safari){
-					console.log(safari);
 					$('#safari').append(templateMethod(safari));
 				});
 			},
@@ -31,5 +30,15 @@ var AddLocationView = Parse.View.extend({
 			}
 
 		});
-	}
+	},
+	getGeoLocation: function() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				console.log('Latitude: ' + position.coords.latitude + 'Longitude: ' + position.coords.longitude);
+			});
+		} else { 
+			console.log('Geolocation is not supported by this browser.');
+		}
+	},
+
 });
