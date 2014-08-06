@@ -53,7 +53,14 @@ var AddLocationView = Parse.View.extend({
 		event.preventDefault();
 
 		var safariID = $('#safari').val();
-		console.log(safariID);
+		var locationName = $('#location-name').val();
+		var locationDescription = $('#location-description').val();
+		var latitude = $('#latitude').val();
+		var longitude = $('#longitude').val();
+		console.log(locationName);
+		console.log(locationDescription);
+		console.log(latitude);
+		console.log(longitude);
 		// saving a geopoint
 		// var point = new Parse.GeoPoint({latitude: 40.0, longitude: -30.0});
 		
