@@ -32,7 +32,8 @@ var AddLocationView = Parse.View.extend({
 			}
 		});
 	},
-	getGeoLocation: function() {
+	getGeoLocation: function(event) {
+		event.preventDefault();
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position) {
 				console.log('Latitude: ' + position.coords.latitude + 'Longitude: ' + position.coords.longitude);
@@ -46,41 +47,40 @@ var AddLocationView = Parse.View.extend({
 			console.log('Geolocation is not supported by this browser.');	
 		}
 	},
-	// saveSafari: function(){
-	// 	console.log('saveSafari is firing');
-	// }
 	saveLocation: function(event){
 		event.preventDefault();
-
 		var safariID = $('#safari').val();
 		var locationName = $('#location-name').val();
 		var locationDescription = $('#location-description').val();
-		var latitude = $('#latitude').val();
-		var longitude = $('#longitude').val();
-		console.log(locationName);
-		console.log(locationDescription);
-		console.log(latitude);
-		console.log(longitude);
-		// saving a geopoint
-		// var point = new Parse.GeoPoint({latitude: 40.0, longitude: -30.0});
-		
-		// placeObject.set("location", point);
+		var newLatitude = parseFloat($('#latitude').val());
+		var newLongitude = parseFloat($('#longitude').val());
 
-		// // saving an object
-		// var GameScore = Parse.Object.extend("GameScore");
-		// var gameScore = new GameScore();
-		// gameScore.save({
-		// 	score: 1337,
-		// 	playerName: "Sean Plott",
-		// 	cheatMode: false
-		// }, {
-		// 	success: function(gameScore) {
-		// 	// The object was saved successfully.
-		// 	},
-		// 	error: function(gameScore, error) {
-		// 	// The save failed.
-		// 	// error is a Parse.Error with an error code and description.
-		// 	}
-		// });
+		var Location = Parse.Object.extend('Location');
+		var location = new Location();
+
+		location.save({
+			name: locationName,
+			geolocation: new Parse.GeoPoint({latitude: newLatitude, longitude: newLongitude}),
+			description: locationDescription
+		}, {
+			success: function(local) {
+			// The object was saved successfully.
+				alert('saved');
+				console.log(local);
+				var ScavengerHunt = Parse.Object.extend('ScavengerHunt');
+				var scavengerHunt = new ScavengerHunt();
+				scavengerHunt.id = safariID;
+				var relation = scavengerHunt.relation('locations').add(location);
+				scavengerHunt.save();
+			},
+			error: function(scavengerHunt, error) {
+			// The save failed.
+				console.log('scavhunt: ', scavengerHunt);
+				console.log('error: ', error);
+			// error is a Parse.Error with an error code and description.
+				alert('There was an error with Parse.');
+			}
+		});
 	}
 });
+
