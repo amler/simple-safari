@@ -1,4 +1,5 @@
 'use strict';
+/* global userGeo */ 
 
 function Map (elementID) {
     this.markers = [];
@@ -8,16 +9,16 @@ function Map (elementID) {
         '../images/map-markers/flag.png'
     ];
 
-    var greenville = new google.maps.LatLng(34.853738, -82.395618);
+    var user = new google.maps.LatLng(userGeo.latitude, userGeo.longitude);
     var mapOptions = {
         zoom: 13,
-        center: greenville,
+        center: user,
         // disableDefaultUI: true,
         // panControl: false,
         // draggable: false
     };
     this.map = new google.maps.Map(document.getElementById(elementID), mapOptions);
-    this.addMarker(0, 34.853738, -82.395618);
+    this.addMarker(0, userGeo.latitude, userGeo.longitude);
 }
 
 Map.prototype.addMarker = function(imageIndex, latitude, longitude) {
@@ -58,7 +59,7 @@ Map.prototype.deleteMarker = function(index){
 Map.prototype.deleteAllMarkers = function() {
     this.hideAllMarkers();
     this.markers = [];
-    this.addMarker(0, 34.853738, -82.395618);
+    this.addMarker(0, userGeo.latitude, userGeo.longitude);
 };
 
 Map.prototype.updateMarkerPosition = function(index, latitude, longitude) {
