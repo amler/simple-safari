@@ -1,11 +1,13 @@
 'use strict';
+/* global map */
 
 var AddLocationView = Parse.View.extend({
 	el: '#view',
 	template: _.template($('#addlocation-view-template').text()),
 	sectionName: '',
 	events: {
-		'click .get-geolocation' : 'getGeoLocation'
+		'click .get-geolocation' : 'getGeoLocation',
+		'click .save-geolocation' : 'saveLocation'
 	},
 	render: function() {
 		this.$el.html(this.template);
@@ -37,10 +39,14 @@ var AddLocationView = Parse.View.extend({
 				console.log('Latitude: ' + position.coords.latitude + 'Longitude: ' + position.coords.longitude);
 				$('#latitude').val(position.coords.latitude);
 				$('#longitude').val(position.coords.longitude);
+				map.addMarker(1, position.coords.latitude, position.coords.longitude);
 			});
 		} else { 
-			console.log('Geolocation is not supported by this browser.');
+			console.log('Geolocation is not supported by this browser.');	
 		}
 	},
+	saveLocation: function(){
+		console.log('this is firing');
+	}
 
 });
