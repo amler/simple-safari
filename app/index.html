@@ -213,13 +213,32 @@
                 <h2>Create a Safaris</h2>
                 <p>Here are all your current safaris.</p>
                 <hr/>
+
+                <form>
+                    <fieldset>
+                        <h3>Add a Safari</h3>
+                        <p>Create a new safari.</p>
+                        <p>
+                            <label for="safari-name">Name</label>
+                            <input type="text" id="safari-name" placeholder="Name your Safari"/>
+                            <label for="safari-description">Safari Description</label>
+                            <textarea id="safari-description" rows="4" cols="50" placeholder="Describe your safari."></textarea>
+                            <label for="gelocation">Geolocation</label>
+                            <input id="safari-latitude" placeholder="Latitude" type="number" step="any" />
+                            <input id="safari-longitude" placeholder="Longitude" type="number" step="any" />
+                            <button class="get-geolocation">Find Coordinates</button>
+                            <button class="save-safari">Save</button>
+                        </p>
+                    </fieldset>
+                </form>
+
                 <form>
                     <fieldset>
                         <h3>Add a Location</h3>
                         <p>Found a cool spot. Instructions on how to add a location to a safari.</p>
                         
                         <p>
-                            <label for="scavenger-hunt">Scavenger Hunt:</label><br />
+                            <label for="safaris">Select a Safari:</label><br />
                             <select name="safaris" id="safari"></select>
                         </p>
                         <p>

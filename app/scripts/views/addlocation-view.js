@@ -6,8 +6,10 @@ var AddLocationView = Parse.View.extend({
 	template: _.template($('#addlocation-view-template').text()),
 	events: {
 		'click .get-geolocation'	: 'getGeoLocation',
+		'click .save-safari'		: 'saveSafari',
+		'click .save-geolocation'	: 'saveLocation',
 		// 'click .save-safari'		: 'saveSafari',
-		'click .save-geolocation'	: 'saveLocation'
+		// 'click .save-geolocation'	: 'saveLocation'
 	},
 	render: function() {
 		this.$el.html(this.template);
@@ -47,6 +49,13 @@ var AddLocationView = Parse.View.extend({
 			console.log('Geolocation is not supported by this browser.');	
 		}
 	},
+	saveSafari: function(event) {
+		// event.preventDefault();
+		// "#safari-name" // Name your Safari
+		// "#safari-description" // Describe your safari.
+		// "#safari-latitude" // Latitude
+		// "#safari-longitude"  // Longitude
+	},
 	saveLocation: function(event){
 		event.preventDefault();
 
@@ -55,7 +64,7 @@ var AddLocationView = Parse.View.extend({
 		var locationDescription = $('#location-description').val();
 		var newLatitude = parseFloat($('#latitude').val());
 		var newLongitude = parseFloat($('#longitude').val());
-		// validation form is completed
+
 		if (!safariID) {
 			alert('Please selet a safari.');
 		} else if (!locationName) {
@@ -71,7 +80,6 @@ var AddLocationView = Parse.View.extend({
 		} else {
 			var Location = Parse.Object.extend('Location');
 			var location = new Location();
-
 			location.save({
 				name: locationName,
 				geolocation: new Parse.GeoPoint({latitude: newLatitude, longitude: newLongitude}),
@@ -79,8 +87,7 @@ var AddLocationView = Parse.View.extend({
 			}, {
 				success: function(local) {
 				// The object was saved successfully.
-					alert('saved');
-					console.log(local);
+					alert('The location has been saved!');
 					var ScavengerHunt = Parse.Object.extend('ScavengerHunt');
 					var scavengerHunt = new ScavengerHunt();
 					scavengerHunt.id = safariID;
@@ -103,4 +110,3 @@ var AddLocationView = Parse.View.extend({
 		}
 	}
 });
-
