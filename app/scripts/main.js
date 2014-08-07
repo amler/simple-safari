@@ -121,13 +121,16 @@ var AppRouter = Parse.Router.extend({
 		query.equalTo('objectId', selectedHunt);
 		query.find({
 			success: function(results) {
-				console.log(results.length);
+				console.log(results);
+				if (results.length === 0) {
+					window.router.navigate('login',{trigger:true});
+				}
 				results.forEach(function(hunt) {
 					views.safariDetail.render(hunt);
 				});
 			},
 			error: function(error) {
-				alert('Router/safariDetail Error: ' + error.code + ' ' + error.message);
+				alert('SafariDetail Error: ' + error.code + ' ' + error.message);
 			}
 		});
 	},
